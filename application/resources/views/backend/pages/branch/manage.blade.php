@@ -27,7 +27,13 @@
                                     <th scope="col">Address line 2</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">
+                                        @if ($branch->status==1)
+                                           <span class="badge badge-success">active</span>
+                                        @elseif ($branch->status==1)
+                                           <span class="badge badge-danger">inactive</span>
+                                        @endif
+                                    </th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
