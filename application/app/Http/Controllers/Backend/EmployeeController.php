@@ -80,7 +80,13 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+        if(!empty($employee)){
+            return view('backend.pages.employee.edit',compact('employee'));
+        }
+        else{
+            return redirect()->route('employee.manage');
+        }
     }
 
     /**
@@ -92,7 +98,28 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->fullname  =$request->fullname;
+        $employee->designation =$request->designation;
+        $employee->slug =Str::slug($request->fullname);
+        $employee->overview =$request->overview;
+        $employee->phone =$request->phone;
+        $employee->address =$request->address;
+        $employee->email =$request->email;
+        $employee->status =$request->status;
+        if(!empty($request->image)){
+            if(File::exists('backend/img/employee/'.$employee->profile_pic)){
+                File::delete('backend/img/employee/'.$employee->profile_pic);
+            }
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/employee/'.$img);
+            Image::make($image)->save($location);
+            $employee->profile_pic = $img;
+        }
+        $employee->save();
+        return redirect()->route('employee.manage');
+
     }
 
     /**
