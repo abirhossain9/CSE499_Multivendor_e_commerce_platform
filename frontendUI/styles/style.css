@@ -105,6 +105,10 @@ h1, h2, h3, h4, h5, h6{
 	overflow: hidden;
 }
 
+.fill_height{
+	height: 100%;
+}
+
 /*3. Home*/
 .header{
 	position: fixed;
@@ -221,6 +225,62 @@ h1, h2, h3, h4, h5, h6{
 	color: #fe4c50;
 }
 
+/*3.3 Main Slider*/
+.main_slider{
+	width: 100%;
+	height: 700px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	margin-top: 100px;
+}
+
+.main_slider_content{
+	width: 60%;
+}
+
+.main_slider_content h6{
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 29px;
+}
+
+.main_slider_content h1{
+	font-weight: 400;
+	line-height: 1;
+}
+
+.red_button{
+	display: inline-flex;
+	flex-direction: column;
+	justify-self: center;
+	align-items: center;
+	width: auto;
+	height: 40px;
+	background: #fe4c50;
+	border right: 3px;
+	transition:  all 0.3s ease;
+}
+
+.red_button a{
+	display: block;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+	line-height: 40px;
+	width: 100%;
+}
+
+.red_button:hover{
+	background: #fc7c7f;
+}
+
+.shop_now_button{
+	width: 140px;
+	margin-top: 32px;
+}
 /* ***************************Responsive************************************************ */
 
 
