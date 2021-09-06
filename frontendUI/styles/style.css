@@ -1,0 +1,38 @@
+
+/* Coding With Nick */
+@charset "utf-8";
+
+
+/* 1. Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+
+
+/* ***************************Responsive************************************************ */
+
+
+@media only screen and (max-width: 1199px){
+
+
+
+}
+
+@media only screen and (max-width: 991px){
+ 
+
+
+}
+
+@media only screen and (max-width: 767px){
+
+    
+}
+@media only screen and (max-width: 575px){
+ 
+    
+}
+
+@media only screen and (max-width: 479px){
+   
+}
+
