@@ -63,7 +63,7 @@
                                         <input type="file" name="image" class="form-control-file">
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" name="addMentor" value="Add New Mentor" class="custom-btn btn btn-teal mg-b-10">
+                                        <input type="submit" name="addEmployee" value="Add New Employee" class="custom-btn btn btn-teal mg-b-10">
                                     </div>
 
                                 </div>
