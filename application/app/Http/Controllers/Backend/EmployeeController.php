@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use File;
+use Image;
+
 
 class EmployeeController extends Controller
 {
@@ -37,7 +41,24 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = new Employee();
+        $employee->fullname  =$request->fullname;
+        $employee->designation =$request->designation;
+        $employee->slug =Str::slug($request->fullname);
+        $employee->overview =$request->overview;
+        $employee->phone =$request->phone;
+        $employee->address =$request->address;
+        $employee->email =$request->email;
+        $employee->status =$request->status;
+        if($request->image){
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/employee/'.$img);
+            Image::make($image)->save($location);
+            $employee->profile_pic = $img;
+        }
+        $employee->save();
+        return redirect()->route('employee.manage');
     }
 
     /**
