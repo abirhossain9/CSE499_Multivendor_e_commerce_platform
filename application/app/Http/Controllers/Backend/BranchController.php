@@ -113,6 +113,13 @@ class BranchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $branch = Branch::find($id);
+        if(!is_null($branch)){
+            $branch->delete();
+            return redirect()->route('branch.manage');
+        }
+        else{
+             return redirect()->route('branch.manage');
+        }
     }
 }
