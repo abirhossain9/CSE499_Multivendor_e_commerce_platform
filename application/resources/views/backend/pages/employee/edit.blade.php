@@ -46,7 +46,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Status</label>
+                                        <label>Working Status</label>
                                         <select class="form-control" name="status">
                                             <option value="1">Please Select The Status</option>
                                             <option value="1" @if($employee->status == 1) selected @endif>Active</option>
