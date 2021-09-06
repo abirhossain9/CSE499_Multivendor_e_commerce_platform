@@ -73,7 +73,13 @@ class BranchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $branch = Branch::find($id);
+        if(!is_null($branch)){
+            return view('backend.pages.branch.edit',compact('branch'));
+        }
+        else{
+            return route('branch.manage');
+        }
     }
 
     /**
