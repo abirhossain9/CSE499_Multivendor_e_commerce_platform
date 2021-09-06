@@ -130,6 +130,11 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        if(File::exists('backend/img/employee/'.$employee->profile_pic)){
+                File::delete('backend/img/employee/'.$employee->profile_pic);
+        }
+        $employee->delete();
+        return redirect()->route('employee.manage');
     }
 }
