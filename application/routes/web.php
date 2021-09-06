@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/store','App\Http\Controllers\Backend\BranchController@store')->name('branch.store');
         Route::get('/edit/{id}','App\Http\Controllers\Backend\BranchController@edit')->name('branch.edit');
         Route::post('/update/{id}','App\Http\Controllers\Backend\BranchController@update')->name('branch.update');
-        Route::post('/destroy/{id}','App\Http\Controllers\Backend\BranchController@update')->name('branch.destroy');
+        Route::post('/destroy/{id}','App\Http\Controllers\Backend\BranchController@destroy')->name('branch.destroy');
     });
     //this routes are for employee management
     Route::group(['prefix' => '/employee'], function(){
@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/store','App\Http\Controllers\Backend\EmployeeController@store')->name('employee.store');
         Route::get('/edit/{id}','App\Http\Controllers\Backend\EmployeeController@edit')->name('employee.edit');
         Route::post('/update/{id}','App\Http\Controllers\Backend\EmployeeController@update')->name('employee.update');
-        Route::post('/destroy/{id}','App\Http\Controllers\Backend\EmployeeController@update')->name('employee.destroy');
+        Route::post('/destroy/{id}','App\Http\Controllers\Backend\EmployeeController@destroy')->name('employee.destroy');
     });
 
 });
