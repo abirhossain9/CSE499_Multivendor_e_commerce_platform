@@ -1,6 +1,33 @@
 .table-custom {
-    margin-bottom: 0rem;
+    margin-bottom: 0;
 }
 .alert {
     margin-bottom: 0;
+}
+.custom-action {
+    padding: 0;
+    margin: 0;
+}
+.custom-action li {
+    list-style: none;
+    display: inline;
+    margin: 0 7px;
+}
+.fa-edit {
+    color: #198754;
+}
+.fa-trash {
+    color: #dc3545;
+}
+.modal-button ul {
+    padding: 0;
+    margin: 0;
+}
+.modal-button ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 7px;
+}
+.custom-btn {
+    margin: 7px 0px;
 }
