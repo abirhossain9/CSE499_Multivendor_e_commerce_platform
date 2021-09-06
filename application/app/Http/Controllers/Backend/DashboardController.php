@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Branch;
+use App\Models\Backend\Employee;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +16,9 @@ class DashboardController extends Controller
      */
     public function dashboard()
     {
-        return view('backend.pages.dashboard');
+        $branches = Branch::orderBy('id','asc')->get();
+        $employees = Employee::orderBy('id','asc')->get();
+        return view('backend.pages.dashboard',compact('branches','employees'));
     }
 
     /**
