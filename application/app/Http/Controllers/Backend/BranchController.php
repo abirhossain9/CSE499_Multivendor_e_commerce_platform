@@ -73,7 +73,13 @@ class BranchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $branch = Branch::find($id);
+        if(!is_null($branch)){
+            return view('backend.pages.branch.edit',compact('branch'));
+        }
+        else{
+            return route('branch.manage');
+        }
     }
 
     /**
@@ -85,7 +91,18 @@ class BranchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $branch = Branch::find($id);
+        $branch->name = $request->name;
+        $branch->bangla_name = $request->bangla_name;
+        $branch->slug = Str::slug($request->name) ;
+        $branch->address_line1 = $request->address1;
+        $branch->address_line2 = $request->address2;
+        $branch->email = $request->email;
+        $branch->phone = $request->phone;
+        $branch->status = $request->status;
+
+        $branch->save();
+        return redirect()->route('branch.manage');
     }
 
     /**
@@ -96,6 +113,13 @@ class BranchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $branch = Branch::find($id);
+        if(!is_null($branch)){
+            $branch->delete();
+            return redirect()->route('branch.manage');
+        }
+        else{
+             return redirect()->route('branch.manage');
+        }
     }
 }
