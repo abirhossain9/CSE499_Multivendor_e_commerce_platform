@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6{
 	width: auto;
 	height: 40px;
 	background: #fe4c50;
-	border right: 3px;
+	border-right: 3px;
 	transition:  all 0.3s ease;
 }
 
