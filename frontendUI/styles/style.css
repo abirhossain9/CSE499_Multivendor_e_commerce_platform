@@ -781,6 +781,84 @@ h1, h2, h3, h4, h5, h6{
 	color: #51545f;
 }
 
+/* 9. Blogs */
+
+.blogs{
+	margin-top: 72px;
+}
+
+.blogs_container{
+	margin-top: 53px;
+}
+
+.blog_item{
+	height: 255px;
+	width: 100%;
+}
+
+.blog_background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.blog_content{
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: calc(100% - 60px);
+	height: calc(100% - 60px);
+	background: rgba(255, 255, 255, 0.9);
+	padding-left: 10px;
+	padding-right: 10px;
+	visibility: hidden;
+	opacity: 0;
+	transform-origin: center center;
+	transform: scale(0.7);
+	transition: all 300ms ease;
+}
+
+.blog_item:hover .blog_content{
+	visibility: visible;
+	opacity: 1;
+	transform: scale(1);
+}
+
+.blog_title{
+	font-weight: 500;
+	line-height: 1.25;
+	margin-bottom: 0px;
+}
+
+.blog_meta{
+	font-size: 12px;
+	line-height: 30px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #51545f;
+	margin-bottom: 0px;
+	margin-top: 3px;
+	letter-spacing: 1px;
+}
+
+.blog_more{
+	font-size: 14px;
+	line-height: 15px;
+	font-weight: 500;
+	color: #fe4c50;
+	border-bottom: 1px solid #fe4c50;
+	margin-top: 12px;
+}
+
+.blog_more:hover{
+	color: #fe7c7f;
+}
+
 
 
 /* ***************************Responsive************************************************ */
