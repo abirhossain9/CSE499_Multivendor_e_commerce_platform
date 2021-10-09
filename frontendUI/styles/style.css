@@ -662,6 +662,75 @@ h1, h2, h3, h4, h5, h6{
 	background: #2b2b34 !important;
 }
 
+/*7. Best Sellers*/
+.product_slider_container{
+	width: 100%;
+	height: 340px;
+	margin-top: 73px;
+}
+
+.product_slider_container::after{
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 100%;
+	background: #ffffff;
+	content: '';
+	z-index: 1;
+}
+
+.product_slider{
+	overflow: visible !important;
+}
+
+.product_slider_item .product-item{
+	height: 340px;
+}
+
+.product_slider_item{
+	width: 20%;
+}
+
+.product_slider_item .product-item{
+	width: 100% !important;
+}
+
+/* 7.1 Slider Nav */
+.product_slider_nav{
+	position: absolute;
+	width: 30px;
+	height: 70px;
+	background: #d3d3d6;
+	transform: translateY(-50%);
+	z-index: 2;
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 300ms ease;
+}
+
+.product_slider_container:hover .product_slider_nav{
+	visibility: visible;
+	opacity: 1;
+}
+
+.product_slider_nav i{
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.product_slider_nav_left{
+	top: 50%;
+	left: 0;
+}
+.product_slider_nav_right{
+	top: 50%;
+	right: 0;
+}
+
+
 /* ***************************Responsive************************************************ */
 
 
