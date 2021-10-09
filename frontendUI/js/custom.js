@@ -27,6 +27,7 @@ jQuery(document).ready(function ($)
 
 
     initFavorite();
+    initIsotopeFiltering();
 
 // 2.  Inits Menu
 
@@ -70,7 +71,27 @@ function initFavorite()
 
 // 5.  Init Isotope Filtering
 
-
+function initIsotopeFiltering(){
+    if($('.grid_sorting_button').length)
+    {
+        $('.grid_sorting_button').click(function() 
+        {
+            $('.grid_sorting_button.active').removeClass('active');
+            $(this).addClass('active');
+            
+            var selector = $(this).attr('data-filter');
+            $('.product-grid').isotope({
+                filter: selector,
+                animationOption: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+            return false;
+        });
+    }
+}
 
 // 6.  Init Slider
 
