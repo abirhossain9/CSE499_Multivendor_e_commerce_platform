@@ -3,8 +3,8 @@
 <div class="br-pagetitle">
     <i class="icon ion-ios-home-outline"></i>
     <div>
-        <h4>Manage All Coupon</h4>
-        <p class="mg-b-0">Manage All The Coupn Codes From Here.</p>
+        <h4>Manage All Banner</h4>
+        <p class="mg-b-0">Manage Banners From Here.</p>
     </div>
 </div>
 
@@ -22,58 +22,42 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">#sl.</th>
-                                    <th scope="col">Coupon Code</th>
-                                    <th scope="col">Coupon Type</th>
-                                    <th scope="col">Fixed Ammount</th>
-                                    <th scope="col">Percent Off</th>
+                                    <th scope="col">Banner Image</th>
+                                    <th scope="col">Banner Text</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php $i = 0; @endphp
-                                @foreach($coupons as $coupon)
+                                @foreach($banners as $banner)
                                 @php $i++; @endphp
+
                                 <tr>
                                     <th scope="row">{{$i;}}</th>
-                                    <td>{{$coupon->code}}</td>
+                                    <td>@if ($banner->banner_image==NULL)
+                                         <img src="{{asset('backend/img/banner/default.jpg')}}" alt="" width="40">
+                                    @else
+                                         <img src="{{asset('backend/img/banner/'.$banner->banner_image)}}" alt="" width="40">
+
+                                    @endif</td>
+                                    <td>{{$banner->banner_text}}</td>
                                     <td>
-                                        @if ($coupon->discount_type==1)
-                                        <span class="badge badge-dark">Fixed Amount</span>
-                                        @elseif ($coupon->discount_type==2)
-                                        <span class="badge badge-warning">Percentage Off</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if (!empty($coupon->fixed_value))
-                                        {{$coupon->fixed_value }} BDT
-                                        @else
-                                        -/-
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if (!empty($coupon->percent_value))
-                                        {{$coupon->percent_value }} %
-                                        @else
-                                        -/-
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($coupon->status==1)
+                                        @if ($banner->status==1)
                                         <span class="badge badge-success">active</span>
-                                        @elseif ($coupon->status==2)
+                                        @elseif ($banner->status==2)
                                         <span class="badge badge-danger">inactive</span>
                                         @endif
                                     </td>
                                     <td>
                                         <ul class="custom-action">
                                             <li>
-                                                <a href="{{route('coupon.edit',$coupon->id)}}">
+                                                <a href="{{route('banner.edit',$banner->id)}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#coupon{{$coupon->id}}">
+                                                <a href="" data-toggle="modal" data-target="#banners{{$banner->id}}">
                                                     <i class="fa fa-trash "></i>
                                                 </a>
                                             </li>
@@ -82,7 +66,7 @@
                                     <!-- Modal -->
                                     <div
                                         class="modal fade"
-                                        id="coupon{{$coupon->id}}"
+                                        id="banners{{$banner->id}}"
                                         tabindex="-1"
                                         role="dialog"
                                         aria-labelledby="exampleModalCenterTitle"
@@ -90,7 +74,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Delte This Coupon ?</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Delete This banner ?</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -99,7 +83,7 @@
                                                     <div class="modal-button text-center">
                                                         <ul>
                                                             <li>
-                                                                <form action="{{route('coupon.destroy',$coupon->id)}}" method="POST">
+                                                                <form action="{{route('banner.destroy',$banner->id)}}" method="POST">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-danger">Confirm</button>
                                                                 </form>
@@ -120,9 +104,9 @@
 
                             </tbody>
                         </table>
-                        @if ($coupons->count()==0)
+                        @if ($banners->count()==0)
                             <div class="alert alert-info">
-                                No coupon added please add a coupon first
+                                No banner added please add a banner first
                             </div>
                         @endif
 
