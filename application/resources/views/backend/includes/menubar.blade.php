@@ -22,7 +22,17 @@
             <li class="sub-item"><a href="{{route('branch.create')}}" class="sub-link">Create New Branch</a></li>
           </ul>
         </li>
-
+        <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Product Section</label>
+        <li class="br-menu-item">
+            <a href="#" class="br-menu-link with-sub">
+              <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+              <span class="menu-item-label">Coupon</span>
+            </a><!-- br-menu-link -->
+            <ul class="br-menu-sub">
+              <li class="sub-item"><a href="{{route('coupon.manage')}}" class="sub-link">Manage All Coupon</a></li>
+              <li class="sub-item"><a href="{{route('coupon.create')}}" class="sub-link">Create New Coupon</a></li>
+            </ul>
+          </li>
 
         <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">HR Department</label>
          {{-- Mentor Profile Management --}}

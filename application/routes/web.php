@@ -36,5 +36,14 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/update/{id}','App\Http\Controllers\Backend\EmployeeController@update')->name('employee.update');
         Route::post('/destroy/{id}','App\Http\Controllers\Backend\EmployeeController@destroy')->name('employee.destroy');
     });
+    //this routes are for coupon management
+    Route::group(['prefix' => '/coupon'], function(){
+        Route::get('/manage','App\Http\Controllers\Backend\CouponController@index')->name('coupon.manage');
+        Route::get('/create','App\Http\Controllers\Backend\CouponController@create')->name('coupon.create');
+        Route::post('/store','App\Http\Controllers\Backend\CouponController@store')->name('coupon.store');
+        Route::get('/edit/{id}','App\Http\Controllers\Backend\CouponController@edit')->name('coupon.edit');
+        Route::post('/update/{id}','App\Http\Controllers\Backend\CouponController@update')->name('coupon.update');
+        Route::post('/destroy/{id}','App\Http\Controllers\Backend\CouponController@destroy')->name('coupon.destroy');
+    });
 
 });
