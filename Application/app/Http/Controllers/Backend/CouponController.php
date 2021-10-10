@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Backend\Coupon;
+use Illuminate\Support\Str;
 
 class CouponController extends Controller
 {
@@ -14,7 +16,9 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $coupons = Coupon::orderBy('code','asc')->get();
+        return view('backend.pages.coupon.manage',compact('coupons'));
+
     }
 
     /**
@@ -24,7 +28,7 @@ class CouponController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.coupon.create');
     }
 
     /**
@@ -35,7 +39,16 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $coupon = new Coupon();
+        $coupon->code  =$request->code;
+        $coupon->discount_type =$request->discount_type;
+        $coupon->fixed_value =$request->fixed_value;
+        $coupon->percent_value =$request->percent_value;
+        $coupon->status =$request->status;
+        // dd($coupon);
+        // exit();
+        $coupon->save();
+        return redirect()->route('coupon.manage');
     }
 
     /**
@@ -57,7 +70,13 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if(!is_null($coupon)){
+            return view('backend.pages.coupon.edit',compact('coupon'));
+        }
+        else{
+            return route('coupon.manage');
+        }
     }
 
     /**
@@ -69,7 +88,16 @@ class CouponController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $coupon = Coupon::find($id);
+        $coupon->code  =$request->code;
+        $coupon->discount_type =$request->discount_type;
+        $coupon->fixed_value =$request->fixed_value;
+        $coupon->percent_value =$request->percent_value;
+        $coupon->status =$request->status;
+        // dd($coupon);
+        // exit();
+        $coupon->save();
+        return redirect()->route('coupon.manage');
     }
 
     /**
@@ -80,6 +108,13 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coupon = Coupon::find($id);
+        if(!is_null($coupon)){
+            $coupon->delete();
+            return redirect()->route('coupon.manage');
+        }
+        else{
+             return redirect()->route('coupon.manage');
+        }
     }
 }
