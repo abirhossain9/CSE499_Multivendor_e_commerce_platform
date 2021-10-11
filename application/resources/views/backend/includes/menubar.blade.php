@@ -1,11 +1,11 @@
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="br-logo"><a href="{{route('admin.dashboard')}}"><span>[</span>e <i>Mart</i><span>]</span></a></div>
+    <div class="br-logo"><a href="{{route('dashboard')}}"><span>[</span>e <i>Mart</i><span>]</span></a></div>
     <div class="br-sideleft sideleft-scrollbar">
       <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
       <ul class="br-sideleft-menu">
         <li class="br-menu-item">
         {{-- Dashboard --}}
-          <a href="{{route('admin.dashboard')}}" class="br-menu-link active">
+          <a href="{{route('dashboard')}}" class="br-menu-link active">
             <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
             <span class="menu-item-label">Dashboard</span>
           </a>

@@ -142,15 +142,15 @@
           </div><!-- dropdown -->
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name hidden-md-down">Katherine</span>
+              <span class="logged-name hidden-md-down">{{Auth::user()->name}}</span>
               <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
               <span class="square-10 bg-success"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-250">
               <div class="tx-center">
                 <a href=""><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
-                <h6 class="logged-fullname">Katherine P. Lumaad</h6>
-                <p>youremail@domain.com</p>
+                <h6 class="logged-fullname">{{Auth::user()->name}}</h6>
+                <p>{{Auth::user()->email}}</p>
               </div>
               <hr>
               <div class="tx-center">
@@ -165,7 +165,15 @@
                 <li><a href=""><i class="icon ion-ios-download"></i> Downloads</a></li>
                 <li><a href=""><i class="icon ion-ios-star"></i> Favorites</a></li>
                 <li><a href=""><i class="icon ion-ios-folder"></i> Collections</a></li>
-                <li><a href=""><i class="icon ion-power"></i> Sign Out</a></li>
+                <li>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                        <i class="icon ion-power"></i> Sign Out
+                    </a>
+                </form>
+                </li>
               </ul>
             </div><!-- dropdown-menu -->
           </div><!-- dropdown -->
