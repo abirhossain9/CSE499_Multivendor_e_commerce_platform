@@ -16,10 +16,10 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 	<!-- Owl Carousel File -->
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 
 	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/style.css') }}">
 
 </head>
 
@@ -89,7 +89,7 @@
 		<div class="cus_login">
 			<div class="container">
 				<div class="row">
-					
+
 					<div class="col-lg-12">
 						<div class="login_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 10px;">Welcome To E-Mart</h4>
@@ -100,36 +100,36 @@
 					<div class="col-lg-12">
 
 						<form action="" method="POST">
-						
+
 							<div class="col-lg-12">
 								<div class="login_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
 									<input id="login_det" type="email" name="email" placeholder="Enter Your Email" required="required">
 								</div>
 							</div>
-						
+
 							<div class="col-lg-12">
 								<div class="login_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
 									<input id="login_det" type="password" name="password" placeholder="Enter Your Password" required="required">
 								</div>
 							</div>
-						
+
 							<div class="col-lg-12">
 								<div class="d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
 									<button id="submit" type="submit" name="submit" class="cus_log_submit_btn trans_300">Login</button>
 								</div>
 							</div>
-						
+
 						</form>
 					</div>
-					
+
 					<div class="col-lg-12">
 						<div class="login_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 20px;">New To E-Mart?</h4>
 							<p>Please <b><a href="cus_reg.html">Register Here!</a></b></p>
 						</div>
 					</div>
-					
-					
+
+
 
 				</div>
 			</div>
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 				<div class="row benefit_row">
-					
+
 					<div class="col-lg-3 benefit_col">
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon">
@@ -158,7 +158,7 @@
 							</div>
 						</div>
 					</div>
-		
+
 					<div class="col-lg-3 benefit_col">
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon">
@@ -170,7 +170,7 @@
 							</div>
 						</div>
 					</div>
-		
+
 					<div class="col-lg-3 benefit_col">
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon">
@@ -182,7 +182,7 @@
 							</div>
 						</div>
 					</div>
-		
+
 					<div class="col-lg-3 benefit_col">
 						<div class="benefit_item d-flex flex-row align-items-center">
 							<div class="benefit_icon">
@@ -194,7 +194,7 @@
 							</div>
 						</div>
 					</div>
-		
+
 				</div>
 			</div>
 		</div>
@@ -248,13 +248,13 @@
 		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 		crossorigin="anonymous"></script>
 	<!-- jquery JS File -->
-	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
 	<!-- Isotope JS File -->
-	<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+	<script src="{{ asset('frontend/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
 	<!-- Owl Carousel JS File -->
-	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 	<!-- Javascript File -->
-	<script src="js/custom.js"></script>
+	<script src="{{ asset('frontend/js/custom.js') }}"></script>
 </body>
 
 </html>
