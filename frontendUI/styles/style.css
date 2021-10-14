@@ -1376,6 +1376,22 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 65px;
 }
 
+.login_text{
+	height: auto;
+	margin-top: 30px;
+}
+.login_text p{
+	margin-top: 5px;
+}
+
+.reg_text{
+	height: auto;
+	margin-top: 30px;
+}
+.reg_text p{
+	margin-top: 5px;
+}
+
 }
 
 
@@ -1430,6 +1446,20 @@ h1, h2, h3, h4, h5, h6{
 		margin-bottom: 40px;
 	}
 	.newsletter_submit_btn{
+		margin-top: 15px;
+	}
+
+	.login_form{
+		margin-bottom: 40px;
+	}
+	.cus_log_submit_btn{
+		margin-top: 15px;
+	}
+
+	.reg_form{
+		margin-bottom: 40px;
+	}
+	.cus_reg_submit_btn{
 		margin-top: 15px;
 	}
 
@@ -1628,6 +1658,67 @@ h1, h2, h3, h4, h5, h6{
 	font-size: 12px !important;
 	padding-left: 0px;
 }
+
+/* login */
+.login_form{
+	margin-top: 22px;
+}
+.login_text h4{
+	font-size: 20px;
+}
+.login_text p{
+	font-size: 13px;
+	margin-top: 5px;
+}
+.cus_log_submit_btn{
+	font-size: 12px;
+	height: 36px;
+	width: 130px;
+}
+#login_det{
+	height: 40px;
+	width: 100%;
+	padding-left: 15px;
+}
+#login_det::-webkit-input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+#login_det::input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+
+/* register */
+.reg_form{
+	margin-top: 22px;
+}
+.reg_text h4{
+	font-size: 20px;
+}
+.reg_text p{
+	font-size: 13px;
+	margin-top: 5px;
+}
+.cus_reg_submit_btn{
+	font-size: 12px;
+	height: 36px;
+	width: 130px;
+}
+#reg_det{
+	height: 40px;
+	width: 100%;
+	padding-left: 15px;
+}
+#reg_det::-webkit-input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+#reg_det::input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+
 .footer_nav_container{
 	margin-top: 35px;
 }
