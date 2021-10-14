@@ -1089,7 +1089,7 @@ h1, h2, h3, h4, h5, h6{
 	color: #fe4c50;
 }
 
-/* 12. Newsletter login*/
+/* 12. Customer login*/
 
 .cus_login{
 	width: 100%;
@@ -1161,34 +1161,34 @@ h1, h2, h3, h4, h5, h6{
 	background: #fe7c7f;
 }
 
-/* 12. Newsletter Register*/
+/* 12. Customer Register*/
 
-.cus_login{
+.cus_reg{
 	width: 100%;
 	background: #f2f2f2;
 	margin-top: 81px;
 }
 
-.login_text{
+.reg_text{
 	height: 120px;
 }
 
-.login_text h4{
+.reg_text h4{
 	margin-bottom: 0px;
 	line-height: 24px;
 }
 
-.login_text p{
+.reg_text p{
 	margin-bottom: 0;
 	line-height: 1.7;
 	color: #51545f;
 }
 
-.login_form{
+.reg_form{
 	height: 100px;
 }
 
-#login_det{
+#reg_det{
 	width: 500px;
 	height: 50px;
 	background: #ffffff;
@@ -1196,7 +1196,7 @@ h1, h2, h3, h4, h5, h6{
 	padding-left: 20px;
 }
 
-#login_det:focus{
+#reg_det:focus{
 	border: solid 1px #7f7f7f !important;
 	box-shadow: none !important;
 }
@@ -1205,19 +1205,19 @@ h1, h2, h3, h4, h5, h6{
 	outline: none !important;
 }
 
-#login_det::-webkit-input-placeholder{
+#reg_det::-webkit-input-placeholder{
 	font-size: 14px !important;
 	font-weight: 400;
 	color: #b9b4c7 !important;
 }
 
-#login_det::input-placeholder{
+#reg_det::input-placeholder{
 	font-size: 14px !important;
 	font-weight: 400;
 	color: #b9b4c7 !important;
 }
 
-.cus_log_submit_btn{
+.cus_reg_submit_btn{
 	width: 160px;
 	height: 46px;
 	border: none;
@@ -1229,7 +1229,7 @@ h1, h2, h3, h4, h5, h6{
 	cursor: pointer;
 }
 
-.cus_log_submit_btn:hover{
+.cus_reg_submit_btn:hover{
 	background: #fe7c7f;
 }
 
