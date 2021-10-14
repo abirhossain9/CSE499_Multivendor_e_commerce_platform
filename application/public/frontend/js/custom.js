@@ -12,10 +12,10 @@
 
 
 
-jQuery(document).ready(function ($) 
+jQuery(document).ready(function ($)
 {
     "user strict";
-    
+
 //1. vars and inits
 
     var mainSlider = $('.main_slider');
@@ -118,7 +118,7 @@ function initTimer()
     if($('.timer').length)
     {
         //uncomment line below and relocate date
-        var target_date = new Date("Oct 15, 2021").getTime();
+        var target_date = new Date("Oct 22, 2021").getTime();
 
 
         // comment lines below
@@ -134,7 +134,7 @@ function initTimer()
         var m = $('#minute');
         var s = $('#second');
 
-        setInterval(function() 
+        setInterval(function()
         {
             //find the amound of "seconds" between now and target
 
@@ -158,14 +158,14 @@ function initTimer()
             s.text(seconds);
 
 
-        
-        
+
+
         }, 1000 );
     }
 }
 
 // 4.  Init Favorite
-function initFavorite() 
+function initFavorite()
 {
     if($('.favorite').length)
     {
@@ -175,13 +175,13 @@ function initFavorite()
         {
             var fav = $(this);
             var active = false;
-            if (fav.hasClass('active')) 
+            if (fav.hasClass('active'))
             {
-                active = true;    
+                active = true;
             }
-            fav.on('click',function() 
+            fav.on('click',function()
             {
-                if (active) 
+                if (active)
                 {
                     fav.removeClass('active');
                     active = false;
@@ -202,11 +202,11 @@ function initFavorite()
 function initIsotopeFiltering(){
     if($('.grid_sorting_button').length)
     {
-        $('.grid_sorting_button').click(function() 
+        $('.grid_sorting_button').click(function()
         {
             $('.grid_sorting_button.active').removeClass('active');
             $(this).addClass('active');
-            
+
             var selector = $(this).attr('data-filter');
             $('.product-grid').isotope({
                 filter: selector,
@@ -244,13 +244,13 @@ function initSlider()
                 1440:{items:6},
             }
         });
-        if($('.product_slider_nav_left').length) 
+        if($('.product_slider_nav_left').length)
         {
             $('.product_slider_nav_left').on('click', function(){
                 slider1.trigger('prev.owl.carousel')
             });
         }
-        if($('.product_slider_nav_right').length) 
+        if($('.product_slider_nav_right').length)
         {
             $('.product_slider_nav_right').on('click', function(){
                 slider1.trigger('next.owl.carousel')
