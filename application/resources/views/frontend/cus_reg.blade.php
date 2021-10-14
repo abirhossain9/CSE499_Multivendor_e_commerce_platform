@@ -16,10 +16,10 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 	<!-- Owl Carousel File -->
-	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 
 	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/styles/style.css') }}">
 
 </head>
 
@@ -277,13 +277,13 @@
 		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
 		crossorigin="anonymous"></script>
 	<!-- jquery JS File -->
-	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
 	<!-- Isotope JS File -->
-	<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+	<script src="{{ asset('frontend/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
 	<!-- Owl Carousel JS File -->
-	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="{{ asset('frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
 	<!-- Javascript File -->
-	<script src="js/custom.js"></script>
+	<script src="{{ asset('frontend/js/custom.js') }}"></script>
 </body>
 
 </html>
