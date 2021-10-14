@@ -1450,6 +1450,7 @@ h1, h2, h3, h4, h5, h6{
 	}
 
 	.login_form{
+		height: 20px;
 		margin-bottom: 40px;
 	}
 	.cus_log_submit_btn{
@@ -1457,6 +1458,7 @@ h1, h2, h3, h4, h5, h6{
 	}
 
 	.reg_form{
+		height: 20px;
 		margin-bottom: 40px;
 	}
 	.cus_reg_submit_btn{
