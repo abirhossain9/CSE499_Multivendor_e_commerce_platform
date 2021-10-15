@@ -18,7 +18,7 @@
       <div class="form-group">
         <x-label for="email" :value="__('Email')" />
         <x-input id="email" class="form-control" type="email" placeholder="Enter Your Email" name="email" :value="old('email')" required autofocus />
-    </div>
+     </div>
 
       <!-- Password -->
       <div class="form-group">

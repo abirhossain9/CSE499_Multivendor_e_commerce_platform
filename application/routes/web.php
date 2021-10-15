@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-
+Route::get('/','App\Http\Controllers\Frontend\PagesController@index')->name('home');
+Route::get('/user-login','App\Http\Controllers\Frontend\PagesController@userLogin')->name('user.login');
+Route::get('/user-register','App\Http\Controllers\Frontend\PagesController@userRegister')->name('user.register');
+Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@userDashboard')->name('user.dashboard');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

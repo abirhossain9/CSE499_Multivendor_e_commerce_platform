@@ -49,7 +49,6 @@
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-									<li><a href="{{route('user.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 									<li class="checkout">
 										<a href="#">
 											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -85,68 +84,6 @@
 			</div>
 		</div>
 
-		<!-- customer login -->
-		<div class="cus_reg">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-12">
-						<div
-							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
-							<h4 style="margin-bottom: 10px;">Welcome To E-Mart</h4>
-							<p>Please <b>Register</b> to Continue</p>
-						</div>
-					</div>
-
-					<div class="col-lg-6 offset-lg-3">
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-						        <form method="POST" action="{{ route('register') }}">
-            @csrf
-          <!-- Name -->
-          <div class="form-group">
-            <x-label for="name" :value="__('Name')" />
-            <x-input id="name" class="form-control" type="text" placeholder="Enter your username" name="name" :value="old('name')" required autofocus />
-        </div>
-
-        <!-- Email Address -->
-        <div class="form-group">
-            <x-label for="email" :value="__('Email')" />
-            <x-input id="email" class="form-control" type="email" placeholder="Enter your email" name="email" :value="old('email')" required />
-        </div>
-        <!-- Password -->
-        <div class="form-group">
-            <x-label for="password" :value="__('Password')" />
-            <x-input id="password" class="form-control" type="password" name="password" required placeholder="Enter your password" autocomplete="new-password" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="form-group">
-            <x-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-input id="password_confirmation" class="form-control" type="password" placeholder="Confirm your password" name="password_confirmation" required />
-        </div>
-
-          <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
-          <div class="form-group">
-            <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
-          </div>
-        </form>
-					</div>
-
-					<div class="col-lg-12">
-						<div
-							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
-							<h4 style="margin-bottom: 20px;">Old Member?</h4>
-							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
-						</div>
-					</div>
-
-
-
-				</div>
-			</div>
-		</div>
 
 		<!-- Benefit -->
 		<div class="benefit">
