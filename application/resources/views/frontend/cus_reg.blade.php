@@ -40,7 +40,7 @@
 							</div>
 							<nav class="navbar">
 								<ul class="navbar_menu">
-									<li><a href="#">Home</a></li>
+									<li><a href="{{route('home')}}">Home</a></li>
 									<li><a href="#">Shop</a></li>
 									<li><a href="#">Featuered Item</a></li>
 									<li><a href="#">Pages</a></li>
@@ -49,7 +49,7 @@
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+									<li><a href="{{route('user.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 									<li class="checkout">
 										<a href="#">
 											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -75,7 +75,7 @@
 			<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 			<div class="hamburger_menu_content text-right">
 				<ul class="menu_top_nav">
-					<li class="menu_item"><a href="#">Home</a></li>
+					<li class="menu_item"><a href="{{route('home')}}">Home</a></li>
 					<li class="menu_item"><a href="#">Shop</a></li>
 					<li class="menu_item"><a href="#">Promotion</a></li>
 					<li class="menu_item"><a href="#">Pages</a></li>
@@ -98,63 +98,47 @@
 						</div>
 					</div>
 
-					<div class="col-lg-12">
+					<div class="col-lg-6 offset-lg-3">
 
-						<form action="" method="POST">
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+						        <form method="POST" action="{{ route('register') }}">
+            @csrf
+          <!-- Name -->
+          <div class="form-group">
+            <x-label for="name" :value="__('Name')" />
+            <x-input id="name" class="form-control" type="text" placeholder="Enter your username" name="name" :value="old('name')" required autofocus />
+        </div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="name" name="name" placeholder="Enter Your Name" required="required">
-								</div>
-							</div>
+        <!-- Email Address -->
+        <div class="form-group">
+            <x-label for="email" :value="__('Email')" />
+            <x-input id="email" class="form-control" type="email" placeholder="Enter your email" name="email" :value="old('email')" required />
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <x-label for="password" :value="__('Password')" />
+            <x-input id="password" class="form-control" type="password" name="password" required placeholder="Enter your password" autocomplete="new-password" />
+        </div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="number" name="phone" placeholder="Enter Your Phone Number" required="required">
-								</div>
-							</div>
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <x-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input id="password_confirmation" class="form-control" type="password" placeholder="Confirm your password" name="password_confirmation" required />
+        </div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="text" name="address" placeholder="Enter Your Address(Optional)">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div
-									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="email" name="email" placeholder="Enter Your Email" required="required">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div
-									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="password" name="password" placeholder="Enter a Password" required="required">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="password" name="re-password" placeholder="Retype Password" required="required">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div
-									class="d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<button id="submit" type="submit" name="submit" class="cus_reg_submit_btn trans_300">Register</button>
-								</div>
-							</div>
-
-						</form>
+          <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
+          <div class="form-group">
+            <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
+          </div>
+        </form>
 					</div>
 
 					<div class="col-lg-12">
 						<div
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 20px;">Old Member?</h4>
-							<p>Please <b><a href="cus_login.html">Login Here!</a></b></p>
+							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
 						</div>
 					</div>
 
