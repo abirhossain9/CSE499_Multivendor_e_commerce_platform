@@ -51,7 +51,7 @@ p a{
 a, a:hover, a:active, a:link{
 	text-decoration: none;
 	-webkit-font-smoothing:  antialiased;
-	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;	
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
 p a:active{
@@ -69,12 +69,12 @@ p a:hover::after{
 }
 
 ::selection{
-	background: fde0db;	
+	background: fde0db;
 	color: #ff6347;
 }
 
 p::selection{
-	background: fde0db;	
+	background: fde0db;
 }
 
 h1{font-size:  72px;}
@@ -216,6 +216,44 @@ h1, h2, h3, h4, h5, h6{
 	font-size: 12px;
 	color: #fff;
 }
+
+.custom-dropdown-menu a{
+	align-items: flex-start !important;
+	background: none !important;
+}
+
+.custom-dropdown-menu {
+    min-width: 15rem;
+}
+
+.custom-dropdown-menu-def a{
+	align-items: flex-start !important;
+	background: none !important;
+}
+
+.custom-dropdown-menu-def {
+    min-width: 10rem;
+}
+
+.custom-dropdown-item {
+    padding: 1.5rem 1.5rem;
+    color: #000 !important;
+}
+
+
+/* .dropdown-toggle:hover + .dropdown-menu{
+transition-delay: 1s;
+opacity:1; visibility: visible;
+display: inline-block;
+}
+
+.dropdown-menu:hover > li{
+     opacity: 0;
+  visibility: hidden;
+  transition-delay: 3s;
+display: inline-block;
+} */
+
 
 /* Hamburger Menu */
 .hamburger_container{
@@ -1339,7 +1377,6 @@ h1, h2, h3, h4, h5, h6{
 }
 .timer_num{
 	font-size: 28px;
-	
 }
 .benefit_col{
 	margin-bottom: 30px;
@@ -1416,7 +1453,7 @@ h1, h2, h3, h4, h5, h6{
 	}
 	.new_arrivals_title{
 		margin-top: 44px;
-	} 
+	}
 	.product-item{
 		height: 345px;
 		width: 33.333333%;
@@ -1468,7 +1505,7 @@ h1, h2, h3, h4, h5, h6{
 
 }
 
-    
+
 
 @media only screen and (max-width: 575px){
 
@@ -1502,7 +1539,7 @@ h1, h2, h3, h4, h5, h6{
  .footer_nav li a{
  	font-size: 13px;
  }
-    
+
 
 }
 
@@ -1738,7 +1775,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 @media only screen and (max-width: 1199px){
-	
+
 }
 
 
