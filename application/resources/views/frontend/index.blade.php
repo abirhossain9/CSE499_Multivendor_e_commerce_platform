@@ -79,13 +79,46 @@
                                             </a>
                                         </li>
                                         @if (Auth::check())
-                                        <li>
-                                            <a href="{{route('user.dashboard')}}">
-                                                <i class="fa fa-clipboard" aria-hidden="true"></i>
-                                            </a>
+
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
+                                                    <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+                                                <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Edit Profile</i></a>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        <i class="fa fa-sign-out"> Logout</i>
+                                                    </a>
+                                                </form>
+                                            </div>
                                         </li>
-                                        <li>
-                                            <form method="POST" action="{{ route('logout') }}">
+
+                                        {{-- <li class="dropdown">
+                                            <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">
+                                                    Welcome,
+                                                {{Auth::user()->name}}</a>
+
+                                            </div>
+                                        </li> --}}
+
+                                        {{-- <li>
+                                            <a href="{{route('user.dashboard')}}">
+                                                <i class="fa fa-address-card" aria-hidden="true"></i>
+                                            </a>
+                                        </li> --}}
+
+                                        {{-- <li>
+                                        <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <a
                                                 href="{{ route('logout') }}"
@@ -93,17 +126,31 @@
                                                 <i class="fa fa-sign-out-alt"></i>
                                             </a>
                                         </form>
-                                        </li>
-                                        <li>
-                                            Welcome ,
-                                            {{Auth::user()->name}}
-                                        </li>
+                                        </li> --}}
+
                                         @else
-                                        <li>
-                                            <a href="{{route('user.login')}}">
+
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu-def" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{route('user.login')}}"><i class="fa fa-sign-in"> Sign in</i></a>
+                                                <a class="dropdown-item" href="{{route('user.register')}}"><i class="fas fa-id-badge"> Register</i></a>
+                                            </div>
+                                        </li>
+
+
+                                        {{-- <li class="dropdown">
+                                            <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
                                             </a>
-                                        </li>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{route('user.login')}}">Sign in</a>
+                                                <a class="dropdown-item" href="#">Register</a>
+
+                                            </div>
+                                        </li> --}}
                                         @endif
 
                                     </ul>
@@ -128,7 +175,7 @@
                 <div class="hamburger_menu_content text-right">
                     <ul class="menu_top_nav">
                         <li class="menu_item">
-                            <a href="#">Home</a>
+                            <a href="{{route('home')}}">Home</a>
                         </li>
                         <li class="menu_item">
                             <a href="cus_login.html">Profile</a>
