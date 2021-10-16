@@ -122,7 +122,143 @@
 
 		<!-- Profile Dashboard -->
 		<div class="dashboard">
+            <div class="container">
+                <div class="col-lg-12">
+                    <div
+                        class="login_text d-flex flex-column justify-content-center align-items-center text-center">
+                        <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
+                        <p>Customize <b>Profile</b> Below</p>
+                    </div>
+                </div>
+                <div class="main-body">
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
+                                        <div class="mt-3">
+                                        <h4>Emamul Hassan</h4>
+                                        <p class="text-secondary mb-1">Silver Customer</p>
+                                        <p class="text-muted font-size-sm">Joar Sahara, Dhaka</p>
+                                        <button class="btn btn-primary">My Orders</button>
+                                        <button class="btn btn-outline-primary">My Wishlist</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="card mt-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">Profile Link</h6>
+                                    <span class="text-secondary">emart.com/emamulhassan</span>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                        {{-- profile info --}}
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Full Name</h6>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="fullname" class="form-control" required="required" value="Emamul Hassan" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Email</h6>
+                                        </div>
+                                        <div class="form-group mb=0">
+                                            <input type="email" name="email" class="form-control" required="required" value="emamulhassan@gmail.com" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Phone</h6>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" name="phone" class="form-control" required="required" value="01629830159" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Address</h6>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" class="form-control" required="required" value="Joar Sahara, Dhaka" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Gender</h6>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select class="form-control" name="status">
+                                            <option value="0">Gender</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        <a class="btn btn-info" href="javascript:void(0)">Edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        {{-- order info --}}
+                        <div class="col-md-12">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Orders</h6>
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Returns</h6>
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Cancellations</h6>
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Wishlists</h6>
+                                        </div>
+
+                                    </div>
+                                    <hr>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 
 
