@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Banner;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -14,7 +15,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $banners = Banner::orderBy('id', 'ASC') ->get();
+        return view('frontend.index', compact('banners'));
     }
 
     /**

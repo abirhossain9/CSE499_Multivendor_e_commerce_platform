@@ -200,15 +200,14 @@
             </div>
 
             <!-- Slider -->
-            <div
-                class="main_slider"
-                style="background-image: url({{ asset('frontend/images/slider_1.jpg') }});">
+            @foreach($banners as $banner)
+            <div class="main_slider" style="background-image: url({{ asset('backend/img/banner/'.$banner->banner_image) }});">
                 <div class="container fill_height">
                     <div class="row align-items-center fill_height">
                         <div class="col">
                             <div class="main_slider_content">
                                 <h6>Spring / Summer Collection 2021</h6>
-                                <h1>Get up to 30% off New Arrivals</h1>
+                                <h1>{{$banner->banner_text}}</h1>
                                 <div class="red_button shop_now_button">
                                     <a href="#">Shop Now</a>
                                 </div>
@@ -217,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
 
             <!-- Banner -->
             <div class="banner">

@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="submit" name="updateCoupon" value="Update Coupon Code" class="custom-btn btn btn-teal mg-b-10">
+                                        <input type="submit" name="updateCoupon" value="Add New Banner" class="custom-btn btn btn-teal mg-b-10">
                                     </div>
                                 </div>
                             </div>

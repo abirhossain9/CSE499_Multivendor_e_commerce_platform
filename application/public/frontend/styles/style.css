@@ -393,11 +393,13 @@ display: inline-block;
 	font-weight: 500;
 	text-transform: uppercase;
 	margin-bottom: 29px;
+    color: #fe4c50;
 }
 
 .main_slider_content h1{
 	font-weight: 400;
 	line-height: 1;
+    color: #fe4c50;
 }
 
 .red_button{
