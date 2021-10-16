@@ -87,7 +87,7 @@
                                             <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
                                                     <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
-                                                <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Edit Profile</i></a>
+                                                <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a class="dropdown-item"

@@ -55,6 +55,41 @@
 											<span id="checkout_items" class="checkout_items">2</span>
 										</a>
 									</li>
+
+                                    @if (Auth::check())
+
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
+                                                    <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+                                                <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        <i class="fa fa-sign-out"> Logout</i>
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </li>
+
+                                        @else
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu-def" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{route('user.login')}}"><i class="fa fa-sign-in"> Sign in</i></a>
+                                                <a class="dropdown-item" href="{{route('user.register')}}"><i class="fas fa-id-badge"> Register</i></a>
+                                            </div>
+                                        </li>
+
+                                        @endif
+
 								</ul>
 
 								<div class="hamburger_container">
@@ -85,68 +120,9 @@
 		</div>
 
 
-		<!-- Benefit -->
-		<div class="benefit">
-			<div class="container">
-				<div class="row">
-					<div class="col text-center">
-						<div class="section_title">
-							<h2>Benefits</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row benefit_row">
+		<!-- Profile Dashboard -->
+		<div class="dashboard">
 
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon">
-								<i class="fa fa-truck" aria-hidden="true"></i>
-							</div>
-							<div class="benefit_content">
-								<h6>Free Shipping</h6>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon">
-								<i class="fa fa-undo" aria-hidden="true"></i>
-							</div>
-							<div class="benefit_content">
-								<h6>45 Days Return</h6>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon">
-								<i class="fa fa-money" aria-hidden="true"></i>
-							</div>
-							<div class="benefit_content">
-								<h6>Cash on Delivery</h6>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 benefit_col">
-						<div class="benefit_item d-flex flex-row align-items-center">
-							<div class="benefit_icon">
-								<i class="fa fa-clock-o" aria-hidden="true"></i>
-							</div>
-							<div class="benefit_content">
-								<h6>Open 24/7</h6>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
 		</div>
 
 
