@@ -128,7 +128,7 @@
         </div>
 
           <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
-          <div class="form-group">
+          <div class="form-group d-flex flex-column justify-content-center align-items-center">
             <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
           </div>
         </form>

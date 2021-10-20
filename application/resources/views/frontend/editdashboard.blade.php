@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dashboard</title>
+	<title>Edit Profile</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Colo Shop Template">
@@ -127,7 +127,7 @@
                     <div
                         class="login_text d-flex flex-column justify-content-center align-items-center text-center">
                         <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
-                        <p>Customize <b>Profile</b> & Manage <b>Orders</b> Below</p>
+                        <p>Edit <b>Profile</b> & Manage <b>Orders</b> Below</p>
                     </div>
                 </div>
                 <div class="main-body">
@@ -164,47 +164,81 @@
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Full Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Emamul Hassan</div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="fullname" class="form-control" required="required" value="Emamul Hassan" autocomplete="off">
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Email</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">emamulhassan@gmail.com</div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="email" name="email" class="form-control" required="required" value="emamulhassan@gmail.com" autocomplete="off">
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Phone</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">01629830159</div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="number" name="phone" class="form-control" required="required" value="01629830159" autocomplete="off">
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Joar Sahara, Dhaka</div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Gender</h6>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="phone" class="form-control" required="required" value="Joar Sahara, Dhaka" autocomplete="off">
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Male</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Current Password</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">********</div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="password" name="password" class="form-control" required="required" placeholder="Enter Current Password" value="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Create New Password</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="password" name="password" class="form-control" required="required" placeholder="Enter New Password" value="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Confirm New Password</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="password" name="password" class="form-control" required="required" placeholder="Confirm New Password" value="" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Gender</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <select class="form-control" name="status">
+                                            <option value="0">Gender</option>
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                        </select>
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="javascript:void(0)">Edit Profile</a>
+                                        <a class="btn btn-info" href="javascript:void(0)">Save Changes</a>
                                         </div>
                                     </div>
                                 </div>
@@ -214,73 +248,38 @@
                         {{-- order info --}}
                         <div class="col-md-12">
                             <div class="card mb-3">
-
-                                <div class="accordion" id="orderSection">
-
-                                    <div class="card">
-                                        <div class="card-header" id="orders">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-outline-info btn-block text-left" type="button" data-toggle="collapse" data-target="#myOrder" aria-expanded="true" aria-controls="myOrder">
-                                                My Orders
-                                                </button>
-                                            </h2>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Orders</h6>
                                         </div>
 
-                                        <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="#orderSection">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
-                                            </div>
-                                        </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Returns</h6>
+                                        </div>
 
-                                    <div class="card">
-                                        <div class="card-header" id="returns">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myReturns" aria-expanded="false" aria-controls="myReturns">
-                                                My Returns
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div id="myReturns" class="collapse" aria-labelledby="returns" data-parent="#orderSection">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
-                                            </div>
-                                        </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Cancellations</h6>
+                                        </div>
 
-                                    <div class="card">
-                                        <div class="card-header" id="cancellations">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myCancellations" aria-expanded="false" aria-controls="myCancellations">
-                                                My Cancellations
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="#orderSection">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
-                                            </div>
-                                        </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">My Wishlists</h6>
+                                        </div>
 
-                                    <div class="card">
-                                        <div class="card-header" id="wishlists">
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myWishlists" aria-expanded="false" aria-controls="myWishlists">
-                                                My Wishlists
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div id="myWishlists" class="collapse" aria-labelledby="wishlists" data-parent="#orderSection">
-                                            <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
-                                            </div>
-                                        </div>
                                     </div>
+                                    <hr>
+
 
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -330,6 +329,7 @@
 		</footer>
 
 	</div>
+
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
