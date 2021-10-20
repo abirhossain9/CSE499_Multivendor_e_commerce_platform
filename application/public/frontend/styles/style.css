@@ -1277,6 +1277,7 @@ display: inline-block;
 
 /* 14.1 Side bar */
 .dashboard{
+    width: 100%;
     margin-top: 100px;
     background: #f2f2f2;
 }
@@ -1302,6 +1303,8 @@ display: inline-block;
 .custom-margin-title{
     margin-top: 10px;
 }
+
+/* 14.2. Dashboard Orders */
 
 
 
@@ -1729,6 +1732,9 @@ display: inline-block;
 }
 
 /* login */
+.cus_login {
+    margin-top: 70px;
+}
 .login_form{
 	margin-top: 22px;
 }
@@ -1759,6 +1765,9 @@ display: inline-block;
 }
 
 /* register */
+.cus_reg {
+    margin-top: 70px;
+}
 .reg_form{
 	margin-top: 22px;
 }
@@ -1788,6 +1797,12 @@ display: inline-block;
 	padding-left: 0px;
 }
 
+/* dashboard */
+.dashboard{
+    margin-top: 70px;
+}
+
+/* footer */
 .footer_nav_container{
 	margin-top: 35px;
 }
