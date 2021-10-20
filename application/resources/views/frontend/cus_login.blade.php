@@ -177,7 +177,9 @@
                                         required="required"
                                         autocomplete="current-password"/>
                                 </div>
-                                <button type="submit" class="btn cus_log_submit_btn">Sign In</button>
+                                <div class="form-group d-flex flex-column justify-content-center align-items-center">
+                                    <button type="submit" class="btn cus_log_submit_btn">Sign In</button>
+                                </div>
                             </form>
 
                         </div>
