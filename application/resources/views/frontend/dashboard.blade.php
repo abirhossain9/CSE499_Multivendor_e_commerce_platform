@@ -125,7 +125,7 @@
             <div class="container">
                 <div class="col-lg-12">
                     <div
-                        class="login_text d-flex flex-column justify-content-center align-items-center text-center">
+                        class="dashboard_text d-flex flex-column justify-content-center align-items-center text-center">
                         <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
                         <p>Customize <b>Profile</b> & Manage <b>Orders</b> Below</p>
                     </div>
@@ -135,21 +135,21 @@
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
+                                    <div class="align-items-center text-center">
                                         <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
                                         <div class="mt-3">
-                                        <h4>Emamul Hassan</h4>
-                                        <p class="text-secondary mb-1">Silver Customer</p>
-                                        <p class="text-muted font-size-sm">Joar Sahara, Dhaka</p>
-                                        <button class="btn btn-primary">My Orders</button>
-                                        <button class="btn btn-outline-primary">My Wishlist</button>
+                                            <h4>Emamul Hassan</h4>
+                                            <p class="text-primary mb-1">Silver Customer</p>
+                                            <p class="text-secondary font-size-sm">Joar Sahara, Dhaka</p>
+                                            <button class="btn btn-primary">Orders</button>
+                                            <button class="btn btn-outline-primary">Wishlists</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         <div class="card mt-3">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li class="list-group-item">
                                     <h6 class="mb-0">Profile Link</h6>
                                     <span class="text-secondary">emart.com/emamulhassan</span>
                                 </li>
@@ -162,42 +162,42 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Full Name</h6>
+                                            <h6>Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">Emamul Hassan</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Email</h6>
+                                            <h6>Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">emamulhassan@gmail.com</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Phone</h6>
+                                            <h6>Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">01629830159</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Address</h6>
+                                            <h6>Address</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">Joar Sahara, Dhaka</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Gender</h6>
+                                            <h6>Gender</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">Male</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Current Password</h6>
+                                            <h6>Current Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">********</div>
                                     </div>
@@ -228,12 +228,81 @@
 
                                         <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="#orderSection">
                                             <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
+                                                <table class="table table-hover table-bordered table-sm table-responsive-sm">
+                                                    <caption>Active Orders</caption>
+                                                    <thead>
+                                                        <tr class="table-active">
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Placed On</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Item Name 1</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>500৳</td>
+                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Item Name 2</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>1000৳</td>
+                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="card">
+                                        <div class="card-header" id="orderHistory">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myOrderHistory" aria-expanded="false" aria-controls="myOrderHistory">
+                                                My Order History
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="myOrderHistory" class="collapse" aria-labelledby="orderHistory" data-parent="#orderSection">
+                                            <div class="card-body">
+                                                <table class="table table-hover table-bordered table-sm table-responsive-sm">
+                                                    <caption>Completed Orders</caption>
+                                                    <thead>
+                                                        <tr class="table-active">
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Placed On</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Item Name 1</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>500৳</td>
+                                                            <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Item Name 2</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>1000৳</td>
+                                                            <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- <div class="card">
                                         <div class="card-header" id="returns">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myReturns" aria-expanded="false" aria-controls="myReturns">
@@ -243,10 +312,37 @@
                                         </div>
                                         <div id="myReturns" class="collapse" aria-labelledby="returns" data-parent="#orderSection">
                                             <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
+                                                <table class="table table-hover table-bordered table-sm table-responsive-sm">
+                                                    <caption>Returned Orders</caption>
+                                                    <thead>
+                                                        <tr class="table-active">
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Placed On</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Item Name 1</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>500৳</td>
+                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Item Name 2</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>1000৳</td>
+                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="card">
                                         <div class="card-header" id="cancellations">
@@ -258,7 +354,34 @@
                                         </div>
                                         <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="#orderSection">
                                             <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
+                                                <table class="table table-hover table-bordered table-sm table-responsive-sm">
+                                                    <caption>Canceled Orders</caption>
+                                                    <thead>
+                                                        <tr class="table-active">
+                                                            <th scope="col">Order ID</th>
+                                                            <th scope="col">Product Name</th>
+                                                            <th scope="col">Placed On</th>
+                                                            <th scope="col">Price</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Item Name 1</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>500৳</td>
+                                                            <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Item Name 2</td>
+                                                            <td>14/10/2021</td>
+                                                            <td>1000৳</td>
+                                                            <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -273,7 +396,7 @@
                                         </div>
                                         <div id="myWishlists" class="collapse" aria-labelledby="wishlists" data-parent="#orderSection">
                                             <div class="card-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus vitae laudantium harum, eaque aut numquam? Ipsum ad eaque explicabo labore?
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam maxime, ullam placeat sapiente eaque numquam vero aliquam nemo enim saepe.
                                             </div>
                                         </div>
                                     </div>
