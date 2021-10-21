@@ -125,7 +125,7 @@
             <div class="container">
                 <div class="col-lg-12">
                     <div
-                        class="login_text d-flex flex-column justify-content-center align-items-center text-center">
+                        class="dashboard_text d-flex flex-column justify-content-center align-items-center text-center">
                         <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
                         <p>Edit <b>Profile</b> & Manage <b>Orders</b> Below</p>
                     </div>
@@ -135,21 +135,21 @@
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
+                                    <div class="align-items-center text-center">
                                         <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
                                         <div class="mt-3">
-                                        <h4>Emamul Hassan</h4>
-                                        <p class="text-secondary mb-1">Silver Customer</p>
-                                        <p class="text-muted font-size-sm">Joar Sahara, Dhaka</p>
-                                        <button class="btn btn-primary">My Orders</button>
-                                        <button class="btn btn-outline-primary">My Wishlist</button>
+                                            <h4>Emamul Hassan</h4>
+                                            <p class="text-primary mb-1">Silver Customer</p>
+                                            <p class="text-secondary font-size-sm">Joar Sahara, Dhaka</p>
+                                            <button class="btn btn-primary">Orders</button>
+                                            <button class="btn btn-outline-primary">Wishlists</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         <div class="card mt-3">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <li class="list-group-item">
                                     <h6 class="mb-0">Profile Link</h6>
                                     <span class="text-secondary">emart.com/emamulhassan</span>
                                 </li>
