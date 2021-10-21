@@ -1281,6 +1281,9 @@ display: inline-block;
     margin-top: 100px;
     background: #f2f2f2;
 }
+.dashboard_text{
+	height: 120px;
+}
 .main-body {
     padding: 15px;
 }
@@ -1447,7 +1450,7 @@ display: inline-block;
 }
 
 .login_text{
-	height: auto;
+	height: 90px;
 	margin-top: 30px;
 }
 .login_text p{
@@ -1455,7 +1458,7 @@ display: inline-block;
 }
 
 .reg_text{
-	height: auto;
+	height: 90px;
 	margin-top: 30px;
 }
 .reg_text p{
@@ -1732,11 +1735,17 @@ display: inline-block;
 }
 
 /* login */
+.benefit {
+    margin-top: 30px;
+}
 .cus_login {
     margin-top: 70px;
 }
 .login_form{
 	margin-top: 22px;
+}
+.login_text {
+    margin-top: 0px;
 }
 .login_text h4{
 	font-size: 20px;
@@ -1765,11 +1774,17 @@ display: inline-block;
 }
 
 /* register */
+.benefit {
+    margin-top: 30px;
+}
 .cus_reg {
     margin-top: 70px;
 }
 .reg_form{
 	margin-top: 22px;
+}
+.reg_text {
+    margin-top: 0px;
 }
 .reg_text h4{
 	font-size: 20px;
@@ -1800,6 +1815,16 @@ display: inline-block;
 /* dashboard */
 .dashboard{
     margin-top: 70px;
+}
+.dashboard_text {
+    height: 90px;
+}
+.dashboard_text h4{
+	font-size: 20px;
+}
+.dashboard_text p{
+	font-size: 13px;
+	margin-top: 5px;
 }
 
 /* footer */
