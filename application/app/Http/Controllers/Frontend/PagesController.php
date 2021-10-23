@@ -36,6 +36,9 @@ class PagesController extends Controller
     {
         return view('frontend.dashboard');
     }
-
+    public function editProfile()
+    {
+        return view('frontend.editdashboard');
+    }
 
 }
