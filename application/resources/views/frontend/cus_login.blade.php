@@ -189,9 +189,8 @@
                                 class="login_text d-flex flex-column justify-content-center align-items-center text-center">
                                 <h4 style="margin-bottom: 20px;">New To E-Mart?</h4>
                                 <p>Please
-                                    <b>
-                                        <a href="{{route('user.register')}}">Register Here!</a>
-                                    </b>
+                                    <b><a href="{{route('user.register')}}">Register Here!</a></b>
+                                    <p>Forgot Password? <b><a href="{{route('password.email')}}">Reset Here!</a></b></p>
                                 </p>
                             </div>
                         </div>
