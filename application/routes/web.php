@@ -21,6 +21,7 @@ Route::get('/','App\Http\Controllers\Frontend\PagesController@index')->name('hom
 Route::get('/user-login','App\Http\Controllers\Frontend\PagesController@userLogin')->name('user.login');
 Route::get('/user-register','App\Http\Controllers\Frontend\PagesController@userRegister')->name('user.register');
 Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@userDashboard')->name('user.dashboard');
+Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->name('user.editdashboard');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
