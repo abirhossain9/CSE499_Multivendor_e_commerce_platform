@@ -115,6 +115,20 @@
             <x-label for="email" :value="__('Email')" />
             <x-input id="email" class="form-control" type="email" placeholder="Enter your email" name="email" :value="old('email')" required />
         </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <x-label for="address" :value="__('Address')" />
+            <x-input id="address" class="form-control" type="text" placeholder="Enter your Address" name="address" :value="old('address')" required autofocus />
+        </div>
+
+        <!-- Phone Num -->
+        <div class="form-group">
+            <x-label for="phone" :value="__('Phone')" />
+            <x-input id="phone" class="form-control" type="text" placeholder="Enter your phone" name="phone" :value="old('phone')" required autofocus />
+        </div>
+
+
         <!-- Password -->
         <div class="form-group">
             <x-label for="password" :value="__('Password')" />
@@ -139,6 +153,7 @@
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 20px;">Old Member?</h4>
 							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
+                            <p>Be a Vendor? <b><a href="">Apply Here!</a></b></p>
 						</div>
 					</div>
 

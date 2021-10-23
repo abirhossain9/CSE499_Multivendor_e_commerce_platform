@@ -189,22 +189,8 @@
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6>Gender</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">Male</div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6>Current Password</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">********</div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="javascript:void(0)">Edit Profile</a>
+                                        <a class="btn btn-info" href="{{ route('user.editdashboard') }}">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>
