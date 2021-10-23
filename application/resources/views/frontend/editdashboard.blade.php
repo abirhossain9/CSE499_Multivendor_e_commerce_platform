@@ -174,7 +174,7 @@
                                             <h6 class="custom-margin-title">Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="email" name="email" class="form-control" required="required" value="emamulhassan@gmail.com" autocomplete="off">
+                                            <input type="email" name="email" class="form-control" required="required" value="emamulhassan@gmail.com" autocomplete="off" readonly>
                                         </div>
                                     </div>
                                     <hr>
@@ -198,41 +198,10 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Current Password</h6>
+                                            <h6 class="custom-margin-title">Profile Picture</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="password" name="password" class="form-control" required="required" placeholder="Enter Current Password" value="" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Create New Password</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="password" name="password" class="form-control" required="required" placeholder="Enter New Password" value="" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Confirm New Password</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="password" name="password" class="form-control" required="required" placeholder="Confirm New Password" value="" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Gender</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <select class="form-control" name="status">
-                                            <option value="0">Gender</option>
-                                            <option value="1">Male</option>
-                                            <option value="2">Female</option>
-                                        </select>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <input type="file" class="form-control-file" name="image" >
                                         </div>
                                     </div>
                                     <hr>
