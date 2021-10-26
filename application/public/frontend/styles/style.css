@@ -1273,6 +1273,78 @@ display: inline-block;
 	background: #fe7c7f;
 }
 
+/* 12. Vendor Register*/
+
+.ven_reg{
+	width: 100%;
+	background: #f2f2f2;
+	margin-top: 100px;
+}
+
+.reg_text{
+	height: 120px;
+}
+
+.reg_text h4{
+	margin-bottom: 0px;
+	line-height: 24px;
+}
+
+.reg_text p{
+	margin-bottom: 0;
+	line-height: 1.7;
+	color: #51545f;
+}
+
+.reg_form{
+	height: 100px;
+}
+
+#reg_det{
+	width: 500px;
+	height: 50px;
+	background: #ffffff;
+	border: none;
+	padding-left: 20px;
+}
+
+#reg_det:focus{
+	border: solid 1px #7f7f7f !important;
+	box-shadow: none !important;
+}
+
+:focus{
+	outline: none !important;
+}
+
+#reg_det::-webkit-input-placeholder{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+
+#reg_det::input-placeholder{
+	font-size: 14px !important;
+	font-weight: 400;
+	color: #b9b4c7 !important;
+}
+
+.ven_reg_submit_btn{
+	width: 160px;
+	height: 46px;
+	border: none;
+	background: #fe4c50;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.ven_reg_submit_btn:hover{
+	background: #fe7c7f;
+}
+
 /* 14. Profile Dashboard */
 
 /* 14.1 Side bar */
@@ -1537,6 +1609,9 @@ display: inline-block;
 	.cus_reg_submit_btn{
 		margin-top: 15px;
 	}
+    .ven_reg_submit_btn{
+		margin-top: 15px;
+	}
 
 
 }
@@ -1749,6 +1824,7 @@ display: inline-block;
 }
 .login_text h4{
 	font-size: 20px;
+    margin-bottom: 5px !important;
 }
 .login_text p{
 	font-size: 13px;
@@ -1773,7 +1849,7 @@ display: inline-block;
 	padding-left: 0px;
 }
 
-/* register */
+/* customer register */
 .benefit {
     margin-top: 30px;
 }
@@ -1788,12 +1864,53 @@ display: inline-block;
 }
 .reg_text h4{
 	font-size: 20px;
+    margin-bottom: 5px !important;
 }
 .reg_text p{
 	font-size: 13px;
 	margin-top: 5px;
 }
 .cus_reg_submit_btn{
+	font-size: 12px;
+	height: 36px;
+	width: 130px;
+}
+#reg_det{
+	height: 40px;
+	width: 100%;
+	padding-left: 15px;
+}
+#reg_det::-webkit-input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+#reg_det::input-placeholder{
+	font-size: 12px !important;
+	padding-left: 0px;
+}
+
+/* vendor register */
+.benefit {
+    margin-top: 30px;
+}
+.ven_reg {
+    margin-top: 70px;
+}
+.reg_form{
+	margin-top: 22px;
+}
+.reg_text {
+    margin-top: 0px;
+}
+.reg_text h4{
+	font-size: 20px;
+    margin-bottom: 5px !important;
+}
+.reg_text p{
+	font-size: 13px;
+	margin-top: 5px;
+}
+.ven_reg_submit_btn{
 	font-size: 12px;
 	height: 36px;
 	width: 130px;
