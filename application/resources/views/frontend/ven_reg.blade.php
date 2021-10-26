@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Customer Registration</title>
+	<title>Vendor Registration</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Colo Shop Template">
@@ -85,8 +85,8 @@
 			</div>
 		</div>
 
-		<!-- customer login -->
-		<div class="cus_reg">
+		<!-- Vendor Reguster -->
+		<div class="ven_reg">
 			<div class="container">
 				<div class="row">
 
@@ -94,66 +94,78 @@
 						<div
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 10px;">Welcome To E-Mart</h4>
-							<p>Please <b>Register</b> to Continue</p>
+							<p>Please <b>Register</b> for <b>Venor/Seller</b> Here</p>
 						</div>
 					</div>
 
-					<div class="col-lg-6 offset-lg-3">
+					<div class="col-lg-12">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-						        <form method="POST" action="{{ route('register') }}">
-            @csrf
-          <!-- Name -->
-          <div class="form-group">
-            <x-label for="name" :value="__('Name')" />
-            <x-input id="name" class="form-control" type="text" placeholder="Enter your username" name="name" :value="old('name')" required autofocus />
-        </div>
+						<form action="" method="POST">
 
-        <!-- Email Address -->
-        <div class="form-group">
-            <x-label for="email" :value="__('Email')" />
-            <x-input id="email" class="form-control" type="email" placeholder="Enter your email" name="email" :value="old('email')" required />
-        </div>
+							<div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="text" name="name" placeholder="Enter Shop Name" required="required">
+								</div>
+							</div>
 
-        <!-- Address -->
-        <div class="form-group">
-            <x-label for="address" :value="__('Address')" />
-            <x-input id="address" class="form-control" type="text" placeholder="Enter your Address" name="address" :value="old('address')" required autofocus />
-        </div>
+                            <div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="text" name="name" placeholder="Enter Shop Owner/Your Name" required="required">
+								</div>
+							</div>
 
-        <!-- Phone Num -->
-        <div class="form-group">
-            <x-label for="phone" :value="__('Phone')" />
-            <x-input id="phone" class="form-control" type="text" placeholder="Enter your phone" name="phone" :value="old('phone')" required autofocus />
-        </div>
+							<div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="number" name="phone" placeholder="Enter Your Phone Number" required="required">
+								</div>
+							</div>
 
+                            <div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="text" name="address" placeholder="Enter Physical Shop Address(if available)">
+								</div>
+							</div>
 
-        <!-- Password -->
-        <div class="form-group">
-            <x-label for="password" :value="__('Password')" />
-            <x-input id="password" class="form-control" type="password" name="password" required placeholder="Enter your password" autocomplete="new-password" />
-        </div>
+							<div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="text" name="address" placeholder="Enter Your Address">
+								</div>
+							</div>
 
-        <!-- Confirm Password -->
-        <div class="form-group">
-            <x-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-input id="password_confirmation" class="form-control" type="password" placeholder="Confirm your password" name="password_confirmation" required />
-        </div>
+							<div class="col-lg-12">
+								<div
+									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="email" name="email" placeholder="Enter Your Email" required="required">
+								</div>
+							</div>
 
-          <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
-          <div class="form-group d-flex flex-column justify-content-center align-items-center">
-            <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
-          </div>
-        </form>
+							<div class="col-lg-12">
+								<div
+									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="password" name="password" placeholder="Enter a Password" required="required">
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
+									<input id="reg_det" type="password" name="re-password" placeholder="Retype Password" required="required">
+								</div>
+							</div>
+
+							<div class="form-group d-flex flex-column justify-content-center align-items-center tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
+							<div class="form-group d-flex flex-column justify-content-center align-items-center tx-12">You must wait until an admin varify your details and approve your shop. After that you will be able to use the vendor portal to customize your shop.</div>
+                            <div class="form-group d-flex flex-column justify-content-center align-items-center">
+                                <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
+                            </div>
+						</form>
 					</div>
 
 					<div class="col-lg-12">
 						<div
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
-							<h4 style="margin-bottom: 20px;">Old Member?</h4>
+							<h4 style="margin-bottom: 20px;">Go Back?</h4>
 							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
-                            <p>Want to be a Vendor/Seller? <b><a href="{{route('vendor.register')}}">Apply Here!</a></b></p>
+							<p>Please <b><a href="{{route('user.register')}}">Register Here!</a></b></p>
 						</div>
 					</div>
 
