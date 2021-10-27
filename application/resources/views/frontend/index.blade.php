@@ -87,7 +87,12 @@
                                             <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
                                                     <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+
+                                                @if(Auth::user()->role == 3)
                                                 <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
+                                                @elseif(Auth::user()->role == 2)
+                                                <a class="dropdown-item" href="{{route('vendor.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Vendor Dashboard</i></a>
+                                                @endif
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a class="dropdown-item"
