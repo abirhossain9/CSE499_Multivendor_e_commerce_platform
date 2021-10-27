@@ -48,5 +48,9 @@ class PagesController extends Controller
     {
         return view('frontend.vendor_dashboard');
     }
+    public function editVendorProfile()
+    {
+        return view('frontend.editvendor_dashboard');
+    }
 
 }
