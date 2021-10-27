@@ -1934,7 +1934,7 @@ display: inline-block;
     margin-top: 70px;
 }
 .dashboard_text {
-    height: 90px;
+    /* height: 90px; */
 }
 .dashboard_text h4{
 	font-size: 20px;

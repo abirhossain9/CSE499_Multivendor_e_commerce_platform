@@ -65,7 +65,13 @@
                                             <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
                                                     <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+
+                                                @if(Auth::user()->role == 3)
                                                 <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
+                                                @elseif(Auth::user()->role == 2)
+                                                <a class="dropdown-item" href="{{route('vendor.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Vendor Dashboard</i></a>
+                                                @endif
+
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a class="dropdown-item"
@@ -212,7 +218,7 @@
                                             </h2>
                                         </div>
 
-                                        <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="#orderSection">
+                                        <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Active Orders</caption>
@@ -220,7 +226,9 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -229,14 +237,18 @@
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
                                                         </tr>
@@ -254,7 +266,7 @@
                                                 </button>
                                             </h2>
                                         </div>
-                                        <div id="myOrderHistory" class="collapse" aria-labelledby="orderHistory" data-parent="#orderSection">
+                                        <div id="myOrderHistory" class="collapse" aria-labelledby="orderHistory" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Completed Orders</caption>
@@ -262,23 +274,29 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
-                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
                                                         </tr>
@@ -338,7 +356,7 @@
                                                 </button>
                                             </h2>
                                         </div>
-                                        <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="#orderSection">
+                                        <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Canceled Orders</caption>
@@ -346,23 +364,29 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
-                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>Shop 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
                                                         </tr>
