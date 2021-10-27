@@ -118,7 +118,7 @@ function initTimer()
     if($('.timer').length)
     {
         //uncomment line below and relocate date
-        var target_date = new Date("Oct 22, 2021").getTime();
+        var target_date = new Date("Oct 30, 2021").getTime();
 
 
         // comment lines below

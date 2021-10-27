@@ -65,7 +65,13 @@
                                             <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
                                                     <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+
+                                                @if(Auth::user()->role == 3)
                                                 <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
+                                                @elseif(Auth::user()->role == 2)
+                                                <a class="dropdown-item" href="{{route('vendor.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Vendor Dashboard</i></a>
+                                                @endif
+
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a class="dropdown-item"
@@ -198,6 +204,15 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
+                                            <h6 class="custom-margin-title">Reset Password</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <a class="form-control link-primary" href="{{route('password.email')}}" role="button">Click Here</a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Profile Picture</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
@@ -208,6 +223,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                         <a class="btn btn-info" href="javascript:void(0)">Save Changes</a>
+                                        <a class="btn btn-danger" href="{{route('user.dashboard')}}">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
