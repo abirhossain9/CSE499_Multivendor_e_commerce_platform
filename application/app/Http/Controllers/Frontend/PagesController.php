@@ -44,5 +44,9 @@ class PagesController extends Controller
     {
         return view('frontend.ven_reg');
     }
+    public function vendorDashboard()
+    {
+        return view('frontend.vendor_dashboard');
+    }
 
 }

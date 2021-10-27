@@ -23,6 +23,7 @@ Route::get('/user-register','App\Http\Controllers\Frontend\PagesController@userR
 Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@userDashboard')->name('user.dashboard');
 Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->name('user.editdashboard');
 Route::get('/vendor-register', 'App\Http\Controllers\Frontend\PagesController@vendorRegister')->name('vendor.register');
+Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->name('vendor.dashboard');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
