@@ -132,8 +132,8 @@
                 <div class="col-lg-12">
                     <div
                         class="dashboard_text d-flex flex-column justify-content-center align-items-center text-center">
-                        <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
-                        <p>Customize <b>Profile</b> & Manage <b>Orders</b> Below</p>
+                        <h4 style="margin-bottom: 10px;">Vendor Profile</h4>
+                        <p>Customize <b>Shop</b> & Manage <b>Orders</b> Below</p>
                     </div>
                 </div>
                 <div class="main-body">
@@ -142,25 +142,25 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                        <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
+                                        <img src="{{ asset('frontend/images/shop.jpg') }}" alt="Admin" width="100%">
                                         <div class="mt-3">
-                                            <h4>Emamul Hassan</h4>
-                                            <p class="text-primary mb-1">Silver Customer</p>
-                                            <p class="text-secondary font-size-sm">Joar Sahara, Dhaka</p>
+                                            <h4>Codies Shop</h4>
+                                            <p class="text-primary mb-1">Silver Seller</p>
+                                            <p class="text-secondary font-size-sm">Bashundhara, Dhaka</p>
                                             <button class="btn btn-primary">Orders</button>
-                                            <button class="btn btn-outline-primary">Wishlists</button>
+                                            <button class="btn btn-outline-primary">Manage</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <div class="card mt-3">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <h6 class="mb-0">Profile Link</h6>
-                                    <span class="text-secondary">emart.com/emamulhassan</span>
-                                </li>
-                            </ul>
-                        </div>
+                            <div class="card mt-3">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <h6 class="mb-0">Profile Link</h6>
+                                        <span class="text-secondary">emart.com/codiesshop</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         {{-- profile info --}}
                         <div class="col-md-8">
@@ -168,35 +168,49 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6>Full Name</h6>
+                                            <h6>Shop Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Emamul Hassan</div>
+                                        <div class="col-sm-9 text-secondary">Codies Shop</div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6>Shop Owner</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">Codie</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Email</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">emamulhassan@gmail.com</div>
+                                        <div class="col-sm-9 text-secondary">codiy83461@forfity.com</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Phone</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">01629830159</div>
+                                        <div class="col-sm-9 text-secondary">01987654321</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6>Address</h6>
+                                            <h6>Shop Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Joar Sahara, Dhaka</div>
+                                        <div class="col-sm-9 text-secondary">Bashundhara, Dhaka</div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6>Owners Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">Bashundhara, Dhaka</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="{{ route('user.editdashboard') }}">Edit Profile</a>
+                                        <a class="btn btn-info" href="{{ route('vendor.editdashboard') }}">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -213,12 +227,12 @@
                                         <div class="card-header" id="orders">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-outline-info btn-block text-left" type="button" data-toggle="collapse" data-target="#myOrder" aria-expanded="true" aria-controls="myOrder">
-                                                My Orders
+                                                 Orders
                                                 </button>
                                             </h2>
                                         </div>
 
-                                        <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="#orderSection">
+                                        <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Active Orders</caption>
@@ -226,7 +240,9 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -235,14 +251,18 @@
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
                                                         </tr>
@@ -256,11 +276,11 @@
                                         <div class="card-header" id="orderHistory">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myOrderHistory" aria-expanded="false" aria-controls="myOrderHistory">
-                                                My Order History
+                                                 Order History
                                                 </button>
                                             </h2>
                                         </div>
-                                        <div id="myOrderHistory" class="collapse" aria-labelledby="orderHistory" data-parent="#orderSection">
+                                        <div id="myOrderHistory" class="collapse" aria-labelledby="orderHistory" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Completed Orders</caption>
@@ -268,23 +288,29 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
-                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-success btn-sm disabled" role="button">Completed</a></td>
                                                         </tr>
@@ -340,11 +366,11 @@
                                         <div class="card-header" id="cancellations">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myCancellations" aria-expanded="false" aria-controls="myCancellations">
-                                                My Cancellations
+                                                 Cancellations
                                                 </button>
                                             </h2>
                                         </div>
-                                        <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="#orderSection">
+                                        <div id="myCancellations" class="collapse" aria-labelledby="cancellations" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
                                                     <caption>Canceled Orders</caption>
@@ -352,23 +378,29 @@
                                                         <tr class="table-active">
                                                             <th scope="col">Order ID</th>
                                                             <th scope="col">Product Name</th>
+                                                            <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
+                                                            <th scope="col">Buyer</th>
                                                             <th scope="col">Price</th>
-                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td>Item Name 1</td>
+                                                            <td>1</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 1</td>
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
                                                             <td>Item Name 2</td>
+                                                            <td>2</td>
                                                             <td>14/10/2021</td>
+                                                            <td>User 2</td>
                                                             <td>1000৳</td>
                                                             <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
                                                         </tr>
@@ -378,7 +410,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card">
+                                    {{-- <div class="card">
                                         <div class="card-header" id="wishlists">
                                             <h2 class="mb-0">
                                                 <button class="btn btn-outline-info btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#myWishlists" aria-expanded="false" aria-controls="myWishlists">
@@ -391,7 +423,7 @@
                                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam maxime, ullam placeat sapiente eaque numquam vero aliquam nemo enim saepe.
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
 
