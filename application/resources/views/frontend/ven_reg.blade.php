@@ -139,6 +139,13 @@
 								</div>
 							</div>
 
+                            {{-- role status --}}
+                            <div class="form-group" hidden>
+                                <select class="form-control" name="role">
+                                    <option value="2" selected>Vendor</option>
+                                </select>
+                            </div>
+
 							<div class="col-lg-12">
 								<div
 									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">

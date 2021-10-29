@@ -128,6 +128,12 @@
             <x-input id="phone" class="form-control" type="text" placeholder="Enter your phone" name="phone" :value="old('phone')" required autofocus />
         </div>
 
+        {{-- role status --}}
+        <div class="form-group" hidden>
+            <select class="form-control" name="role">
+                <option value="3" selected>User</option>
+            </select>
+        </div>
 
         <!-- Password -->
         <div class="form-group">
@@ -140,6 +146,7 @@
             <x-label for="password_confirmation" :value="__('Confirm Password')" />
             <x-input id="password_confirmation" class="form-control" type="password" placeholder="Confirm your password" name="password_confirmation" required />
         </div>
+
 
           <div class="form-group tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
           <div class="form-group d-flex flex-column justify-content-center align-items-center">
