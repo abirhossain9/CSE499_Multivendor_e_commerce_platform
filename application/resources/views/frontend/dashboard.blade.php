@@ -170,33 +170,33 @@
                                         <div class="col-sm-3">
                                             <h6>Full Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Emamul Hassan</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->name}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Email</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">emamulhassan@gmail.com</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->email}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Phone</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">01629830159</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->phone}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Joar Sahara, Dhaka</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->address}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="{{ route('user.editdashboard') }}">Edit Profile</a>
+                                        <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>

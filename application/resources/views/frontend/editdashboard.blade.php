@@ -171,7 +171,7 @@
                                             <h6 class="custom-margin-title">Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="fullname" class="form-control" required="required" value="Emamul Hassan" autocomplete="off">
+                                            <input type="text" name="fullname" class="form-control" required="required" value="{{Auth::user()->name}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -180,7 +180,7 @@
                                             <h6 class="custom-margin-title">Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="email" name="email" class="form-control" required="required" value="emamulhassan@gmail.com" autocomplete="off" readonly>
+                                            <input type="email" name="email" class="form-control" required="required" value="{{Auth::user()->email}}" autocomplete="off" readonly>
                                         </div>
                                     </div>
                                     <hr>
@@ -189,7 +189,7 @@
                                             <h6 class="custom-margin-title">Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="number" name="phone" class="form-control" required="required" value="01629830159" autocomplete="off">
+                                            <input type="number" name="phone" class="form-control" required="required" value="{{Auth::user()->phone}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -198,7 +198,7 @@
                                             <h6 class="custom-margin-title">Address</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="phone" class="form-control" required="required" value="Joar Sahara, Dhaka" autocomplete="off">
+                                            <input type="text" name="phone" class="form-control" required="required" value="{{Auth::user()->address}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
