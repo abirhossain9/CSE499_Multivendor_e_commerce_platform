@@ -144,9 +144,9 @@
                                     <div class="align-items-center text-center">
                                         <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
                                         <div class="mt-3">
-                                            <h4>Emamul Hassan</h4>
+                                            <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Customer</p>
-                                            <p class="text-secondary font-size-sm">Joar Sahara, Dhaka</p>
+                                            <p class="text-secondary font-size-sm">{{Auth::user()->address}}</p>
                                             <button class="btn btn-primary">Orders</button>
                                             <button class="btn btn-outline-primary">Wishlists</button>
                                         </div>
