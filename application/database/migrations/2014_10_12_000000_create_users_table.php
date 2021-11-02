@@ -22,7 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('image')->nullable();
-            $table->integer('role')->default(3)->comment('1= Admin, 2 = Vendor, 3= User');
+            $table->integer('role')->default(3)->comment('1= Admin, 2 = Vendor, 3 = Customer');
+            $table->integer('status')->default(2)->comment('1= Active, 2 = Inactive');
+            $table->integer('shop_status')->default(2)->comment('1= Have shop, 2 = No shop');
             $table->rememberToken();
             $table->timestamps();
         });
