@@ -142,8 +142,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                        <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
-                                        <div class="mt-3">
+                                       @if (Auth::user()->image==NULL)
+                                         <img src="{{asset('frontend/images/user/default.JPG')}}" alt="" width="150">
+                                        @else
+                                         <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
+                                        @endif
+                                         <div class="mt-3">
                                             <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Customer</p>
                                             <p class="text-secondary font-size-sm">{{Auth::user()->address}}</p>
