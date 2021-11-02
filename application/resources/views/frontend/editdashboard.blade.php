@@ -142,8 +142,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                        <img src="{{ asset('frontend/images/profile.jpg') }}" alt="Admin" class="rounded-circle" width="150">
-                                        <div class="mt-3">
+                                        @if (Auth::user()->image==NULL)
+                                         <img src="{{asset('frontend/images/user/default.JPG')}}" alt="" width="150">
+                                        @else
+                                         <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
+                                        @endif                                        <div class="mt-3">
                                             <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Customer</p>
                                             <p class="text-secondary font-size-sm">{{Auth::user()->address}}</p>
@@ -165,13 +168,16 @@
                         {{-- profile info --}}
                         <div class="col-md-8">
                             <div class="card mb-3">
-                                <div class="card-body">
+                                <form action="{{ route('user.update',Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="card-body">
+
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6 class="custom-margin-title">Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="fullname" class="form-control" required="required" value="{{Auth::user()->name}}" autocomplete="off">
+                                            <input type="text" name="name" class="form-control" required="required" value="{{Auth::user()->name}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -198,7 +204,7 @@
                                             <h6 class="custom-margin-title">Address</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="phone" class="form-control" required="required" value="{{Auth::user()->address}}" autocomplete="off">
+                                            <input type="text" name="address" class="form-control" required="required" value="{{Auth::user()->address}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -222,11 +228,13 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="javascript:void(0)">Save Changes</a>
+                                        <input type="submit" name="updateEmployee" value="Save Changes" class="btn-success btn btn-teal mg-b-10">
                                         <a class="btn btn-danger" href="{{route('user.dashboard')}}">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
+                                </form>
+
                             </div>
                         </div>
 
