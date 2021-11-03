@@ -128,12 +128,15 @@
             <x-input id="phone" class="form-control" type="text" placeholder="Enter your phone" name="phone" :value="old('phone')" required autofocus />
         </div>
 
-        {{-- role status --}}
-        <div class="form-group" hidden>
-            <select class="form-control" name="role">
-                <option value="3" selected>User</option>
-            </select>
-        </div>
+       {{-- role status --}}
+         <div class="form-group">
+            <x-label for="role" :value="__('Account Type')" />
+              <select class="form-control" name="role">
+                 <option value="3">Chose Your Account Type</option>
+                 <option value="3">Customer</option>
+                 <option value="2">Vendor</option>
+              </select>
+         </div>
 
         <!-- Password -->
         <div class="form-group">
