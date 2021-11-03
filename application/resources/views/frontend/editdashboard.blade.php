@@ -132,7 +132,11 @@
                 <div class="col-lg-12">
                     <div
                         class="dashboard_text d-flex flex-column justify-content-center align-items-center text-center">
-                        <h4 style="margin-bottom: 10px;">Profile Dashboard</h4>
+                        @if (Auth::user()->role == 3)
+                        <h4 style="margin-bottom: 10px;"> Edit Customer Dashboard</h4>
+                        @elseif(Auth::user()->role == 2)
+                        <h4 style="margin-bottom: 10px;"> Edit Vendor Dashboard</h4>
+                        @endif
                         <p>Edit <b>Profile</b> & Manage <b>Orders</b> Below</p>
                     </div>
                 </div>
@@ -195,7 +199,7 @@
                                             <h6 class="custom-margin-title">Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="number" name="phone" class="form-control" required="required" value="{{Auth::user()->phone}}" autocomplete="off">
+                                            <input type="text" name="phone" class="form-control" required="required" value="{{Auth::user()->phone}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -229,7 +233,13 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                         <input type="submit" name="updateEmployee" value="Save Changes" class="btn-success btn btn-teal mg-b-10">
-                                        <a class="btn btn-danger" href="{{route('user.dashboard')}}">Cancel</a>
+                                        <a class="btn btn-danger"
+                                        @if (Auth::user()->role == 3)
+                                        href="{{route('user.dashboard')}}"
+                                        @elseif(Auth::user()->role == 2)
+                                        href="{{route('vendor.dashboard')}}"
+                                        @endif
+                                        >Cancel</a>
                                         </div>
                                     </div>
                                 </div>

@@ -79,7 +79,6 @@
                                             </a>
                                         </li>
                                         @if (Auth::check())
-
                                         <li class="dropdown">
                                             <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
