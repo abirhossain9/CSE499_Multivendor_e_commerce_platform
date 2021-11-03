@@ -45,7 +45,7 @@
           </li>
 
         <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">HR Department</label>
-         {{-- Mentor Profile Management --}}
+         {{-- Employees Profile Management --}}
         <li class="br-menu-item">
           <a href="#" class="br-menu-link with-sub">
             <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
@@ -55,6 +55,17 @@
             <li class="sub-item"><a href="{{route('employee.manage')}}" class="sub-link">Manage All Employees</a></li>
             <li class="sub-item"><a href="{{route('employee.create')}}" class="sub-link">Add New Employee</a></li>
 
+          </ul>
+        </li>
+        <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">User Management</label>
+         {{-- Employees Profile Management --}}
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">User</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('user.manage')}}" class="sub-link">Manage All Users</a></li>
           </ul>
         </li>
       </ul><!-- br-sideleft-menu -->
