@@ -142,9 +142,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                        <img src="{{ asset('frontend/images/shop.jpg') }}" alt="Admin" width="100%">
-                                        <div class="mt-3">
-                                            <h4>Codies Shop</h4>
+                                        @if (Auth::user()->image==NULL)
+                                         <img src="{{asset('frontend/images/user/default.JPG')}}" alt="" width="150">
+                                        @else
+                                         <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
+                                        @endif                                        <div class="mt-3">
+                                            <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Seller</p>
                                             <p class="text-secondary font-size-sm">Bashundhara, Dhaka</p>
                                             <button class="btn btn-primary">Orders</button>
@@ -168,54 +171,53 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6>Shop Name</h6>
+                                            <h6>Full Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Codies Shop</div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6>Shop Owner</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">Codie</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->name}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Email</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">codiy83461@forfity.com</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->email}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Phone</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">01987654321</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->phone}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6>Shop Address</h6>
+                                            <h6>Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Bashundhara, Dhaka</div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6>Owners Address</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">Bashundhara, Dhaka</div>
+                                        <div class="col-sm-9 text-secondary">{{Auth::user()->address}}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="{{ route('vendor.editdashboard') }}">Edit Profile</a>
+                                        <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {{-- shop setup --}}
+                        @if (Auth::user()->status == 2)
+                        <div class="alert alert-warning" role="alert">
+                        Your Account Has not Been Activated Yet. Please wait till the admin set your status active
+                       </div>
+                        @elseif(Auth::user()->status == 1)
+                        <div class="alert alert-success" role="alert">
+                        Congratulation Your Account Been Activated. Please Setup your Shop
+                        <a type="button" class="btn btn-success" href="#">Setup Shop</a>
                         </div>
+                        @endif
+                        </div>
+
+
 
                         {{-- order info --}}
                         <div class="col-md-12">
