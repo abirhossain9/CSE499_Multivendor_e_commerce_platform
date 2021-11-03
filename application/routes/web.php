@@ -21,13 +21,13 @@ Route::get('/','App\Http\Controllers\Frontend\PagesController@index')->name('hom
 //user features
 Route::get('/user-login','App\Http\Controllers\Frontend\PagesController@userLogin')->name('user.login');
 Route::get('/user-register','App\Http\Controllers\Frontend\PagesController@userRegister')->name('user.register');
-Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@userDashboard')->name('user.dashboard');
-Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->name('user.editdashboard');
+Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@userDashboard')->middleware(['auth','verified'])->name('user.dashboard');
+Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->middleware(['auth','verified'])->name('user.editdashboard');
 Route::post('/user-update/{id}','App\Http\Controllers\Frontend\UserProfileController@update')->name('user.update');
 //vendor features
 Route::get('/vendor-register', 'App\Http\Controllers\Frontend\PagesController@vendorRegister')->name('vendor.register');
-Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->name('vendor.dashboard');
-Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editVendorProfile')->name('vendor.editdashboard');
+Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->middleware(['auth','verified'])->name('vendor.dashboard');
+Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editVendorProfile')->middleware(['auth','verified'])->name('vendor.editdashboard');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -81,6 +81,15 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/edit/{id}','App\Http\Controllers\Backend\BannerController@edit')->name('banner.edit');
         Route::post('/update/{id}','App\Http\Controllers\Backend\BannerController@update')->name('banner.update');
         Route::post('/destroy/{id}','App\Http\Controllers\Backend\BannerController@destroy')->name('banner.destroy');
+    });
+    //this routes are for coupon management
+    Route::group(['prefix' => '/user'], function(){
+        Route::get('/manage','App\Http\Controllers\Frontend\UserProfileController@index')->name('user.manage');
+        // Route::get('/create','App\Http\Controllers\Frontend\UserProfileController@create')->name('user.create');
+        // Route::post('/store','App\Http\Controllers\Frontend\UserProfileController@store')->name('user.store');
+        Route::get('/edit/{id}','App\Http\Controllers\Frontend\UserProfileController@edit')->name('user.edit');
+        //Route::post('/update/{id}','App\Http\Controllers\Frontend\UserProfileController@update')->name('user.update');
+        Route::post('/destroy/{id}','App\Http\Controllers\Frontend\UserProfileController@destroy')->name('user.destroy');
     });
 
 });
