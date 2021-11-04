@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Vendor Registration</title>
+	<title>Shop Details</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Colo Shop Template">
@@ -93,89 +93,68 @@
 					<div class="col-lg-12">
 						<div
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
-							<h4 style="margin-bottom: 10px;">Welcome To E-Mart</h4>
-							<p>Please <b>Register</b> for <b>Venor/Seller</b> Here</p>
+							<h4 style="margin-bottom: 10px;">Welcome To E-Mart.</h4>
+							<p>Please Enter Your <b>Shop Details</b> Below</p>
 						</div>
 					</div>
 
-					<div class="col-lg-12">
+                    <div class="col-lg-6 offset-lg-3">
 
-						<form action="" method="POST">
+                        <!-- Validation Errors -->
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <!-- Shop Name -->
+                            <div class="form-group">
+                                <x-label for="name" :value="__('Shop Name')" />
+                                <x-input id="name" class="form-control" type="text" placeholder="Enter your shop name" name="name" :value="old('name')" required autofocus />
+                            </div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="text" name="name" placeholder="Enter Shop Name" required="required">
-								</div>
-							</div>
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <x-label for="email" :value="__('Email')" />
+                                <x-input id="email" class="form-control" type="email" placeholder="Enter your shops email" name="email" :value="old('email')" required />
+                            </div>
 
-                            <div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="text" name="name" placeholder="Enter Shop Owner/Your Name" required="required">
-								</div>
-							</div>
+                            <!-- Shop Address -->
+                            <div class="form-group">
+                                <x-label for="address" :value="__('Shop Address')" />
+                                <x-input id="address" class="form-control" type="text" placeholder="Enter your shops address" name="address" :value="old('address')" required autofocus />
+                            </div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="number" name="phone" placeholder="Enter Your Phone Number" required="required">
-								</div>
-							</div>
+                            <!-- Phone Num -->
+                            <div class="form-group">
+                                <x-label for="phone" :value="__('Shop Contact No.')" />
+                                <x-input id="phone" class="form-control" type="text" placeholder="Enter your shops phone number" name="phone" :value="old('phone')" required autofocus />
+                            </div>
 
-                            <div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="text" name="address" placeholder="Enter Physical Shop Address(if available)">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="text" name="address" placeholder="Enter Your Address">
-								</div>
-							</div>
-
-							<div class="col-lg-12">
-								<div
-									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="email" name="email" placeholder="Enter Your Email" required="required">
-								</div>
-							</div>
-
-                            {{-- role status --}}
-                            <div class="form-group" hidden>
-                                <select class="form-control" name="role">
-                                    <option value="2" selected>Vendor</option>
+                        {{-- shop category --}}
+                            <div class="form-group">
+                                <x-label for="category" :value="__('Shop Type')" />
+                                <select class="form-control" name="category">
+                                    <option value="11">Choose a shop category.</option>
+                                    <option value="1">Accessories</option>
+                                    <option value="2">Books</option>
+                                    <option value="3">Electronics</option>
+                                    <option value="4">Fashion</option>
+                                    <option value="5">Food & Personal Care</option>
+                                    <option value="6">Furniture and Appliance</option>
+                                    <option value="7">Health & Beauty</option>
+                                    <option value="8">Movies & Music</option>
+                                    <option value="9">Sporting Goods</option>
+                                    <option value="10">Toys & Hobbies</option>
+                                    <option value="11">Others</option>
                                 </select>
                             </div>
 
-							<div class="col-lg-12">
-								<div
-									class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="password" name="password" placeholder="Enter a Password" required="required">
-								</div>
-							</div>
 
-							<div class="col-lg-12">
-								<div class="reg_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-									<input id="reg_det" type="password" name="re-password" placeholder="Retype Password" required="required">
-								</div>
-							</div>
-
-							<div class="form-group d-flex flex-column justify-content-center align-items-center tx-12">By clicking the Sign Up button below, you agreed to our privacy policy and terms of use of our website.</div>
-							<div class="form-group d-flex flex-column justify-content-center align-items-center tx-12">You must wait until an admin varify your details and approve your shop. After that you will be able to use the vendor portal to customize your shop.</div>
+                            <div class="form-group tx-12">By clicking the Register Shop button below, you agreed to our privacy policy and terms of use of our website.</div>
                             <div class="form-group d-flex flex-column justify-content-center align-items-center">
-                                <button type="submit" class="btn cus_log_submit_btn btn-block">Sign Up</button>
+                                <button type="submit" class="btn cus_log_submit_btn btn-block">Register Shop</button>
                             </div>
-						</form>
-					</div>
+                        </form>
 
-					<div class="col-lg-12">
-						<div
-							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
-							<h4 style="margin-bottom: 20px;">Go Back?</h4>
-							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
-							<p>Please <b><a href="{{route('user.register')}}">Register Here!</a></b></p>
-						</div>
-					</div>
-
+                    </div>
 
 
 				</div>
