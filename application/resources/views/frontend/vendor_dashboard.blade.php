@@ -200,7 +200,9 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
+                                            @if (Auth::user()->shop_status == 1)
                                             <a class="btn btn-info" href="">Manage Shop</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
