@@ -82,7 +82,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/update/{id}','App\Http\Controllers\Backend\BannerController@update')->name('banner.update');
         Route::post('/destroy/{id}','App\Http\Controllers\Backend\BannerController@destroy')->name('banner.destroy');
     });
-    //this routes are for coupon management
+    //this routes are for user management
     Route::group(['prefix' => '/user'], function(){
         Route::get('/manage','App\Http\Controllers\Frontend\UserProfileController@index')->name('user.manage');
         // Route::get('/create','App\Http\Controllers\Frontend\UserProfileController@create')->name('user.create');
