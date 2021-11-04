@@ -163,7 +163,6 @@
 							class="reg_text d-flex flex-column justify-content-center align-items-center text-center">
 							<h4 style="margin-bottom: 20px;">Old Member?</h4>
 							<p>Please <b><a href="{{route('user.login')}}">Login Here!</a></b></p>
-                            <p>Want to be a Vendor/Seller? <b><a href="{{route('vendor.register')}}">Apply Here!</a></b></p>
 						</div>
 					</div>
 

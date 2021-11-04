@@ -25,7 +25,7 @@ Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@user
 Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->middleware(['auth','verified'])->name('user.editdashboard');
 Route::post('/user-update/{id}','App\Http\Controllers\Frontend\UserProfileController@update')->name('user.update');
 //vendor features
-Route::get('/vendor-register', 'App\Http\Controllers\Frontend\PagesController@vendorRegister')->name('vendor.register');
+Route::get('/vendor-shop-details', 'App\Http\Controllers\Frontend\PagesController@vendorShopDetails')->name('vendor.shopdetails');
 Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->middleware(['auth','verified'])->name('vendor.dashboard');
 Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editVendorProfile')->middleware(['auth','verified'])->name('vendor.editdashboard');
 
