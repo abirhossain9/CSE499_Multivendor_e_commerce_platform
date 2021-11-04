@@ -88,7 +88,7 @@ Route::group(['prefix' => 'admin'], function(){
         // Route::get('/create','App\Http\Controllers\Frontend\UserProfileController@create')->name('user.create');
         // Route::post('/store','App\Http\Controllers\Frontend\UserProfileController@store')->name('user.store');
         Route::get('/edit/{id}','App\Http\Controllers\Frontend\UserProfileController@edit')->name('user.edit');
-        //Route::post('/update/{id}','App\Http\Controllers\Frontend\UserProfileController@update')->name('user.update');
+        Route::post('/update/by/admin/{id}','App\Http\Controllers\Frontend\UserProfileController@updateByAdmin')->name('user.update.admin');
         Route::post('/destroy/{id}','App\Http\Controllers\Frontend\UserProfileController@destroy')->name('user.destroy');
     });
 

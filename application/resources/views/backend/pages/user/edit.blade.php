@@ -15,7 +15,7 @@
 
             <div class="card bd-0 shadow-base">
                 <div class="pd-25">
-                        <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('user.update.admin',$user->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-4">
@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Role</label>
-                                        <select class="form-control" name="status">
+                                        <select class="form-control" name="role">
                                             <option value="3">Please Select The Role</option>
                                             <option value="1" @if($user->role == 1) selected @endif>Admin</option>
                                             <option value="2" @if($user->role == 2) selected @endif>Vendor</option>

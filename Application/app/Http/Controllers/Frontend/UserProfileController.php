@@ -107,6 +107,33 @@ class UserProfileController extends Controller
 
     }
 
+    public function updateByAdmin(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email =$request->email;
+        $user->phone =$request->phone;
+        $user->address =$request->address;
+        $user->role =$request->role;
+        $user->status =$request->status;
+        if(!empty($request->image)){
+            if(File::exists('frontend/images/user/'.$user->image)){
+                File::delete('frontend/images/user/'.$user->image);
+            }
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('frontend/images/user/'.$img);
+            Image::make($image)->save($location);
+            $user->image = $img;
+        }
+        $user->save();
+        return redirect()->route('user.manage');
+
+    }
+
+
+
+
     /**
      * Remove the specified resource from storage.
      *
