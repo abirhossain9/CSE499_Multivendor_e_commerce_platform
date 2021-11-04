@@ -142,6 +142,11 @@ class UserProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if(File::exists('frontend/images/user/'.$user->image)){
+                File::delete('frontend/images/user/'.$user->image);
+        }
+        $user->delete();
+        return redirect()->route('user.manage');
     }
 }
