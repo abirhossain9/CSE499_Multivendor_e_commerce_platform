@@ -40,17 +40,17 @@
 
                                 <tr>
                                     <th scope="row">{{$i;}}</th>
-                                    <td>@if ($user->profile_pic==NULL)
+                                    <td>@if ($user->image==NULL)
                                          <img src="{{asset('backend/img/users/default.jpg')}}" alt="" width="40">
                                     @else
-                                         <img src="{{asset('backend/img/users/'.$user->image)}}" alt="" width="40">
+                                         <img src="{{asset('frontend/images/user/'.$user->image)}}" alt="" width="40">
 
                                     @endif</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         @if ($user->email_verified_at==null)
-                                        <span class="badge badge-info">Not Verified</span>
+                                        <span class="badge badge-danger">Not Verified</span>
                                         @else
                                         <span class="badge badge-info">Verified</span>
                                         @endif
@@ -61,7 +61,9 @@
                                         @if ($user->role==2)
                                         <span class="badge badge-info">Vendor</span>
                                         @elseif ($user->role==3)
-                                        <span class="badge badge-info">Customer</span>
+                                        <span class="badge badge-warning">Customer</span>
+                                        @elseif ($user->role==1)
+                                        <span class="badge badge-primary">Admin</span>
                                         @endif
                                     </td>
                                     <td>

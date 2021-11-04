@@ -15,7 +15,6 @@
 
             <div class="card bd-0 shadow-base">
                 <div class="pd-25">
-
                         <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -64,13 +63,14 @@
                                      <div class="form-gorup">
                                         <label>Profile Picture</label>
                                           <br>
-                                        @if ($user->profile_pic==NULL)
-                                          <img src="{{asset('backend/img/user/default.jpg')}}" alt="" width="40">
+                                        @if ($user->image==NULL)
+                                        <h4>No Image uploaded</h4>
                                         @else
-                                          <img src="{{asset('backend/img/user/'.$user->image)}}" alt="" width="40">
-
+                                          <img src="{{asset('frontend/images/user/'.$user->image)}}" alt="" width="40">
                                         @endif
-                                    <br><br>
+                                    <br>
+                                    Update Image
+                                    <br>
                                         <input type="file" name="image" class="form-control-file">
                                     </div>
 
