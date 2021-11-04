@@ -150,8 +150,8 @@
                                             <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Seller</p>
                                             <p class="text-secondary font-size-sm">Bashundhara, Dhaka</p>
-                                            <button class="btn btn-primary">Orders</button>
-                                            <button class="btn btn-outline-primary">Manage</button>
+                                            <button class="btn btn-primary" style="padding: 5px 5px">Orders</button>
+                                            <button class="btn btn-outline-primary" style="padding: 5px 5px">Manage</button>
                                         </div>
                                     </div>
                                 </div>
@@ -199,22 +199,24 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
+                                            <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
+                                            <a class="btn btn-info" href="">Manage Shop</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             {{-- shop setup --}}
-                        @if (Auth::user()->status == 2)
-                        <div class="alert alert-warning" role="alert">
-                        Your Account Has not Been Activated Yet. Please wait till the admin set your status active
-                       </div>
-                        @elseif(Auth::user()->status == 1)
-                        <div class="alert alert-success" role="alert">
-                        Congratulation Your Account Been Activated. Please Setup your Shop
-                        <a type="button" class="btn btn-success" href="#">Setup Shop</a>
-                        </div>
-                        @endif
+                            @if (Auth::user()->status == 2)
+                                <div class="alert alert-warning" role="alert">
+                                    Your account has not been activated yet. Please wait till the admin set your status active!
+                                </div>
+                                @elseif(Auth::user()->status == 1)
+                                <div class="alert alert-success" role="alert">
+                                    Congratulation, your account has been activated. Please setup your shop!<hr>
+                                    <a class="btn btn-success btn-block" href="{{route('vendor.shopdetails')}}">Setup Shop</a>
+                                </div>
+                            @endif
+
                         </div>
 
 
@@ -244,7 +246,7 @@
                                                             <th scope="col">Product Name</th>
                                                             <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
-                                                            <th scope="col">Seller</th>
+                                                            <th scope="col">Buyer</th>
                                                             <th scope="col">Price</th>
                                                             <th scope="col">Action</th>
                                                         </tr>

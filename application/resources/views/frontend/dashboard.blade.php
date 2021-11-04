@@ -151,8 +151,8 @@
                                             <h4>{{Auth::user()->name}}</h4>
                                             <p class="text-primary mb-1">Silver Customer</p>
                                             <p class="text-secondary font-size-sm">{{Auth::user()->address}}</p>
-                                            <button class="btn btn-primary">Orders</button>
-                                            <button class="btn btn-outline-primary">Wishlists</button>
+                                            <button class="btn btn-primary" style="padding: 5px 5px">Orders</button>
+                                            <button class="btn btn-outline-primary" style="padding: 5px 5px">Wishlists</button>
                                         </div>
                                     </div>
                                 </div>
