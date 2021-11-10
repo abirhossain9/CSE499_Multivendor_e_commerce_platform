@@ -143,7 +143,7 @@
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
                                        @if (Auth::user()->image==NULL)
-                                         <img src="{{asset('frontend/images/user/default.JPG')}}" alt="" width="150">
+                                         <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
                                         @else
                                          <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
                                         @endif
