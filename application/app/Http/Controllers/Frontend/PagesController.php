@@ -53,5 +53,13 @@ class PagesController extends Controller
     {
         return view('frontend.vendor_shopdetails');
     }
+    public function shopDashboard()
+    {
+        return view('frontend.shop_dashboard');
+    }
+    public function editShop()
+    {
+        return view('frontend.editshop_dashboard');
+    }
 
 }
