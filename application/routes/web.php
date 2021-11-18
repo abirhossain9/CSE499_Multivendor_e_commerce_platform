@@ -25,11 +25,14 @@ Route::get('/user-dashboard','App\Http\Controllers\Frontend\PagesController@user
 Route::get('/user-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editProfile')->middleware(['auth','verified'])->name('user.editdashboard');
 Route::post('/user-update/{id}','App\Http\Controllers\Frontend\UserProfileController@update')->name('user.update');
 //vendor features
-Route::get('/vendor-shop-details', 'App\Http\Controllers\Frontend\PagesController@vendorShopDetails')->name('vendor.shopdetails');
+Route::get('/vendor-shop-details', 'App\Http\Controllers\Frontend\PagesController@vendorShopDetails')->middleware(['auth','verified'])->name('vendor.shopdetails');
 Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->middleware(['auth','verified'])->name('vendor.dashboard');
 Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editVendorProfile')->middleware(['auth','verified'])->name('vendor.editdashboard');
 Route::get('/shop-dashboard', 'App\Http\Controllers\Frontend\PagesController@shopDashboard')->middleware(['auth', 'verified'])->name('shop.dashboard');
 Route::get('/shop-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editShop')->middleware(['auth', 'verified'])->name('shop.editdashboard');
+
+//shop create
+Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

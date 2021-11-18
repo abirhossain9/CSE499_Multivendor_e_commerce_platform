@@ -100,55 +100,50 @@
 
                     <div class="col-lg-6 offset-lg-3">
 
-                        <!-- Validation Errors -->
-                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('shop.store') }}" enctype="multipart/form-data">
                             @csrf
                             <!-- Shop Name -->
+
                             <div class="form-group">
-                                <x-label for="name" :value="__('Shop Name')" />
-                                <x-input id="name" class="form-control" type="text" placeholder="Enter your shop name" name="name" :value="old('name')" required autofocus />
+                                 <label>Shop Name</label>
+                                 <input type="text" name="shop_name" placeholder="Enter Your Shop name" class="form-control" required="required" autocomplete="off">
                             </div>
 
                             <!-- Email Address -->
-                            <div class="form-group">
-                                <x-label for="email" :value="__('Email')" />
-                                <x-input id="email" class="form-control" type="email" placeholder="Enter your shops email" name="email" :value="old('email')" required />
+                            <div class="form-group" hidden>
+                                 <label>Shop Owner</label>
+                                 <input type="text" name="shop_owner" value="{{ Auth::user()->id}}" class="form-control" required="required" autocomplete="off">
                             </div>
 
                             <!-- Shop Address -->
-                            <div class="form-group">
-                                <x-label for="address" :value="__('Shop Address')" />
-                                <x-input id="address" class="form-control" type="text" placeholder="Enter your shops address" name="address" :value="old('address')" required autofocus />
+                             <div class="form-group">
+                                 <label>Shop Address</label>
+                                 <input type="text" name="shop_address" placeholder="Enter Your Shop Address" class="form-control" required="required" autocomplete="off">
                             </div>
 
                             <!-- Phone Num -->
                             <div class="form-group">
-                                <x-label for="phone" :value="__('Shop Contact No.')" />
-                                <x-input id="phone" class="form-control" type="text" placeholder="Enter your shops phone number" name="phone" :value="old('phone')" required autofocus />
+                                 <label>Shop Phone</label>
+                                 <input type="text" name="shop_phone" placeholder="Enter Your Shop Contact No" class="form-control" required="required" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                 <label>Shop Description [Your shop will be approved based on your description]</label>
+                                 <textarea class="form-control" name="shop_description" rows="4" required></textarea>
                             </div>
 
                         {{-- shop category --}}
                             <div class="form-group">
-                                <x-label for="category" :value="__('Shop Type')" />
-                                <select class="form-control" name="category">
-                                    <option value="11">Choose a shop category.</option>
-                                    <option value="1">Accessories</option>
-                                    <option value="2">Books</option>
-                                    <option value="3">Electronics</option>
-                                    <option value="4">Fashion</option>
-                                    <option value="5">Food & Personal Care</option>
-                                    <option value="6">Furniture and Appliance</option>
-                                    <option value="7">Health & Beauty</option>
-                                    <option value="8">Movies & Music</option>
-                                    <option value="9">Sporting Goods</option>
-                                    <option value="10">Toys & Hobbies</option>
-                                    <option value="11">Others</option>
-                                </select>
+                                <label>Shop Type [eg: groceries, cosmetics, sports etc]</label>
+                                <input type="text" name="shop_type" placeholder="Enter Your Shop Type" class="form-control" required="required" autocomplete="off">
                             </div>
+                             {{-- shop image --}}
+                             <div class="form-gorup">
+                                <label>Shop Image</label>
+                                 <input type="file" name="shop_image" class="form-control-file" required>
+                              </div>
+                              <br>
 
-
-                            <div class="form-group tx-12">By clicking the Register Shop button below, you agreed to our privacy policy and terms of use of our website.</div>
+                            <div class="form-group tx-12 alert alert-warning" >By clicking the Register Shop button below, you agreed to our privacy policy and terms of use of our website.</div>
                             <div class="form-group d-flex flex-column justify-content-center align-items-center">
                                 <button type="submit" class="btn cus_log_submit_btn btn-block">Register Shop</button>
                             </div>

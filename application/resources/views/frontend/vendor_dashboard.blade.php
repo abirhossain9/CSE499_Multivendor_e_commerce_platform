@@ -200,7 +200,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
-                                            @if(Auth::user()->status == 1 && Auth::user()->shop_status == 1)
+                                            @if(Auth::user()->shop_status == 1 && Auth::user()->shop->shop_status == 1)
                                             <a class="btn btn-info" href="{{ route('shop.dashboard')}}">Manage Shop</a>
                                             @endif
                                         </div>
@@ -208,16 +208,16 @@
                                 </div>
                             </div>
                             {{-- shop setup --}}
-                            @if (Auth::user()->status == 2)
-                                <div class="alert alert-warning" role="alert">
-                                    Your account has not been activated yet. Please wait till the admin set your status active!
-                                </div>
-                                @elseif(Auth::user()->status == 1 && Auth::user()->shop_status == 2)
+                                @if(Auth::user()->shop_status == 2)
                                 <div class="alert alert-success" role="alert">
-                                    Congratulation, your account has been activated. Please setup your shop!<hr>
+                                    Thankyou For Creating Account. Please setup your shop!<hr>
                                     <a class="btn btn-success btn-block" href="{{route('vendor.shopdetails')}}">Setup Shop</a>
                                 </div>
-                            @endif
+                                @elseif(Auth::user()->shop_status == 1 && Auth::user()->shop->shop_status == 2 )
+                                <div class="alert alert-success" role="alert">
+                                    Thankyou For Setting Up your shop. Please Wait till admin approves your shop<hr>
+                                </div>
+                                @endif
 
                         </div>
 

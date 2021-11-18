@@ -142,15 +142,15 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                       @if (Auth::user()->image==NULL)
+                                       @if (Auth::user()->shop->shop_image==NULL)
                                          <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
                                         @else
-                                         <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
+                                         <img src="{{asset('backend/img/shop/'.Auth::user()->shop->shop_image)}}" alt="" width="150">
                                         @endif
                                          <div class="mt-3">
-                                            <h4>Shop Name</h4>
-                                            <p class="text-primary mb-1">Category</p>
-                                            <p class="text-secondary font-size-sm">Shop Address</p>
+                                            <h4>{{ Auth::user()->shop->shop_name }}</h4>
+                                            <p class="text-primary mb-1">{{ Auth::user()->shop->shop_type }}</p>
+                                            <p class="text-secondary font-size-sm">{{ Auth::user()->shop->shop_name }}</p>
                                             <button class="btn btn-primary" style="padding: 5px 5px">Orders</button>
                                             <button class="btn btn-outline-primary" style="padding: 5px 5px">Manage</button>
                                         </div>
@@ -174,35 +174,35 @@
                                         <div class="col-sm-3">
                                             <h6>Shop Name</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Shop Name</div>
+                                        <div class="col-sm-9 text-secondary">{{ Auth::user()->shop->shop_name }}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6>Email</h6>
+                                            <h6>Shop Owner</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Email</div>
+                                        <div class="col-sm-9 text-secondary">{{ Auth::user()->name }}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Shop Address</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Shop Address</div>
+                                        <div class="col-sm-9 text-secondary">{{ Auth::user()->shop->shop_address }}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Shop Contact</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Shop Contact No</div>
+                                        <div class="col-sm-9 text-secondary">{{ Auth::user()->shop->shop_phone }}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <h6>Shop Type</h6>
                                         </div>
-                                        <div class="col-sm-9 text-secondary">Category</div>
+                                        <div class="col-sm-9 text-secondary">{{ Auth::user()->shop->shop_type }}</div>
                                     </div>
                                     <hr>
                                     <div class="row">
