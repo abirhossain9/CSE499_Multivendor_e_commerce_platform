@@ -17,9 +17,10 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function shopIndex()
     {
-        //
+        $shops = Shop::orderBy('shop_name', 'asc')->get();
+        return view('frontend.shop.shop_index', compact('shops'));
     }
 
     /**

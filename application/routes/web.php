@@ -36,7 +36,7 @@ Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')
 
 
 //shop index
-Route::get('/shop-index', 'App\Http\Controllers\Frontend\PagesController@shopIndex')->name('shop.index');
+Route::get('/shop-index', 'App\Http\Controllers\Frontend\ShopController@shopIndex')->name('shop.index');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
