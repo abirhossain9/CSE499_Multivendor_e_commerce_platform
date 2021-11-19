@@ -53,7 +53,7 @@
                                             <a href="{{route('home')}}">Home</a>
                                         </li>
                                         <li>
-                                            <a href="#">Shop</a>
+                                            <a href="{{route('shop.index')}}">Shop</a>
                                         </li>
                                         <li>
                                             <a href="#">Featuered Item</a>
@@ -110,7 +110,7 @@
                             <a href="{{route('home')}}">Home</a>
                         </li>
                         <li class="menu_item">
-                            <a href="#">Shop</a>
+                            <a href="{{route('shop.index')}}">Shop</a>
                         </li>
                         <li class="menu_item">
                             <a href="#">Promotion</a>

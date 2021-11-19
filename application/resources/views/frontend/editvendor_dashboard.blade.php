@@ -41,7 +41,7 @@
                             <nav class="navbar">
                                 <ul class="navbar_menu">
                                     <li><a href="{{route('home')}}">Home</a></li>
-                                    <li><a href="#">Shop</a></li>
+                                    <li><a href="{{route('shop.index')}}">Shop</a></li>
                                     <li><a href="#">Featuered Item</a></li>
                                     <li><a href="#">Pages</a></li>
                                     <li><a href="#">Blog</a></li>
@@ -114,7 +114,7 @@
             <div class="hamburger_menu_content text-right">
                 <ul class="menu_top_nav">
                     <li class="menu_item"><a href="{{route('home')}}">Home</a></li>
-                    <li class="menu_item"><a href="#">Shop</a></li>
+                    <li class="menu_item"><a href="{{route('shop.index')}}">Shop</a></li>
                     <li class="menu_item"><a href="#">Promotion</a></li>
                     <li class="menu_item"><a href="#">Pages</a></li>
                     <li class="menu_item"><a href="#">Blog</a></li>
