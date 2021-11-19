@@ -34,6 +34,10 @@ Route::get('/shop-edit-profile', 'App\Http\Controllers\Frontend\PagesController@
 //shop create
 Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
 
+
+//shop index
+Route::get('/shop-index', 'App\Http\Controllers\Frontend\PagesController@shopIndex')->name('shop.index');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
