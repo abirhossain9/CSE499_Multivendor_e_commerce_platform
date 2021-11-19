@@ -1379,7 +1379,111 @@ display: inline-block;
     margin-top: 10px;
 }
 
-/* 14.2. Dashboard Orders */
+/* 14.2. Shop Index */
+.find_shops{
+    width: 100%;
+    background: #f2f2f2
+}
+.find_shop_title{
+    margin-top: 120px;
+}
+
+.shop-grid{
+	width: 100%;
+	margin-top: 57px;
+}
+
+.shop-item{
+	width: 20%;
+	height: 380px;
+	cursor: pointer;
+    padding: 20px 10px;
+}
+
+
+.shop-item::after{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -1px;
+	width: calc(100% + 1px);
+	height: 100%;
+	pointer-events: none;
+	content: '';
+	border: solid 2px rgba(235, 235, 235, 0);
+	border-radius: 3px;
+	transition: all 0.3s ease;
+}
+
+.shop-item:hover::after{
+	box-sizing: 0 25px 29px rbga(63, 78, 100, 0.15);
+	border: solid 2px rgba(235, 235, 235, 1);
+}
+
+.shop{
+	width: 100%;
+	height: 300px;
+    background: white;
+	border: solid 2px #e9e9e9;
+}
+
+.shop_image{
+	widows: 100%;
+}
+
+.shop_image img{
+    height: 170px;
+    width: 100%;
+}
+
+.shop_info{
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.shop_name{
+    font-size: 20px;
+	margin-top: 27px;
+}
+
+.shop_name a{
+	color: #1e1e27;
+	line-height: 20px;
+}
+
+.shop_name:hover a{
+	color: #b5aec4;
+}
+
+.shop_category{
+	font-size: 16px;
+	color: #fe4c50;
+    text-transform: uppercase;
+	font-weight: 600;
+}
+
+.shop_location{
+	font-size: 14px;
+    text-transform: uppercase;
+}
+
+.view_shop_button{
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease;
+}
+
+.view_shop_button a{
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.shop-item:hover .view_shop_button{
+	visibility: visible;
+	opacity: 1;
+}
 
 
 
@@ -1536,6 +1640,9 @@ display: inline-block;
 .reg_text p{
 	margin-top: 5px;
 }
+.shop-item{
+	width: 25%;
+}
 
 }
 
@@ -1612,6 +1719,14 @@ display: inline-block;
     .ven_reg_submit_btn{
 		margin-top: 15px;
 	}
+    .shop-item{
+		height: 345px;
+		width: 33.333333%;
+        padding: 0 10px;
+	}
+	.shop{
+		height: 345px;
+	}
 
 
 }
@@ -1650,6 +1765,14 @@ display: inline-block;
  .footer_nav li a{
  	font-size: 13px;
  }
+ .shop-item{
+    width: 50%;
+    height: 420px;
+    padding: 0 10px;
+}
+.shop{
+    height: 420px;
+}
 
 
 }
@@ -1933,9 +2056,6 @@ display: inline-block;
 .dashboard{
     margin-top: 70px;
 }
-.dashboard_text {
-    /* height: 90px; */
-}
 .dashboard_text h4{
 	font-size: 20px;
 }
@@ -1957,6 +2077,26 @@ display: inline-block;
 .footer_social{
 	margin-top: 5px;
 	margin-bottom: 30px;
+}
+
+.find_shop_title{
+    margin-top: 90px;
+}
+
+/* shop */
+.shop-item{
+	width: 100%;
+	height: auto;
+    padding: 0px 10px;
+}
+.shop{
+	height: auto;
+}
+.shop a{
+	font-size: 14px;
+}
+.shop_category{
+    font-size: 12px;
 }
 
 }

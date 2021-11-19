@@ -62,4 +62,5 @@ class PagesController extends Controller
         return view('frontend.editshop_dashboard');
     }
 
+
 }
