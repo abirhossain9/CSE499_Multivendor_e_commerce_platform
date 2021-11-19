@@ -30,6 +30,7 @@
                                     <th scope="col">Address</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Shop Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -70,6 +71,13 @@
                                         @if ($user->status==1)
                                         <span class="badge badge-success">active</span>
                                         @elseif ($user->status==2)
+                                        <span class="badge badge-danger">inactive</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($user->shop_status==1)
+                                        <span class="badge badge-success">active</span>
+                                        @elseif ($user->shop_status==2)
                                         <span class="badge badge-danger">inactive</span>
                                         @endif
                                     </td>

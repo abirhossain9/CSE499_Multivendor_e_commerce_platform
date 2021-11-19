@@ -210,12 +210,12 @@
                             {{-- shop setup --}}
                                 @if(Auth::user()->shop_status == 2)
                                 <div class="alert alert-success" role="alert">
-                                    Thankyou For Creating Account. Please setup your shop!<hr>
+                                    Thank you for creating an account. Please setup your shop!<hr>
                                     <a class="btn btn-success btn-block" href="{{route('vendor.shopdetails')}}">Setup Shop</a>
                                 </div>
                                 @elseif(Auth::user()->shop_status == 1 && Auth::user()->shop->shop_status == 2 )
                                 <div class="alert alert-success" role="alert">
-                                    Thankyou For Setting Up your shop. Please Wait till admin approves your shop<hr>
+                                    Thank you for setting up your shop. Please wait till admin approves your shop.<hr>
                                 </div>
                                 @endif
 

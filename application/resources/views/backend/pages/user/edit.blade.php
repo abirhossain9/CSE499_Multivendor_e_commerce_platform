@@ -57,6 +57,16 @@
                                             <option value="2" @if($user->status == 2) selected @endif>Inactive</option>
                                         </select>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Shop Status</label>
+                                        <select class="form-control" name="shop_status">
+                                            <option value="1">Please Select The Shop Status</option>
+                                            <option value="1" @if($user->shop_status == 1) selected @endif>Active</option>
+                                            <option value="2" @if($user->shop_status == 2) selected @endif>Inactive</option>
+                                        </select>
+                                    </div>
+
                                 </div>
 
                                 <div class="col-lg-4">
