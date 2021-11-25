@@ -1394,10 +1394,10 @@ display: inline-block;
 }
 
 .shop-item{
-	width: 20%;
+	width: 25%;
 	height: 380px;
 	cursor: pointer;
-    padding: 20px 10px;
+    padding: 6px 3px;
 }
 
 
@@ -1422,13 +1422,13 @@ display: inline-block;
 
 .shop{
 	width: 100%;
-	height: 300px;
+	height: 325px;
     background: white;
-	border: solid 2px #e9e9e9;
+	border: solid 1px #e9e9e9;
 }
 
 .shop_image{
-	widows: 100%;
+	width: 100%;
 }
 
 .shop_image img{
@@ -1440,11 +1440,12 @@ display: inline-block;
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
+    font-size: 14px;
 }
 
 .shop_name{
-    font-size: 20px;
 	margin-top: 27px;
+    min-height: 50px;
 }
 
 .shop_name a{
@@ -1455,17 +1456,22 @@ display: inline-block;
 .shop_name:hover a{
 	color: #b5aec4;
 }
+.discount .shop_info .shop_category .shop_location{
+	font-size: 14px;
+}
 
 .shop_category{
 	font-size: 16px;
 	color: #fe4c50;
-    text-transform: uppercase;
+    text-transform: capitalize;
 	font-weight: 600;
 }
 
 .shop_location{
+    color: #1e1e27;
 	font-size: 14px;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
 .view_shop_button{
@@ -1641,7 +1647,8 @@ display: inline-block;
 	margin-top: 5px;
 }
 .shop-item{
-	width: 25%;
+	width: 33.333333%;
+    padding: 6px 3px;
 }
 
 }
@@ -1672,6 +1679,7 @@ display: inline-block;
 	.product-item{
 		height: 345px;
 		width: 33.333333%;
+        padding: 6px 3px;
 	}
 	.product{
 		height: 345px;
@@ -1720,12 +1728,12 @@ display: inline-block;
 		margin-top: 15px;
 	}
     .shop-item{
-		height: 345px;
-		width: 33.333333%;
-        padding: 0 10px;
+		height: 380px;
+		width: 50%;
+        padding: 6px 3px;
 	}
 	.shop{
-		height: 345px;
+		height: 320px;
 	}
 
 
@@ -1767,11 +1775,11 @@ display: inline-block;
  }
  .shop-item{
     width: 50%;
-    height: 420px;
-    padding: 0 10px;
+    height: 380px;
+    padding: 6px 3px;
 }
 .shop{
-    height: 420px;
+    height: 320px;
 }
 
 
@@ -2084,10 +2092,13 @@ display: inline-block;
 }
 
 /* shop */
+.shop-item.shop_info{
+	padding-bottom: 30px;
+}
 .shop-item{
 	width: 100%;
 	height: auto;
-    padding: 0px 10px;
+    padding: 6px 3px;
 }
 .shop{
 	height: auto;
@@ -2095,7 +2106,13 @@ display: inline-block;
 .shop a{
 	font-size: 14px;
 }
+.shop_name{
+    min-height: auto;
+}
 .shop_category{
+    font-size: 12px;
+}
+.shop_location{
     font-size: 12px;
 }
 
