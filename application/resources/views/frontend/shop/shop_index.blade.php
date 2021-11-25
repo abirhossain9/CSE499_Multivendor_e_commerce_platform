@@ -180,40 +180,40 @@
                         <div class="col">
                             <div class="shop-grid" data-isotope='{"itemSelector": ".shop-item", "layoutMode": "fitRows"}'>
 
-                            <!-- Shop-1 -->
-                            @foreach($shops as $shop)
-
-                            <div class="shop-item">
-                                <div class="shop">
-                                    <div class="shop_image">
-                                        @if ($shop->shop_image==NULL)
-                                         <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
-                                        @else
-                                         <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="150">
-                                        @endif
+                                <!-- shop-1 -->
+                                 @foreach($shops as $shop)
+                                <div class="shop-item">
+                                    <div class="shop discount">
+                                        <div class="shop_image">
+                                            @if ($shop->shop_image==NULL)
+                                            <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
+                                            @else
+                                            <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="150">
+                                            @endif
+                                        </div>
+                                        <div
+                                            class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
+                                            <span>-20%</span>
+                                        </div>
+                                        <div class="shop_info">
+                                            <h6 class="shop_name">
+                                                <a href="#">{{$shop->shop_name}}</a>
+                                            </h6>
+                                            <div class="shop_category">{{$shop->shop_type}}</span></div>
+                                            <div class="shop_location">{{$shop->shop_address}}</span></div>
+                                        </div>
                                     </div>
-                                    <div class="shop_info">
-                                        <h6 class="shop_name">
-                                            <a href="#">{{$shop->shop_name}}</a>
-                                        </h6>
-                                        <div class="shop_category">{{$shop->shop_type}}</div>
-                                        <div class="shop_location">{{$shop->shop_address}}</div>
+                                    <div class="red_button view_shop_button">
+                                        <a href="#">View Shop</a>
                                     </div>
                                 </div>
-                                <div class="red_button view_shop_button">
-                                    <a href="#">View Shop</a>
-                                </div>
+                                @endforeach
                             </div>
-
-                            @endforeach
-
                         </div>
                     </div>
 
                 </div>
             </div>
-
-        </div>
 
         <!-- Offers Going On -->
         <div class="deal_ofthe_week">
