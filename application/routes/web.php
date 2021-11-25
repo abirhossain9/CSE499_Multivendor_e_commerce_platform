@@ -38,6 +38,9 @@ Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')
 //shop index
 Route::get('/shop-index', 'App\Http\Controllers\Frontend\ShopController@shopIndex')->name('shop.index');
 
+//individual shop page
+Route::get('/individual-shop', 'App\Http\Controllers\Frontend\ShopController@individualShopPage')->name('individualshop.page');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

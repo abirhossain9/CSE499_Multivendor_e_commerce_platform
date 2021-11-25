@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Shops</title>
+        <title>Find Shops</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">

@@ -23,6 +23,11 @@ class ShopController extends Controller
         return view('frontend.shop.shop_index', compact('shops'));
     }
 
+    public function individualShopPage()
+    {
+        return view('frontend.shop.individual_shop_page');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
