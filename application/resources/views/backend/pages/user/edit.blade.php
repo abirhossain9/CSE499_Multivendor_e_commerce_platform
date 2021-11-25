@@ -21,15 +21,15 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" name="name" class="form-control" required="required" value="{{$user->name}}" autocomplete="off">
+                                        <input type="text" name="name" class="form-control" required="required" value="{{$user->name}}" autocomplete="off" readonly>
                                     </div>
                                      <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" name="email" class="form-control" required="required" value="{{$user->email}}" autocomplete="off">
+                                        <input type="email" name="email" class="form-control" required="required" value="{{$user->email}}" autocomplete="off" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" name="address" class="form-control" required="required" value="{{$user->address}}" autocomplete="off">
+                                        <input type="text" name="address" class="form-control" required="required" value="{{$user->address}}" autocomplete="off" readonly>
                                     </div>
 
                                 </div>
@@ -37,7 +37,7 @@
 
                                     <div class="form-group">
                                          <label>Phone</label>
-                                         <input type="text" name="phone" class="form-control" required="required" autocomplete="off" value="{{$user->phone}}">
+                                         <input type="text" name="phone" class="form-control" required="required" autocomplete="off" value="{{$user->phone}}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Role</label>
@@ -58,6 +58,10 @@
                                         </select>
                                     </div>
 
+                                </div>
+
+                                <div class="col-lg-4">
+
                                     <div class="form-group">
                                         <label>Shop Status</label>
                                         <select class="form-control" name="shop_status">
@@ -67,9 +71,6 @@
                                         </select>
                                     </div>
 
-                                </div>
-
-                                <div class="col-lg-4">
                                      <div class="form-gorup">
                                         <label>Profile Picture</label>
                                           <br>

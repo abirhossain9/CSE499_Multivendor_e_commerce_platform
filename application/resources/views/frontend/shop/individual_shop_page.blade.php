@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Find Shops</title>
+        <title>Shop Page</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -171,92 +171,178 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="section_title find_shop_title">
-                                <h2>Find Shops</h2>
+                                <h2>Shop Info</h2>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="shop-grid" data-isotope='{"itemSelector": ".shop-item", "layoutMode": "fitRows"}'>
-
-                                <!-- shop-1 -->
-                                 @foreach($shops as $shop)
-                                <div class="shop-item">
-                                    <div class="shop discount">
-                                        <div class="shop_image">
-                                            @if ($shop->shop_image==NULL)
-                                            <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
-                                            @else
-                                            <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="150">
-                                            @endif
-                                        </div>
-                                        <div
-                                            class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
-                                            <span>-20%</span>
-                                        </div>
-                                        <div class="shop_info">
-                                            <h6 class="shop_name">
-                                                <a href="{{ route('individualshop.page') }}">{{$shop->shop_name}}</a>
-                                            </h6>
-                                            <div class="shop_category">{{$shop->shop_type}}</span></div>
-                                            <div class="shop_location">{{$shop->shop_address}}</span></div>
+                    <!-- Profile Dashboard -->
+                    <div class="shop_page_dashboard">
+                        <div class="container">
+                            <div class="main-body">
+                                <div class="row gutters-sm">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="align-items-center text-center">
+                                                    <img src="{{asset('backend/img/shop/361003459.JPG')}}" alt="" width="150px">
+                                                    <div class="mt-3">
+                                                        <h4>shop name</h4>
+                                                        <p class="text-primary mb-1">shop category</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="red_button view_shop_button">
-                                        <a href="{{ route('individualshop.page') }}">View Shop</a>
+                                    {{-- shop info --}}
+                                    <div class="col-md-8">
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6>Shop Name</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">shop name</div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6>Address</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">{{Auth::user()->address}}</div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h6>Phone</h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">{{Auth::user()->phone}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Arrivals -->
+                    <div class="new_arrivals">
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col text-center">
+                                    <div class="section_title">
+                                        <h2>Browse Items</h2>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="product-grid" data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows"}'>
+
+                                        <!-- Product-1 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div
+                                                    class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                                    <span>New</span>
+                                                </div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">610.00৳</div>
+                                                </div>
+                                            </div>
+                                            <div class="red_button add_to_cart_button">
+                                                <a href="#">add to cart</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product-2 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_3.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">120.00৳</div>
+                                                </div>
+                                            </div>
+                                            <div class="red_button add_to_cart_button">
+                                                <a href="#">add to cart</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product-3 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_7.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div
+                                                    class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
+                                                    <span>20%</span>
+                                                </div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">410.00৳<span>300.00৳</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="red_button add_to_cart_button">
+                                            <a href="#">add to cart</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Product-4 -->
+                                    <div class="product-item">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                <img src="{{ asset('frontend/images/product_9.png') }}" alt="">
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div
+                                                class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
+                                                <span>40%</span>
+                                            </div>
+                                            <div class="product_info">
+                                                <h6 class="product_name">
+                                                    <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                </h6>
+                                                <div class="product_price">520.00৳<span>590.00৳</div>
+                                            </div>
+                                        </div>
+                                        <div class="red_button add_to_cart_button">
+                                            <a href="#">add to cart</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
                 </div>
-            </div>
+             </div>
 
-        <!-- Offers Going On -->
-        <div class="deal_ofthe_week">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="deal_ofthe_week_img">
-                            <img src="{{ asset('frontend/images/deal_ofthe_week.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right deal_ofthe_week_col">
-                        <div
-                            class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
-                            <div class="section_title">
-                                <h2>Discount upto 40%</h2>
-                            </div>
-                            <ul class="timer">
-                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                                    <div id="day" class="timer_num">03</div>
-                                    <div class="timer_unit">Day</div>
-                                </li>
-                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                                    <div id="hour" class="timer_num">15</div>
-                                    <div class="timer_unit">Hours</div>
-                                </li>
-                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                                    <div id="minute" class="timer_num">45</div>
-                                    <div class="timer_unit">Mins</div>
-                                </li>
-                                <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                                    <div id="second" class="timer_num">23</div>
-                                    <div class="timer_unit">Sec</div>
-                                </li>
-                            </ul>
 
-                            <div class="red_button deal_ofthe_week_button">
-                                <a href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
 
 
     <!-- Benefit -->

@@ -17,10 +17,21 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        $shops = Shop::orderBy('id', 'asc')->get();
+        return view('backend.pages.shop.manage', compact('shops'));
+    }
+
     public function shopIndex()
     {
         $shops = Shop::orderBy('shop_name', 'asc')->get();
         return view('frontend.shop.shop_index', compact('shops'));
+    }
+
+    public function individualShopPage()
+    {
+        return view('frontend.shop.individual_shop_page');
     }
 
     /**
@@ -84,7 +95,12 @@ class ShopController extends Controller
      */
     public function edit($id)
     {
-        //
+        $shop = Shop::find($id);
+        if (!empty($shop)) {
+            return view('backend.pages.shop.edit', compact('shop'));
+        } else {
+            return redirect()->route('shop.manage');
+        }
     }
 
     /**
@@ -94,9 +110,12 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateByAdmin(Request $request, $id)
     {
-        //
+        $shop = Shop::find($id);
+        $shop->shop_status = $request->shop_status;
+        $shop->save();
+        return redirect()->route('shop.manage');
     }
 
     /**

@@ -1491,6 +1491,12 @@ display: inline-block;
 	opacity: 1;
 }
 
+/* individual shop page */
+.shop_page_dashboard{
+    width: 100%;
+    margin-top: 57px;
+    background: #f2f2f2;
+}
 
 
 
