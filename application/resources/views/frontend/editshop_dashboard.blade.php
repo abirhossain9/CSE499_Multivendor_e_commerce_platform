@@ -168,7 +168,7 @@
                         {{-- profile info --}}
                         <div class="col-md-8">
                             <div class="card mb-3">
-                                <form action="{{ route('user.update',Auth::user()->id) }}" method="post" enctype="multipart/form-data">
+                                <form action="#" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
 
