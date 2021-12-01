@@ -1498,7 +1498,111 @@ display: inline-block;
     background: #f2f2f2;
 }
 
+/* product details */
+.product-content {
+    margin-bottom: 20px;
+    margin-top: 57px;
+}
 
+.product-content{
+    margin-left: 0
+}
+
+.product-content .product-image {
+    display: block;
+    /* min-height: 238px; */
+    overflow: hidden;
+    position: relative
+}
+
+.product-content .product-deatil {
+    border-bottom: 1px solid #dfe5e9;
+    padding-bottom: 17px;
+    padding-left: 16px;
+    padding-top: 16px;
+    position: relative;
+    background: #fff
+}
+
+.carousel_img img{
+    height: 320px;
+}
+.red_title_color{
+    color: #fe4c50;
+}
+.quantity_size{
+    width: 30%;
+}
+
+.product-deatil {
+    padding: 30px 30px 50px
+}
+
+.product-deatil .product-image {
+    border-right: none!important
+}
+
+.product-deatil .price-container {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 300
+}
+
+.product-deatil .fa-2x {
+    font-size: 14px!important
+}
+
+.profile-message ul {
+  list-style: none ;
+}
+
+.product-deatil .certified {
+    margin-top: 10px
+}
+
+.product-deatil .certified ul {
+    padding-left: 0
+}
+
+.product-deatil .certified ul li:not(first-child) {
+    margin-left: -3px
+}
+
+.product-deatil .certified ul li {
+    display: inline-block;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 13px 19px
+}
+
+.product-deatil .certified ul li:first-child {
+    border-right: none
+}
+
+.product-deatil .certified ul li a {
+    text-align: left;
+    font-size: 12px;
+    color: #6d7a83;
+    line-height: 16px;
+    text-decoration: none
+}
+
+.product-deatil .certified ul li a span {
+    display: block;
+    color: #fe4c50;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center
+}
+
+.product-deatil .message-text {
+    width: calc(100% - 70px)
+}
+
+.message img.online {
+    width:40px;
+    height:40px;
+}
 
 /* ***************************Responsive************************************************ */
 
@@ -1656,6 +1760,19 @@ display: inline-block;
 	width: 33.333333%;
     padding: 6px 3px;
 }
+/* product details */
+.product-content {
+    margin-top: 30px;
+}
+.carousel_img img {
+    height: 250px;
+}
+.quantity_size {
+    width: 50%;
+}
+.product-deatil .certified ul li {
+    padding: 10px 15px;
+}
 
 }
 
@@ -1741,6 +1858,17 @@ display: inline-block;
 	.shop{
 		height: 320px;
 	}
+    /* product details */
+.carousel_img img {
+    height: 350px;
+    margin-bottom: 20px;
+}
+.quantity_size {
+    width: 30%;
+}
+.product-deatil .certified ul li {
+    padding: 10px 15px;
+}
 
 
 }
@@ -2123,6 +2251,49 @@ display: inline-block;
 }
 
 }
+
+@media only screen and (max-width: 425px){
+/* product details */
+.quantity_size {
+    width: 40%;
+}
+}
+
+@media only screen and (max-width: 375px){
+/* product details */
+.product-content {
+    margin-top: 10px;
+}
+.carousel_img img {
+    height: 250px;
+    margin-bottom: 10px;
+}
+.quantity_size {
+    width: 50%;
+}
+.product-deatil .certified ul li {
+    padding: 7px 10px;
+}
+}
+
+@media only screen and (max-width: 320px){
+/* product details */
+.carousel_img img {
+    height: 200px;
+    margin-bottom: 10px;
+}
+.quantity_size {
+    width: 60%;
+}
+.product-deatil .certified ul li {
+    padding: 7px 10px;
+    margin: 3px;
+}
+.product-deatil .certified ul li:first-child {
+    border-right: 1px solid #ccc;
+}
+}
+
 
 @media only screen and (max-width: 1199px){
 

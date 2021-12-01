@@ -181,6 +181,7 @@
                         <div class="container">
                             <div class="main-body">
                                 <div class="row gutters-sm">
+
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
                                             <div class="card-body">
@@ -209,14 +210,14 @@
                                                     <div class="col-sm-3">
                                                         <h6>Address</h6>
                                                     </div>
-                                                    <div class="col-sm-9 text-secondary">{{Auth::user()->address}}</div>
+                                                    <div class="col-sm-9 text-secondary">shop address</div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
                                                     <div class="col-sm-3">
                                                         <h6>Phone</h6>
                                                     </div>
-                                                    <div class="col-sm-9 text-secondary">{{Auth::user()->phone}}</div>
+                                                    <div class="col-sm-9 text-secondary">shop phone</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -244,6 +245,94 @@
                                     <div class="product-grid" data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows"}'>
 
                                         <!-- Product-1 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div
+                                                    class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                                    <span>New</span>
+                                                </div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="{{route('product.details')}}">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">610.00৳</div>
+                                                </div>
+                                            </div>
+                                            <div class="red_button add_to_cart_button">
+                                                <a href="#">add to cart</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product-2 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_3.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">120.00৳</div>
+                                                </div>
+                                            </div>
+                                            <div class="red_button add_to_cart_button">
+                                                <a href="#">add to cart</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Product-3 -->
+                                        <div class="product-item">
+                                            <div class="product">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('frontend/images/product_7.png') }}" alt="">
+                                                </div>
+                                                <div class="favorite"></div>
+                                                <div
+                                                    class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
+                                                    <span>20%</span>
+                                                </div>
+                                                <div class="product_info">
+                                                    <h6 class="product_name">
+                                                        <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                    </h6>
+                                                    <div class="product_price">410.00৳<span>300.00৳</span></div>
+                                            </div>
+                                        </div>
+                                        <div class="red_button add_to_cart_button">
+                                            <a href="#">add to cart</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Product-4 -->
+                                    <div class="product-item">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                <img src="{{ asset('frontend/images/product_9.png') }}" alt="">
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div
+                                                class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
+                                                <span>40%</span>
+                                            </div>
+                                            <div class="product_info">
+                                                <h6 class="product_name">
+                                                    <a href="#">Men's Solid Slim Fit Casual Shirt</a>
+                                                </h6>
+                                                <div class="product_price">520.00৳<span>590.00৳</div>
+                                            </div>
+                                        </div>
+                                        <div class="red_button add_to_cart_button">
+                                            <a href="#">add to cart</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Product-1 -->
                                         <div class="product-item">
                                             <div class="product">
                                                 <div class="product_image">
