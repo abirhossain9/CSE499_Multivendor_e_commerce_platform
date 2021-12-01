@@ -41,6 +41,9 @@ Route::get('/shop-index', 'App\Http\Controllers\Frontend\ShopController@shopInde
 //individual shop page
 Route::get('/individual-shop', 'App\Http\Controllers\Frontend\ShopController@individualShopPage')->name('individualshop.page');
 
+//product details page
+Route::get('/product-details', 'App\Http\Controllers\Frontend\PagesController@productDetails')->name('product.details');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

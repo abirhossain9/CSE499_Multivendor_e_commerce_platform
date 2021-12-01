@@ -61,6 +61,9 @@ class PagesController extends Controller
     {
         return view('frontend.editshop_dashboard');
     }
-
+    public function productDetails()
+    {
+        return view('frontend.product.product_details');
+    }
 
 }
