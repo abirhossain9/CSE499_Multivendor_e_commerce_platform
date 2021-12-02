@@ -119,5 +119,16 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ShopController@destroy')->name('shop.destroy');
     });
 
+    //this routes are for product management
+    Route::group(['prefix' => '/product'], function () {
+        Route::get('/manage', 'App\Http\Controllers\Frontend\PagesController@manageProduct')->name('product.manage');
+        // Route::get('/create','App\Http\Controllers\Frontend\ShopController@create')->name('shop.create');
+        // Route::post('/store','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
+        // Route::get('/edit/{id}', 'App\Http\Controllers\Frontend\ShopController@edit')->name('shop.edit');
+        // Route::post('/update/by/admin/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByAdmin')->name('shop.update.admin');
+        // Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ShopController@destroy')->name('shop.destroy');
+    });
+
+
 });
 require __DIR__.'/auth.php';

@@ -70,4 +70,9 @@ class PagesController extends Controller
         return view('frontend.product.add_product');
     }
 
+    public function manageProduct()
+    {
+        return view('backend.pages.product.manage');
+    }
+
 }
