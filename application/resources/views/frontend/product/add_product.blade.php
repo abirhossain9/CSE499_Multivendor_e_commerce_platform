@@ -192,7 +192,7 @@
 
                                     <div class="form-group">
                                         <label>Product Price</label>
-                                        <input type="text" name="product_price" placeholder="enter product price" class="form-control" required="required" autocomplete="off">
+                                        <input type="number" name="product_price" placeholder="enter product price" class="form-control" required="required" autocomplete="off">
                                     </div>
 
 
