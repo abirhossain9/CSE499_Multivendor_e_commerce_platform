@@ -65,5 +65,9 @@ class PagesController extends Controller
     {
         return view('frontend.product.product_details');
     }
+    public function addProduct()
+    {
+        return view('frontend.product.add_product');
+    }
 
 }
