@@ -183,13 +183,25 @@
                                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner carousel_img">
                                                     <div class="carousel-item active ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
+                                                        @if ($product->product_image == null)
+                                                     <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                    @else
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    @endif
                                                     </div>
                                                     <div class="carousel-item ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
+                                                        @if ($product->product_image == null)
+                                                     <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                    @else
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    @endif
                                                     </div>
                                                     <div class="carousel-item ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
+                                                    @if ($product->product_image == null)
+                                                    <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                    @else
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    @endif
                                                     </div>
                                                 </div>
                                                 <button class="btn btn-light carousel-control-prev" type="button" data-target="#productCarousel" data-slide="prev">
@@ -206,10 +218,10 @@
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
-                                        <h4 class="red_title_color">Men's Solid Slim Fit Casual Shirt</h4>
+                                        <h4 class="red_title_color">{{ $product->product_name }}</h4>
                                         <hr>
                                         <h6><span class="red_title_color">Details: </span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ullam ab delectus omnis eligendi natus distinctio aliquam esse. Officiis, quisquam atque eveniet quas alias esse consequatur tenetur saepe molestias fuga eaque doloribus! Officia, id ipsam, corporis similique tempora ducimus porro doloribus atque eveniet at laboriosam quis enim cum, eum dolore!
+                                            {{ $product->product_description_long }}
                                         </h6>
                                         <hr>
                                         <span class="red_title_color">Review: </span>
@@ -221,7 +233,7 @@
                                             <span class="fa fa-2x"><h5>(45) Votes</h5></span>
                                             <a class="red_title_color" href="javascript:void(0);">45 customer reviews</a>
                                         <hr>
-                                        <span class="red_title_color">Product By: <a href="javascript:void(0);">Abirs Shop</a></span>
+                                        <span class="red_title_color">Product By: <a href="javascript:void(0);">{{ $product->shop->shop_name }}</a></span>
                                         <hr>
                                         <h6><span class="red_title_color">Category: </span>
                                             fashion

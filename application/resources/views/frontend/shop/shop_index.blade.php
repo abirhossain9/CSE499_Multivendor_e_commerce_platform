@@ -197,14 +197,14 @@
                                         </div>
                                         <div class="shop_info">
                                             <h6 class="shop_name">
-                                                <a href="{{ route('individualshop.page') }}">{{$shop->shop_name}}</a>
+                                                <a href="{{  route('shop.allproducts',$shop->id) }}">{{$shop->shop_name}}</a>
                                             </h6>
                                             <div class="shop_category">{{$shop->shop_type}}</span></div>
                                             <div class="shop_location">{{$shop->shop_address}}</span></div>
                                         </div>
                                     </div>
                                     <div class="red_button view_shop_button">
-                                        <a href="{{ route('individualshop.page') }}">View Shop</a>
+                                        <a href="{{ route('shop.allproducts',$shop->id) }}">View Shop</a>
                                     </div>
                                 </div>
                                 @endforeach

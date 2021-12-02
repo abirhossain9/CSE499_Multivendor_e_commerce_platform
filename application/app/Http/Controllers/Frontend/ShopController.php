@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Product;
 use App\Models\Frontend\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,9 +30,10 @@ class ShopController extends Controller
         return view('frontend.shop.shop_index', compact('shops'));
     }
 
-    public function individualShopPage()
+    public function individualShopPage($id)
     {
-        return view('frontend.shop.individual_shop_page');
+
+
     }
 
     /**

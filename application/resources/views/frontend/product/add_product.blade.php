@@ -177,7 +177,7 @@
                             <!-- add product form -->
                             <div class="col-lg-6 offset-lg-3 custom_margin">
 
-                                <form method="POST" action="" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="form-group">
@@ -187,7 +187,7 @@
 
                                     <div class="form-group">
                                         <label>Product Details[short]</label>
-                                        <textarea class="form-control" placeholder="enter short product details" name="product_details" rows="4" required></textarea>
+                                        <textarea class="form-control" placeholder="enter short product details" name="product_description_short" rows="4" required></textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -198,12 +198,12 @@
 
                                     <div class="form-group">
                                         <label>Product Description[long]</label>
-                                        <textarea class="form-control" placeholder="enter long product details/specification" name="product_description" rows="6" required></textarea>
+                                        <textarea class="form-control" placeholder="enter long product details/specification" name="product_description_long" rows="6" required></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <x-label for="category" :value="__('Product Category')" />
-                                        <select class="form-control" name="category">
+                                        <select class="form-control" name="product_category">
                                             <option value="11">Choose a product category.</option>
                                             <option value="1">Accessories</option>
                                             <option value="2">Books</option>
@@ -223,9 +223,13 @@
                                         <label>Product Images</label>
                                         <input type="file" name="product_images" class="form-control-file" required>
                                     </div>
+                                    <div class="form-group" hidden>
+                                        <label>Shop Id</label>
+                                        <input type="text" name="shop_id" value="{{ Auth::user()->shop->id }}" class="form-control" required="required" autocomplete="off">
+                                    </div>
                                     <br>
-
                                     <div class="form-group tx-12 alert alert-warning" >By clicking the Add Product button below, you agreed to our privacy policy and terms of use of our website.</div>
+
                                     <div class="form-group d-flex flex-column justify-content-center align-items-center">
                                         <button type="submit" class="btn cus_log_submit_btn btn-block">Add Product</button>
                                     </div>

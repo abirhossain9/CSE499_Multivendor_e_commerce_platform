@@ -39,14 +39,18 @@ Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')
 Route::get('/shop-index', 'App\Http\Controllers\Frontend\ShopController@shopIndex')->name('shop.index');
 
 //individual shop page
-Route::get('/individual-shop', 'App\Http\Controllers\Frontend\ShopController@individualShopPage')->name('individualshop.page');
+//Route::get('/individual-shop/{id}', 'App\Http\Controllers\Frontend\ShopController@individualShopPage')->name('individualshop.page');
 
 //product details page
-Route::get('/product-details', 'App\Http\Controllers\Frontend\PagesController@productDetails')->name('product.details');
+//Route::get('/product-details', 'App\Http\Controllers\Frontend\PagesController@productDetails')->name('product.details');
 
 //vendor add product page
-Route::get('/add-product', 'App\Http\Controllers\Frontend\PagesController@addProduct')->name('add.product');
-
+Route::get('/add-product', 'App\Http\Controllers\Frontend\ProductController@create')->name('add.product');
+//vendor add product page
+Route::post('/product-store','App\Http\Controllers\Frontend\ProductController@store')->name('product.store');
+//shop products
+Route::get('/shop-show-products/{id}','App\Http\Controllers\Frontend\ProductController@shop_products')->name('shop.allproducts');
+Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductController@details')->name('shop.single');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
