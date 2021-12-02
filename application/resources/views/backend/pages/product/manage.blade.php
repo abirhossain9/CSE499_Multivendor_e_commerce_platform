@@ -27,6 +27,7 @@
                                     <th scope="col">Product Price</th>
                                     <th scope="col">Product Description</th>
                                     <th scope="col">Product Category</th>
+                                    <th scope="col">Product By</th>
                                     <th scope="col">Product Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -41,6 +42,7 @@
                                     <td>Product Price</td>
                                     <td>Product Description</td>
                                     <td>Product Category</td>
+                                    <td>Shop Name</td>
                                     <td>
                                         <span class="badge badge-success">active</span>
                                         <span class="badge badge-danger">inactive</span>
