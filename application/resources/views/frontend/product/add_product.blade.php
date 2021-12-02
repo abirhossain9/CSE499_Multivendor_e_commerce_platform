@@ -202,8 +202,21 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Product Type [eg: groceries, cosmetics, sports etc]</label>
-                                        <input type="text" name="product_type" placeholder="enter product category" class="form-control" required="required" autocomplete="off">
+                                        <x-label for="category" :value="__('Product Category')" />
+                                        <select class="form-control" name="category">
+                                            <option value="11">Choose a product category.</option>
+                                            <option value="1">Accessories</option>
+                                            <option value="2">Books</option>
+                                            <option value="3">Electronics</option>
+                                            <option value="4">Fashion</option>
+                                            <option value="5">Food & Personal Care</option>
+                                            <option value="6">Furniture and Appliance</option>
+                                            <option value="7">Health & Beauty</option>
+                                            <option value="8">Movies & Music</option>
+                                            <option value="9">Sporting Goods</option>
+                                            <option value="10">Toys & Hobbies</option>
+                                            <option value="11">Others</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-gorup">
