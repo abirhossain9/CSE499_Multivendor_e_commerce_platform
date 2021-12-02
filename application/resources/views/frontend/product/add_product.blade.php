@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Product Details</title>
+        <title>Add Products</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -167,176 +167,59 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="section_title find_shop_title">
-                                <h2>Product Details</h2>
+                                <h2>Add a Product</h2>
                             </div>
                         </div>
                     </div>
 
-                    {{-- product info --}}
+                    {{-- add product info --}}
                         <div class="container">
-                            <!-- product -->
-                            <div class="product-content product-wrap clearfix product-deatil">
-                                <div class="row">
-                                    <div class="col-md-5 col-sm-12 col-xs-12">
-                                        <div class="product-image">
+                            <!-- add product form -->
+                            <div class="col-lg-6 offset-lg-3 custom_margin">
 
-                                            <div id="productCarousel" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner carousel_img">
-                                                    <div class="carousel-item active ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
-                                                    </div>
-                                                    <div class="carousel-item ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
-                                                    </div>
-                                                    <div class="carousel-item ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100">
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-light carousel-control-prev" type="button" data-target="#productCarousel" data-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">Previous</span>
-                                                </button>
-                                                <button class="btn btn-light carousel-control-next" type="button" data-target="#productCarousel" data-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="sr-only">Next</span>
-                                                </button>
-                                            </div>
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    @csrf
 
-                                        </div>
+                                    <div class="form-group">
+                                        <label>Product Name</label>
+                                        <input type="text" name="product_name" placeholder="enter product name" class="form-control" required="required" autocomplete="off">
                                     </div>
 
-                                    <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
-                                        <h4 class="red_title_color">Men's Solid Slim Fit Casual Shirt</h4>
-                                        <hr>
-                                        <h6><span class="red_title_color">Details: </span>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ullam ab delectus omnis eligendi natus distinctio aliquam esse. Officiis, quisquam atque eveniet quas alias esse consequatur tenetur saepe molestias fuga eaque doloribus! Officia, id ipsam, corporis similique tempora ducimus porro doloribus atque eveniet at laboriosam quis enim cum, eum dolore!
-                                        </h6>
-                                        <hr>
-                                        <span class="red_title_color">Review: </span>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-muted"></i>
-                                            <span class="fa fa-2x"><h5>(45) Votes</h5></span>
-                                            <a class="red_title_color" href="javascript:void(0);">45 customer reviews</a>
-                                        <hr>
-                                        <span class="red_title_color">Product By: <a href="javascript:void(0);">Abirs Shop</a></span>
-                                        <hr>
-                                        <h6><span class="red_title_color">Category: </span>
-                                            fashion
-                                        </h6>
-                                        <hr>
-                                        <span class="red_title_color">Select Quantity:
-                                            <div class="input-group quantity_size">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                        <span class="fa fa-minus"></span>
-                                                    </button>
-                                                </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                                <span class="input-group-append">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                                        <span class="fa fa-plus"></span>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </span>
-                                        <hr>
-                                        <span class="red_title_color">Price: <h3 class="price-container">610.00৳</h3></span>
-                                        <hr>
-                                        <div class="pl-0">
-                                            <div class="btn-group">
-                                                <a href="javascript:void(0);" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                        <div class="certified">
-                                            <ul>
-                                                <li>
-                                                    <a href="javascript:void(0);">Delivery time<span>7 Working Days</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <hr />
-
-                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Reviews</a>
-                                            </li>
-                                            </ul>
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis cumque, iste blanditiis obcaecati dolorem quo assumenda earum modi ut ipsum ipsam iure at quidem a! Quaerat quas deleniti quidem libero officiis magni in, unde reprehenderit repellendus ipsam laborum blanditiis voluptatem ab aperiam id impedit adipisci obcaecati qui dolores magnam. Optio neque vitae a cum minus animi, iusto soluta dolor, cupiditate corporis atque quia debitis accusantium. Sunt molestias asperiores sequi libero at sapiente illum, facere facilis beatae tempora provident velit, vero excepturi mollitia ratione voluptate modi corrupti, dolorum aliquid similique qui eos quaerat. At magnam voluptatibus pariatur iste ex magni.</div>
-                                            <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-                                                <form method="POST">
-                                                    <textarea rows="2" class="form-control" placeholder="Write a review"></textarea>
-                                                    <div style="margin: 3px 0">
-                                                        <button type="submit" class="btn btn-sm btn-primary">Submit Review</button>
-                                                    </div>
-                                                </form>
-                                                <div class="profile-message">
-                                                    <ul>
-                                                        <li class="message">
-                                                            <img src="{{ asset('frontend/images/profile.JPG') }}" class="online" />
-                                                            <span class="message-text">
-                                                                <a href="javascript:void(0);" class="username">
-                                                                    User 1
-                                                                    <span class="float-right">
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-muted"></i>
-                                                                    </span>
-                                                                </a>
-                                                                <br>
-                                                                Excellent product, love it!
-                                                            </span>
-                                                            <ul class="list-inline font-xs">
-                                                                <li>
-                                                                    <small class="text-muted"> Posted 1 year ago </small>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <hr>
-                                                        <li class="message">
-                                                            <img src="{{ asset('frontend/images/profile.JPG') }}" class="online" />
-                                                            <span class="message-text">
-                                                                <a href="javascript:void(0);" class="username">
-                                                                    User 2
-                                                                    <span class="float-right">
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                    </span>
-                                                                </a>
-                                                                <br>
-                                                                Excellent product, love it!
-                                                            </span>
-                                                            <ul class="list-inline font-xs">
-                                                                <li>
-                                                                    <small class="text-muted"> Posted 1 year ago </small>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <hr>
-
+                                    <div class="form-group">
+                                        <label>Product Details[short]</label>
+                                        <textarea class="form-control" placeholder="enter short product details" name="product_details" rows="4" required></textarea>
                                     </div>
-                                </div>
+
+                                    <div class="form-group">
+                                        <label>Product Price</label>
+                                        <input type="text" name="product_price" placeholder="enter product price" class="form-control" required="required" autocomplete="off">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Product Description[long]</label>
+                                        <textarea class="form-control" placeholder="enter long product details/specification" name="product_description" rows="6" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Product Type [eg: groceries, cosmetics, sports etc]</label>
+                                        <input type="text" name="product_type" placeholder="enter product category" class="form-control" required="required" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-gorup">
+                                        <label>Product Images</label>
+                                        <input type="file" name="product_images" class="form-control-file" required>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group tx-12 alert alert-warning" >By clicking the Add Product button below, you agreed to our privacy policy and terms of use of our website.</div>
+                                    <div class="form-group d-flex flex-column justify-content-center align-items-center">
+                                        <button type="submit" class="btn cus_log_submit_btn btn-block">Add Product</button>
+                                    </div>
+                                </form>
+
                             </div>
-                            <!-- end product -->
+                            <!-- end product form-->
                         </div>
 
 

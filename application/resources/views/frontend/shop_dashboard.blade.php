@@ -219,13 +219,13 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Add Products</h6>
+                                        <div class="col-sm-12">
+                                            <a class="btn btn-primary btn-block" href="{{route('add.product')}}" role="button">ADD PRODUCTS</a>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-12">
                                             <h6 class="custom-margin-title">Manage Products</h6>
                                         </div>
                                     </div>

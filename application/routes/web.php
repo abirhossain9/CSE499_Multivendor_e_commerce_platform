@@ -44,6 +44,9 @@ Route::get('/individual-shop', 'App\Http\Controllers\Frontend\ShopController@ind
 //product details page
 Route::get('/product-details', 'App\Http\Controllers\Frontend\PagesController@productDetails')->name('product.details');
 
+//vendor add product page
+Route::get('/add-product', 'App\Http\Controllers\Frontend\PagesController@addProduct')->name('add.product');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
