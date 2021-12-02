@@ -59,7 +59,7 @@
         </li>
 
         <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">User Management</label>
-         {{-- Employees Profile Management --}}
+         {{-- User Profile Management --}}
         <li class="br-menu-item">
           <a href="#" class="br-menu-link with-sub">
             <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
@@ -72,7 +72,7 @@
       </ul><!-- br-sideleft-menu -->
 
       <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Shop Management</label>
-         {{-- Employees Profile Management --}}
+         {{-- Shop Profile Management --}}
         <li class="br-menu-item">
           <a href="#" class="br-menu-link with-sub">
             <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
@@ -80,6 +80,19 @@
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
             <li class="sub-item"><a href="{{route('shop.manage')}}" class="sub-link">Manage All Shops</a></li>
+          </ul>
+        </li>
+      </ul><!-- br-sideleft-menu -->
+
+      <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Product Management</label>
+         {{-- Product Profile Management --}}
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">Product</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('product.manage')}}" class="sub-link">Manage All Products</a></li>
           </ul>
         </li>
       </ul><!-- br-sideleft-menu -->
