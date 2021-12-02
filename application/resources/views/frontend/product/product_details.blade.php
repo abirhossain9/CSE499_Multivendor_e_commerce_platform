@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Find Shops</title>
+        <title>Product Details</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -222,6 +222,10 @@
                                             <a class="red_title_color" href="javascript:void(0);">45 customer reviews</a>
                                         <hr>
                                         <span class="red_title_color">Product By: <a href="javascript:void(0);">Abirs Shop</a></span>
+                                        <hr>
+                                        <h6><span class="red_title_color">Category: </span>
+                                            fashion
+                                        </h6>
                                         <hr>
                                         <span class="red_title_color">Select Quantity:
                                             <div class="input-group quantity_size">
