@@ -191,7 +191,7 @@
                                                     </div>
                                                     <div class="carousel-item ">
                                                         @if ($product->product_image == null)
-                                                     <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
                                                     <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
                                                     @endif
