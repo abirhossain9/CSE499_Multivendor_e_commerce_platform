@@ -49,13 +49,53 @@
 								</ul>
 								<ul class="navbar_user">
 									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-									<li><a href="{{route('user.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 									<li class="checkout">
 										<a href="#">
 											<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 											<span id="checkout_items" class="checkout_items">2</span>
 										</a>
 									</li>
+
+                                    @if (Auth::check())
+
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item custom-dropdown-item disabled" href="javascript:void(0)">Welcome,<br>
+                                                    <i class="fas fa-id-badge"> {{Auth::user()->name}}</a></i>
+
+                                                @if(Auth::user()->role == 3)
+                                                <a class="dropdown-item" href="{{route('user.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Profile Dashboard</i></a>
+                                                @elseif(Auth::user()->role == 2)
+                                                <a class="dropdown-item" href="{{route('vendor.dashboard')}}"><i class="fa fa-address-card" aria-hidden="true"> Vendor Dashboard</i></a>
+                                                @endif
+
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                                        <i class="fa fa-sign-out"> Logout</i>
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </li>
+
+                                        @else
+                                        <li class="dropdown">
+                                            <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                            </button>
+                                            <div class="dropdown-menu custom-dropdown-menu-def" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="{{route('user.login')}}"><i class="fa fa-sign-in"> Sign in</i></a>
+                                                <a class="dropdown-item" href="{{route('user.register')}}"><i class="fas fa-id-badge"> Register</i></a>
+                                            </div>
+                                        </li>
+
+                                        @endif
+
 								</ul>
 
 								<div class="hamburger_container">
