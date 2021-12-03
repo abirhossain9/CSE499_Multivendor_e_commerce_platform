@@ -204,18 +204,18 @@
                                     <div class="form-group">
                                         <x-label for="category" :value="__('Product Category')" />
                                         <select class="form-control" name="product_category">
-                                            <option value="11">Choose a product category.</option>
-                                            <option value="1">Accessories</option>
-                                            <option value="2">Books</option>
-                                            <option value="3">Electronics</option>
-                                            <option value="4">Fashion</option>
-                                            <option value="5">Food & Personal Care</option>
-                                            <option value="6">Furniture and Appliance</option>
-                                            <option value="7">Health & Beauty</option>
-                                            <option value="8">Movies & Music</option>
-                                            <option value="9">Sporting Goods</option>
-                                            <option value="10">Toys & Hobbies</option>
-                                            <option value="11">Others</option>
+                                            <option value="Others">Choose a product category.</option>
+                                            <option value="Accessories">Accessories</option>
+                                            <option value="Books">Books</option>
+                                            <option value="Electronics">Electronics</option>
+                                            <option value="Fashion">Fashion</option>
+                                            <option value="Food & Personal Care">Food & Personal Care</option>
+                                            <option value="Furniture and Appliance">Furniture and Appliance</option>
+                                            <option value="Health & Beauty">Health & Beauty</option>
+                                            <option value="Movies & Music">Movies & Music</option>
+                                            <option value="Sporting Goods">Sporting Goods</option>
+                                            <option value="Toys & Hobbies">Toys & Hobbies</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
 

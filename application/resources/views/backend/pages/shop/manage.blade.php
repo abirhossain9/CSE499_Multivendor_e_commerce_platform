@@ -40,10 +40,10 @@
 
                                 <tr>
                                     <th scope="row">{{$i;}}</th>
-                                    <td>@if ($shop->image==NULL)
+                                    <td>@if ($shop->shop_image==NULL)
                                          <img src="{{asset('backend/img/shop/default.jpg')}}" alt="" width="40">
                                     @else
-                                         <img src="{{asset('frontend/images/shops/'.$shop->image)}}" alt="" width="40">
+                                         <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="40">
 
                                     @endif</td>
                                     <td>{{$shop->shop_name}}</td>

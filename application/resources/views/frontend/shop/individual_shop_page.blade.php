@@ -270,7 +270,7 @@
                                                     <h6 class="product_name">
                                                         <a href="{{route('shop.single',$product->id)}}">{{$product->product_name  }}</a>
                                                     </h6>
-                                                    <div class="product_price">610.00৳</div>
+                                                    <div class="product_price">{{ $product->product_price }} ৳</div>
                                                 </div>
                                             </div>
                                             <div class="red_button add_to_cart_button">

@@ -184,23 +184,23 @@
                                                 <div class="carousel-inner carousel_img">
                                                     <div class="carousel-item active ">
                                                         @if ($product->product_image == null)
-                                                     <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
                                                     @endif
                                                     </div>
                                                     <div class="carousel-item ">
                                                         @if ($product->product_image == null)
                                                      <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
                                                     @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
                                                     @endif
                                                     </div>
                                                     <div class="carousel-item ">
                                                     @if ($product->product_image == null)
-                                                    <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                    <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" alt="">
+                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
                                                     @endif
                                                     </div>
                                                 </div>
@@ -221,7 +221,7 @@
                                         <h4 class="red_title_color">{{ $product->product_name }}</h4>
                                         <hr>
                                         <h6><span class="red_title_color">Details: </span>
-                                            {{ $product->product_description_long }}
+                                            {{ $product->product_description_short }}
                                         </h6>
                                         <hr>
                                         <span class="red_title_color">Review: </span>
@@ -236,7 +236,11 @@
                                         <span class="red_title_color">Product By: <a href="javascript:void(0);">{{ $product->shop->shop_name }}</a></span>
                                         <hr>
                                         <h6><span class="red_title_color">Category: </span>
-                                            fashion
+                                            {{ $product->product_category }}
+                                        </h6>
+                                        <hr>
+                                        <h6><span class="red_title_color">Available Quantity: </span>
+                                            50
                                         </h6>
                                         <hr>
                                         <span class="red_title_color">Select Quantity:
@@ -255,7 +259,7 @@
                                             </div>
                                         </span>
                                         <hr>
-                                        <span class="red_title_color">Price: <h3 class="price-container">610.00৳</h3></span>
+                                        <span class="red_title_color">Price: <h3 class="price-container">{{ $product->product_price }} ৳</h3></span>
                                         <hr>
                                         <div class="pl-0">
                                             <div class="btn-group">
@@ -283,7 +287,9 @@
                                             </li>
                                             </ul>
                                         <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nobis cumque, iste blanditiis obcaecati dolorem quo assumenda earum modi ut ipsum ipsam iure at quidem a! Quaerat quas deleniti quidem libero officiis magni in, unde reprehenderit repellendus ipsam laborum blanditiis voluptatem ab aperiam id impedit adipisci obcaecati qui dolores magnam. Optio neque vitae a cum minus animi, iusto soluta dolor, cupiditate corporis atque quia debitis accusantium. Sunt molestias asperiores sequi libero at sapiente illum, facere facilis beatae tempora provident velit, vero excepturi mollitia ratione voluptate modi corrupti, dolorum aliquid similique qui eos quaerat. At magnam voluptatibus pariatur iste ex magni.</div>
+                                            <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+                                                {{ $product->product_description_long }}
+                                            </div>
                                             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
                                                 <form method="POST">
                                                     <textarea rows="2" class="form-control" placeholder="Write a review"></textarea>
