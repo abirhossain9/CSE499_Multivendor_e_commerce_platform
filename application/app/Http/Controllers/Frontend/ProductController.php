@@ -22,6 +22,11 @@ class ProductController extends Controller
         //
     }
 
+    public function manageProduct()
+    {
+        return view('frontend.product.manage_product');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

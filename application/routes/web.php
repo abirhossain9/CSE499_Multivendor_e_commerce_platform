@@ -51,6 +51,9 @@ Route::post('/product-store','App\Http\Controllers\Frontend\ProductController@st
 //shop products
 Route::get('/shop-show-products/{id}','App\Http\Controllers\Frontend\ProductController@shop_products')->name('shop.allproducts');
 Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductController@details')->name('shop.single');
+
+//vendor manage product page
+Route::get('/manage-product', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
