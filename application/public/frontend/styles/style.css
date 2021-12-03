@@ -1492,6 +1492,10 @@ display: inline-block;
 	opacity: 1;
 }
 
+.product-grid-shopdashboard{
+    margin-top: 5px;
+}
+
 /* individual shop page */
 .shop_page_dashboard{
     width: 100%;

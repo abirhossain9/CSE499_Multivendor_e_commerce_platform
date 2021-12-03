@@ -220,13 +220,43 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <a class="btn btn-primary btn-block" href="{{route('add.product')}}" role="button">ADD PRODUCTS</a>
+                                            <a class="btn btn-success btn-block" href="{{route('add.product')}}" role="button">ADD PRODUCTS</a>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h6 class="custom-margin-title">Manage Products</h6>
+                                            <div class="custom-margin-title alert alert-primary text-center">MANAGE PRODUCTS</div>
+
+                                            {{-- manage products --}}
+                                            <div class="row">
+                                                <div class="product-grid product-grid-shopdashboard" data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows"}'>
+                                                    <!-- Product-1 -->
+                                                    <div class="product-item">
+                                                        <div class="product">
+                                                            <div class="product_image">
+                                                                <img src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                                            </div>
+                                                            <div class="favorite"></div>
+                                                            <div
+                                                                class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+                                                                <span>New</span>
+                                                            </div>
+                                                            <div class="product_info">
+                                                                <h6 class="product_name">
+                                                                    <a href="javascript:void(0)">product_name</a>
+                                                                </h6>
+                                                                <div class="product_price">product_price ৳</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="red_button add_to_cart_button">
+                                                            <a href="{{route('manage.product')}}">Edit Product Info</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- manage products end --}}
+
                                         </div>
                                     </div>
                                 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Product Details</title>
+        <title>Manage Product</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -167,7 +167,7 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="section_title find_shop_title">
-                                <h2>Product Details</h2>
+                                <h2>Edit Product Details</h2>
                             </div>
                         </div>
                     </div>
@@ -176,32 +176,20 @@
                         <div class="container">
                             <!-- product -->
                             <div class="product-content product-wrap clearfix product-deatil">
+
                                 <div class="row">
                                     <div class="col-md-5 col-sm-12 col-xs-12">
                                         <div class="product-image">
-
                                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner carousel_img">
                                                     <div class="carousel-item active ">
-                                                        @if ($product->product_image == null)
-                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
-                                                    @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
-                                                    @endif
+                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     </div>
                                                     <div class="carousel-item ">
-                                                        @if ($product->product_image == null)
-                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
-                                                    @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
-                                                    @endif
+                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     </div>
                                                     <div class="carousel-item ">
-                                                    @if ($product->product_image == null)
-                                                    <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
-                                                    @else
-                                                    <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
-                                                    @endif
+                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     </div>
                                                 </div>
                                                 <button class="btn btn-light carousel-control-prev" type="button" data-target="#productCarousel" data-slide="prev">
@@ -213,146 +201,67 @@
                                                     <span class="sr-only">Next</span>
                                                 </button>
                                             </div>
-
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
-                                        <h4 class="red_title_color">{{ $product->product_name }}</h4>
-                                        <hr>
-                                        <h6><span class="red_title_color">Details: </span>
-                                            {{ $product->product_description_short }}
-                                        </h6>
-                                        <hr>
-                                        <span class="red_title_color">Review: </span>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-primary"></i>
-                                            <i class="fa fa-star fa-2x text-muted"></i>
-                                            <span class="fa fa-2x"><h5>(45) Votes</h5></span>
-                                            <a class="red_title_color" href="javascript:void(0);">45 customer reviews</a>
-                                        <hr>
-                                        <span class="red_title_color">Product By: <a href="javascript:void(0);">{{ $product->shop->shop_name }}</a></span>
-                                        <hr>
-                                        <h6><span class="red_title_color">Category: </span>
-                                            {{ $product->product_category }}
-                                        </h6>
-                                        <hr>
-                                        <h6><span class="red_title_color">Available Quantity: </span>
-                                            50
-                                        </h6>
-                                        <hr>
-                                        <span class="red_title_color">Select Quantity:
-                                            <div class="input-group quantity_size">
-                                                <span class="input-group-prepend">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                        <span class="fa fa-minus"></span>
-                                                    </button>
-                                                </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
-                                                <span class="input-group-append">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
-                                                        <span class="fa fa-plus"></span>
-                                                    </button>
-                                                </span>
+                                        <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
+                                        @csrf
+                                            <div class="form-group">
+                                                <label class="red_title_color">Product Name: </label>
+                                                <input type="text" name="product_name" value="product_name" class="form-control" required="required" autocomplete="off">
                                             </div>
-                                        </span>
-                                        <hr>
-                                        <span class="red_title_color">Price: <h3 class="price-container">{{ $product->product_price }} ৳</h3></span>
-                                        <hr>
-                                        <div class="pl-0">
-                                            <div class="btn-group">
-                                                <a href="javascript:void(0);" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="red_title_color">Product Details[short]: </label>
+                                                <textarea class="form-control" name="product_description_short" rows="4" required>product_description_short</textarea>
                                             </div>
-                                        </div>
-                                        <div class="certified">
-                                            <ul>
-                                                <li>
-                                                    <a href="javascript:void(0);">Delivery time<span>7 Working Days</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <hr />
-
-                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Reviews</a>
-                                            </li>
-                                            </ul>
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-                                                {{ $product->product_description_long }}
+                                            <hr>
+                                            <div class="form-group">
+                                                <x-label for="category" class="red_title_color" :value="__('Product Category: ')" />
+                                                <select class="form-control" name="product_category">
+                                                    <option value="Others">edit product category.</option>
+                                                    <option value="Accessories">Accessories</option>
+                                                    <option value="Books">Books</option>
+                                                    <option value="Electronics">Electronics</option>
+                                                    <option value="Fashion">Fashion</option>
+                                                    <option value="Food & Personal Care">Food & Personal Care</option>
+                                                    <option value="Furniture and Appliance">Furniture and Appliance</option>
+                                                    <option value="Health & Beauty">Health & Beauty</option>
+                                                    <option value="Movies & Music">Movies & Music</option>
+                                                    <option value="Sporting Goods">Sporting Goods</option>
+                                                    <option value="Toys & Hobbies">Toys & Hobbies</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
                                             </div>
-                                            <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-                                                <form method="POST">
-                                                    <textarea rows="2" class="form-control" placeholder="Write a review"></textarea>
-                                                    <div style="margin: 3px 0">
-                                                        <button type="submit" class="btn btn-sm btn-primary">Submit Review</button>
-                                                    </div>
-                                                </form>
-                                                <div class="profile-message">
-                                                    <ul>
-                                                        <li class="message">
-                                                            <img src="{{ asset('frontend/images/profile.JPG') }}" class="online" />
-                                                            <span class="message-text">
-                                                                <a href="javascript:void(0);" class="username">
-                                                                    User 1
-                                                                    <span class="float-right">
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-muted"></i>
-                                                                    </span>
-                                                                </a>
-                                                                <br>
-                                                                Excellent product, love it!
-                                                            </span>
-                                                            <ul class="list-inline font-xs">
-                                                                <li>
-                                                                    <small class="text-muted"> Posted 1 year ago </small>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <hr>
-                                                        <li class="message">
-                                                            <img src="{{ asset('frontend/images/profile.JPG') }}" class="online" />
-                                                            <span class="message-text">
-                                                                <a href="javascript:void(0);" class="username">
-                                                                    User 2
-                                                                    <span class="float-right">
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                        <i class="fa fa-star fa-2x text-primary"></i>
-                                                                    </span>
-                                                                </a>
-                                                                <br>
-                                                                Excellent product, love it!
-                                                            </span>
-                                                            <ul class="list-inline font-xs">
-                                                                <li>
-                                                                    <small class="text-muted"> Posted 1 year ago </small>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="red_title_color">Update Quantity: </label>
+                                                <input type="number" name="product_quantity" value="50" class="form-control" required="required" autocomplete="off">
                                             </div>
-                                        </div>
-
-                                        <hr>
-
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="red_title_color">Price: </label>
+                                                <input type="number" name="product_price" value="500" class="form-control" required="required" autocomplete="off">
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <label class="red_title_color">Product Description[long]</label>
+                                                <textarea class="form-control"name="product_description_long" rows="6" required>product_description_long</textarea>
+                                            </div>
+                                            <hr>
+                                            <div class="form-gorup">
+                                                <label class="red_title_color">Product Images</label>
+                                                <input type="file" name="product_images" class="form-control-file" required>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Update Product</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
+
                             </div>
                             <!-- end product -->
                         </div>
