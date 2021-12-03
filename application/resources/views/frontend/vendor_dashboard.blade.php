@@ -201,7 +201,7 @@
                                         <div class="col-sm-12">
                                             <a class="btn btn-info" href="{{ route('user.editdashboard')}}">Edit Profile</a>
                                             @if(Auth::user()->shop_status == 1 && Auth::user()->shop->shop_status == 1)
-                                            <a class="btn btn-info" href="{{ route('shop.dashboard')}}">Manage Shop</a>
+                                            <a class="btn btn-info" href="{{ route('shop.dashboard', Auth::user()->shop->id)}}">Manage Shop</a>
                                             @endif
                                         </div>
                                     </div>
