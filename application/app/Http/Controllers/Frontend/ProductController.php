@@ -64,7 +64,7 @@ class ProductController extends Controller
         }
         $product->save();
         $product->save();
-        return redirect()->route('shop.allproducts',$request->shop_id);
+        return redirect()->route('shop.dashboard',$request->shop_id);
     }
 
     /**

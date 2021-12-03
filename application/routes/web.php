@@ -28,7 +28,7 @@ Route::post('/user-update/{id}','App\Http\Controllers\Frontend\UserProfileContro
 Route::get('/vendor-shop-details', 'App\Http\Controllers\Frontend\PagesController@vendorShopDetails')->middleware(['auth','verified'])->name('vendor.shopdetails');
 Route::get('/vendor-dashboard', 'App\Http\Controllers\Frontend\PagesController@vendorDashboard')->middleware(['auth','verified'])->name('vendor.dashboard');
 Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editVendorProfile')->middleware(['auth','verified'])->name('vendor.editdashboard');
-Route::get('/shop-dashboard', 'App\Http\Controllers\Frontend\PagesController@shopDashboard')->middleware(['auth', 'verified'])->name('shop.dashboard');
+Route::get('/shop-dashboard/{id}', 'App\Http\Controllers\Frontend\PagesController@shopDashboard')->middleware(['auth', 'verified'])->name('shop.dashboard');
 Route::get('/shop-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editShop')->middleware(['auth', 'verified'])->name('shop.editdashboard');
 
 //shop create

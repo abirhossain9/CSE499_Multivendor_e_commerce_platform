@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Banner;
+use App\Models\Frontend\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -53,9 +54,10 @@ class PagesController extends Controller
     {
         return view('frontend.vendor_shopdetails');
     }
-    public function shopDashboard()
+    public function shopDashboard($id)
     {
-        return view('frontend.shop_dashboard');
+        $products = Product::orderBy('product_name', 'asc')->where('shop_id', $id)->get();
+        return view('frontend.shop_dashboard', compact('products'));
     }
     public function editShop()
     {
