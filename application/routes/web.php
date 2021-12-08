@@ -54,6 +54,10 @@ Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductCon
 
 //vendor manage product page
 Route::get('/manage-product', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
+
+//user product cart page
+Route::get('/cart-page', 'App\Http\Controllers\Frontend\CartController@cartIndex')->middleware(['auth', 'verified'])->name('cart.index');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

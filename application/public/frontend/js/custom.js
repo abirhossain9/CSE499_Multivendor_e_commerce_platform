@@ -262,18 +262,18 @@ function initSlider()
 // dropdown toggle
 
 
-$( document ).ready(function() {
-    $('#dropdownMenuButton').on('click', function () {
-        $('.dropdown-menu').toggle();
-    })
+// $( document ).ready(function() {
+//     $('#dropdownMenuButton').on('click', function () {
+//         $('.dropdown-menu').toggle();
+//     })
 
-    $(document).click(function(event) {
-    if (!$(event.target).closest("#dropdownMenuButton").length) {
-        $('.dropdown-menu').hide();
-    }
+//     $(document).click(function(event) {
+//     if (!$(event.target).closest("#dropdownMenuButton").length) {
+//         $('.dropdown-menu').hide();
+//     }
 
-    });
-});
+//     });
+// });
 
 // product quantity
 
@@ -348,7 +348,14 @@ $(".input-number").keydown(function (e) {
     }
 });
 
+//cart dropdown
+(function(){
 
+  $("#cart").on("click", function() {
+    $(".shopping-cart").fadeToggle( "fast");
+  });
+
+})();
 
 
 
