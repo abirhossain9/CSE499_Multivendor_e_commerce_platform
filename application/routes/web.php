@@ -129,7 +129,15 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('/update/by/admin/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByAdmin')->name('shop.update.admin');
         Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ShopController@destroy')->name('shop.destroy');
     });
-
+    //this routes are for category
+    Route::group(['prefix' => '/category'], function(){
+        Route::get('/manage','App\Http\Controllers\Backend\CategoryController@index')->name('category.manage');
+        Route::get('/create','App\Http\Controllers\Backend\CategoryController@create')->name('category.create');
+        Route::post('/store','App\Http\Controllers\Backend\CategoryController@store')->name('category.store');
+        Route::get('/edit/{id}','App\Http\Controllers\Backend\CategoryController@edit')->name('category.edit');
+        Route::post('/update/{id}','App\Http\Controllers\Backend\CategoryController@update')->name('category.update');
+        Route::post('/destroy/{id}','App\Http\Controllers\Backend\CategoryController@destroy')->name('category.destroy');
+    });
     //this routes are for product management
     Route::group(['prefix' => '/product'], function () {
         Route::get('/manage', 'App\Http\Controllers\Frontend\PagesController@manageProduct')->name('product.manage');

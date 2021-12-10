@@ -71,6 +71,20 @@
         </li>
       </ul><!-- br-sideleft-menu -->
 
+       <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Category Management</label>
+         {{-- User Profile Management --}}
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">Category</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('category.manage')}}" class="sub-link">Manage All Category</a></li>
+            <li class="sub-item"><a href="{{route('category.create')}}" class="sub-link">Add New Category</a></li>
+          </ul>
+        </li>
+      </ul><!-- br-sideleft-menu -->
+
       <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Shop Management</label>
          {{-- Shop Profile Management --}}
         <li class="br-menu-item">
