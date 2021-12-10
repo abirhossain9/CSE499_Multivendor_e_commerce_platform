@@ -111,8 +111,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy_by_admin($id)
     {
-        //
+        $product = Product::find($id);
+        if(File::exists('backend/img/product/'.$product->product_image)){
+                File::delete('backend/img/product/'.$product->product_image);
+        }
+        $product->delete();
+        return redirect()->route('product.manage');
     }
 }

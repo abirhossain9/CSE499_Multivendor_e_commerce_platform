@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Banner;
 use App\Models\Frontend\Product;
+use App\Models\Frontend\Shop;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -74,7 +75,9 @@ class PagesController extends Controller
 
     public function manageProduct()
     {
-        return view('backend.pages.product.manage');
+        $products = Product::orderby('product_name','asc')->get();
+        $shops = Shop::orderby('id','asc')->get();
+        return view('backend.pages.product.manage',compact('products'));
     }
 
 }

@@ -25,7 +25,6 @@
                                     <th scope="col">Product Image</th>
                                     <th scope="col">Product Name</th>
                                     <th scope="col">Product Price</th>
-                                    <th scope="col">Product Description</th>
                                     <th scope="col">Product Category</th>
                                     <th scope="col">Product By</th>
                                     <th scope="col">Product Status</th>
@@ -34,18 +33,26 @@
                             </thead>
                             <tbody>
                                 @php $i = 0; @endphp
+                                @foreach($products as $product)
                                 @php $i++; @endphp
                                 <tr>
                                     <th scope="row">{{$i;}}</th>
-                                    <td><img src="{{asset('backend/img/shop/default.jpg')}}" alt="" width="40"></td>
-                                    <td>Product Name</td>
-                                    <td>Product Price</td>
-                                    <td>Product Description</td>
+                                    <td>@if ($product->product_image==NULL)
+                                         <img src="{{asset('backend/img/employee/default.jpg')}}" alt="" width="40">
+                                    @else
+                                         <img src="{{asset('backend/img/product/'.$product->product_image)}}" alt="" width="40">
+
+                                    @endif</td>
+                                    <td>{{$product->product_name}}</td>
+                                    <td>{{$product->product_price}} tk</td>
                                     <td>Product Category</td>
-                                    <td>Shop Name</td>
+                                    <td>{{ $product->shop->shop_name }}</td>
                                     <td>
+                                         @if ($product->product_status==1)
                                         <span class="badge badge-success">active</span>
+                                        @elseif ($product->product_status==2)
                                         <span class="badge badge-danger">inactive</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <ul class="custom-action">
@@ -55,16 +62,16 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#">
+                                                <a href="" data-toggle="modal" data-target="#product{{$product->id}}">
                                                     <i class="fa fa-trash "></i>
                                                 </a>
                                             </li>
                                         </ul>
                                     </td>
                                     <!-- Modal -->
-                                    <div
+                                     <div
                                         class="modal fade"
-                                        id="user"
+                                        id="product{{$product->id}}"
                                         tabindex="-1"
                                         role="dialog"
                                         aria-labelledby="exampleModalCenterTitle"
@@ -72,7 +79,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle">Delete This product?</h5>
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Delete This product ?</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -81,7 +88,7 @@
                                                     <div class="modal-button text-center">
                                                         <ul>
                                                             <li>
-                                                                <form action="" method="POST">
+                                                                <form action="{{route('product.destroy',$product->id)}}" method="POST">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-danger">Confirm</button>
                                                                 </form>
@@ -98,14 +105,14 @@
                                         </div>
                                     </div>
                                 </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
-                        {{-- @if ()
+                        @if ($products->count() == 0)
                             <div class="alert alert-info">
-                                No Shops are added please add a shop first
+                                No products added
                             </div>
-                        @endif --}}
+                        @endif
 
                     </div>
 

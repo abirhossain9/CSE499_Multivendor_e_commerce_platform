@@ -137,7 +137,7 @@ Route::group(['prefix' => 'admin'], function(){
         // Route::post('/store','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
         // Route::get('/edit/{id}', 'App\Http\Controllers\Frontend\ShopController@edit')->name('shop.edit');
         // Route::post('/update/by/admin/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByAdmin')->name('shop.update.admin');
-        // Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ShopController@destroy')->name('shop.destroy');
+        Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ProductController@destroy_by_admin')->name('product.destroy');
     });
 
 
