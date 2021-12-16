@@ -257,7 +257,7 @@
                                         </h6>
                                         <hr>
                                         <h6><span class="red_title_color">Available Quantity: </span>
-                                            50
+                                            {{ $product->prodcut_quantity }}
                                         </h6>
                                         <hr>
                                         <span class="red_title_color">Select Quantity:
@@ -278,9 +278,15 @@
                                         <hr>
                                         <span class="red_title_color">Price: <h3 class="price-container">{{ $product->product_price }} ৳</h3></span>
                                         <hr>
+                                        {{-- add to cart --}}
                                         <div class="pl-0">
                                             <div class="btn-group">
-                                                <a href="javascript:void(0);" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                <form action="{{ route('carts.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="shop_id" value="{{ $product->shop->id }}">
+                                                    <button type="submit" href="javascript:void(0);" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="certified">

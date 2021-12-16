@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Cart;
 use Illuminate\Http\Request;
+Use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
@@ -18,7 +21,8 @@ class CartController extends Controller
     }
     public function cartIndex()
     {
-        return view('frontend.cart.cart_index');
+        $cartItems = Cart::orderBy('id','asc')->get();
+        return view('frontend.cart.cart_index',compact('cartItems'));
     }
 
     /**
@@ -39,7 +43,31 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,
+        ['product_id' => 'required'],
+        [
+            'product_id.required' => 'Please Chose Your Product'
+        ]);
+        if(Auth::check()){
+            $cart = Cart::where('user_id',Auth::id())->where('product_id',$request->product_id)->first();
+        }
+        else{
+             $cart = Cart::where('ip_address',$request->ip())->where('product_id',$request->product_id)->first();
+        }
+        if(!is_null($cart)){
+            $cart->increment('product_quantity');
+        }
+        else{
+            $cart = new Cart();
+            if(Auth::check()){
+                $cart->user_id = Auth::id();
+            }
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $request->product_id;
+            $cart->shop_id = $request->shop_id;
+            $cart->save();
+        }
+        return redirect()->route('carts');
     }
 
     /**
@@ -59,10 +87,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -71,9 +96,17 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+     public function update(Request $request,$id)
+     {
+        $cart = Cart::find($id);
+        if(!is_null($cart)){
+            $cart->product_quantity = $request->product_quantity;
+            $cart->save();
+        }
+        else{
+            return redirect()->route('carts');
+        }
+         return redirect()->route('carts');
     }
 
     /**
@@ -84,6 +117,13 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cart = Cart::find($id);
+        if(!is_null($cart)){
+            $cart->delete();
+        }
+        else{
+            return redirect()->route('home');
+        }
+        return redirect()->route('home');
     }
 }

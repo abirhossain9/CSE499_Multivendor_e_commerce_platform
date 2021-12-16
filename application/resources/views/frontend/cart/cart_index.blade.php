@@ -234,7 +234,7 @@
                                 <div class="pt-4 wish-list">
 
                                 <h5 class="mb-4 red_title_color">Cart (<span>2</span> items)</h5>
-
+                                @foreach ($cartItems as $item)
                                 <div class="row mb-4">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
                                         <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
@@ -276,8 +276,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
+
                                 <hr class="mb-4">
-                                <div class="row mb-4">
+                                {{-- <div class="row mb-4">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
                                         <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                                             <img class="img-fluid w-100" src="{{ asset('frontend/images/product_2.png') }}" alt="">
@@ -316,7 +318,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <p class="red_title_color mb-0"><i class="fas fa-info-circle mr-1"></i> Please recheck all the products and quantity before checkout.</p>
 
                                 </div>

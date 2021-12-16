@@ -56,12 +56,22 @@ Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductCon
 Route::get('/manage-product', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
 
 //user product cart page
-Route::get('/cart-page', 'App\Http\Controllers\Frontend\CartController@cartIndex')->middleware(['auth', 'verified'])->name('cart.index');
+// Route::get('/cart-page', 'App\Http\Controllers\Frontend\CartController@cartIndex')->middleware(['auth', 'verified'])->name('cart.index');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 // these routes are for backend
+
+//cart work start
+ Route::group(['prefix' => '/cart'], function () {
+        Route::get('/', 'App\Http\Controllers\Frontend\CartController@cartIndex')->name('carts');
+        // Route::get('/create','App\Http\Controllers\Frontend\ShopController@create')->name('shop.create');
+        Route::post('/store','App\Http\Controllers\Frontend\CartController@store')->name('carts.store');
+        // Route::get('/edit/{id}', 'App\Http\Controllers\Frontend\ShopController@edit')->name('shop.edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Frontend\CartController@update')->name('carts.update');
+        Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\CartController@destroy')->name('carts.destroy');
+    });
 
 /*
 |--------------------------------------------------------------------------
