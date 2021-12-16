@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Category;
 use App\Models\Frontend\Product;
+use App\Models\Frontend\ProductImage;
 use App\Models\Frontend\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -35,7 +37,8 @@ class ProductController extends Controller
     public function create()
     {
          $shop = Shop::orderBy('id', 'asc')->get();
-         return view('frontend.product.add_product',compact('shop'));
+         $categories = Category::orderBy('name','asc')->get();
+         return view('frontend.product.add_product',compact('shop','categories'));
     }
 
     /**
@@ -54,7 +57,8 @@ class ProductController extends Controller
         $product->product_description_short =$request->product_description_short;
         $product->product_description_long =$request->product_description_long;
         $product->shop_id = $request->shop_id;
-        $product->product_category =$request->product_category;
+        $product->category_id =$request->product_category;
+        $product->prodcut_quantity =$request->prodcut_quantity;
         if($request->product_images){
             $image = $request->file('product_images');
             $img = rand() . '.' . $image->getClientOriginalExtension();
@@ -63,7 +67,19 @@ class ProductController extends Controller
             $product->product_image = $img;
         }
         $product->save();
-        $product->save();
+        if(count($request->p_image) > 0){
+            foreach ($request->p_image as $image) {
+                # code...
+                $image = $request->file('product_images');
+                $img = rand() . '.' . $image->getClientOriginalExtension();
+                $location = public_path('backend/img/product/'.$img);
+                Image::make($image)->save($location);
+                $p_image = new ProductImage();
+                $p_image->product_id = $product->id;
+                $p_image->image = $img;
+                $p_image->save();
+            }
+        }
         return redirect()->route('shop.dashboard',$request->shop_id);
     }
 
@@ -77,7 +93,9 @@ class ProductController extends Controller
     {
          $products = Product::orderBy('product_name','asc')->where('shop_id',$id)->get();
          $shop = Shop::find($id);
-         return view('frontend.shop.individual_shop_page',compact('products','shop'));
+         //$categories = Category::orderby('name','asc')->get();
+         $images = ProductImage::orderby('image','asc')->get();
+         return view('frontend.shop.individual_shop_page',compact('products','shop','images'));
     }
 
     /**

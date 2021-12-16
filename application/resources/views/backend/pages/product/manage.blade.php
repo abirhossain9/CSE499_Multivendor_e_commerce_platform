@@ -45,7 +45,7 @@
                                     @endif</td>
                                     <td>{{$product->product_name}}</td>
                                     <td>{{$product->product_price}} tk</td>
-                                    <td>Product Category</td>
+                                    <td>{{$product->category->name}}</td>
                                     <td>{{ $product->shop->shop_name }}</td>
                                     <td>
                                          @if ($product->product_status==1)

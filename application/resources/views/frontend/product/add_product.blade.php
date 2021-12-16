@@ -200,28 +200,40 @@
                                         <label>Product Description[long]</label>
                                         <textarea class="form-control" placeholder="enter long product details/specification" name="product_description_long" rows="6" required></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Product Quantity</label>
+                                        <input type="number" name="prodcut_quantity" placeholder="enter product quantity" class="form-control" required="required" autocomplete="off">
+                                    </div>
 
                                     <div class="form-group">
                                         <x-label for="category" :value="__('Product Category')" />
                                         <select class="form-control" name="product_category">
-                                            <option value="Others">Choose a product category.</option>
-                                            <option value="Accessories">Accessories</option>
-                                            <option value="Books">Books</option>
-                                            <option value="Electronics">Electronics</option>
-                                            <option value="Fashion">Fashion</option>
-                                            <option value="Food & Personal Care">Food & Personal Care</option>
-                                            <option value="Furniture and Appliance">Furniture and Appliance</option>
-                                            <option value="Health & Beauty">Health & Beauty</option>
-                                            <option value="Movies & Music">Movies & Music</option>
-                                            <option value="Sporting Goods">Sporting Goods</option>
-                                            <option value="Toys & Hobbies">Toys & Hobbies</option>
-                                            <option value="Others">Others</option>
+                                            <option value="0">Choose a product category.</option>
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="form-gorup">
-                                        <label>Product Images</label>
-                                        <input type="file" name="product_images" class="form-control-file" required>
+                                        <label>Featured Images</label>
+                                        <input type="file" name="product_images" class="form-control-file" >
+                                    </div>
+                                    <div class="form-gorup">
+                                        <label>Product Images 1</label>
+                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                    </div>
+                                    <div class="form-gorup">
+                                        <label>Product Images 2</label>
+                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                    </div>
+                                    <div class="form-gorup">
+                                        <label>Product Images 3</label>
+                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                    </div>
+                                    <div class="form-gorup">
+                                        <label>Product Images 4</label>
+                                        <input type="file" name="p_image[]" class="form-control-file" >
                                     </div>
                                     <div class="form-group" hidden>
                                         <label>Shop Id</label>

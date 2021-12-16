@@ -17,11 +17,12 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name');
             $table->integer('product_price');
+            $table->integer('prodcut_quantity')->default(1);
             $table->text('product_description_short');
             $table->text('product_description_long');
             $table->string('slug');
             $table->integer('shop_id');
-            $table->string('product_category');
+            $table->integer('category_id');
             $table->text('product_image')->nullable();
             $table->integer('product_status')->default(1)->comment('1 = Active, 2 = Inactive');
             $table->integer('product_rating')->nullable();

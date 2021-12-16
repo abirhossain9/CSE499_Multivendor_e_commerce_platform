@@ -204,6 +204,23 @@
                                                     @endif
                                                     </div>
                                                 </div>
+                                                {{--
+                                                multiple image code
+                                                @foreach ($product->images as $img)
+                                                    @php $i = 0 @endphp
+                                                    @if ($i == 0)
+                                                     <div class="carousel-item active">
+                                                        <img src="{{ asset('backend/img/product/'.$img->image) }}" class="d-block w-100" alt="">
+                                                    </div>
+                                                    @php $i-- @endphp
+                                                    @else
+                                                    <div class="carousel-item">
+                                                        <img src="{{ asset('backend/img/product/'.$img->image) }}" class="d-block w-100" alt="">
+                                                    </div>
+                                                    @endif
+
+                                                    @endforeach
+                                                --}}
                                                 <button class="btn btn-light carousel-control-prev" type="button" data-target="#productCarousel" data-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Previous</span>
@@ -236,7 +253,7 @@
                                         <span class="red_title_color">Product By: <a href="javascript:void(0);">{{ $product->shop->shop_name }}</a></span>
                                         <hr>
                                         <h6><span class="red_title_color">Category: </span>
-                                            {{ $product->product_category }}
+                                            {{ $product->category->name }}
                                         </h6>
                                         <hr>
                                         <h6><span class="red_title_color">Available Quantity: </span>
