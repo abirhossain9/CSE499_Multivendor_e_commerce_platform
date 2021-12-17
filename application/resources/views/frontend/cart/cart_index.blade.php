@@ -77,8 +77,6 @@
                                                 <div class="container">
                                                     <div class="shopping-cart">
 
-
-
                                                         <ul class="shopping-cart-items">
                                                             @php $i = 1 @endphp
                                                             @php $total_price = 0 @endphp
@@ -106,15 +104,12 @@
                                                             </div>
                                                         </div> <!--end shopping-cart-header -->
 
-
                                                         <a class="btn btn-info btn-block btn-sm custom_a" href="{{route('carts')}}" role="button">Edit Cart</a>
                                                         <a class="btn btn-success btn-block btn-sm custom_a" href="javascript:void(0)" role="button">Checkout</a>
-
 
                                                     </div> <!--end shopping-cart -->
                                                 </div> <!--end container -->
                                             </div>
-
 
                                         </li>
                                         @if (Auth::check())
@@ -225,113 +220,119 @@
                             <!-- Card -->
                             <div class="mb-3">
                                 <div class="pt-4 wish-list">
-                                @php $i = 1 @endphp
-                                @php $total_price = 0 @endphp
-                                <h5 class="mb-4 red_title_color">Cart (<span>{{ $cartItems->count() }}</span> items)</h5>
-                                @foreach ($cartItems as $item)
+                                    @php $i = 1 @endphp
+                                    @php $total_price = 0 @endphp
+                                    <h5 class="mb-4 red_title_color">Cart (<span>{{ $cartItems->count() }}</span> items)</h5>
+                                    @foreach ($cartItems as $item)
 
-                                <div class="row mb-4">
-                                    <div class="col-md-5 col-lg-3 col-xl-3">
-                                        <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 cart_image">
-                                            <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}" class="d-block w-100" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-lg-9 col-xl-9">
-                                        <div>
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <h5>{{ $item->product->product_name }}</h5>
-                                                    <p class="mb-3 text-muted text-uppercase small">{{ $item->product->	product_description_short }}</p>
-                                                    <p class="mb-2 text-muted text-uppercase small">Available Quantity: {{ $item->product->prodcut_quantity }}</p>
-                                                </div>
-                                                <div class="input-group quantity_size form-control" style="background: none; border: none;">
-                                                    {{--  <span class="input-group-prepend">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[{{ $i }}]">
-                                                            <span class="fa fa-minus"></span>
-                                                        </button>
-                                                    </span>
-                                                    <input type="text" name="quant[{{ $i }}]" class="form-control input-number" value="{{ $item->product_quantity }}" min="1" max="10">
-                                                    <span class="input-group-append">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[{{ $i }}]">
-                                                            <span class="fa fa-plus"></span>
-                                                        </button>
-                                                    </span>  --}}
-                                                    <form action="{{ route('carts.update',$item->id) }}" method="POST">
-                                                        @csrf
-                                                        <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
-                                                        <input type="submit" value="update item" class="btn btn-success">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <form action="{{ route('carts.destroy',$item->id) }}" method="POST">
-                                                        @csrf
-                                                        <input type="submit" value="delete item" class="btn btn-danger btn-sm">
-                                                    </form>
-                                                </div>
-                                                <p class="mb-0"><span><strong id="summary">Each Item Price : {{ $item->product->product_price}}</strong></span></p class="mb-0">
-                                                <p class="mb-0"><span><strong id="summary">Grand Total: {{ $item->product->product_price * $item->product_quantity }}</strong></span></p class="mb-0">
+                                    <div class="row mb-4">
+                                        <div class="col-md-5 col-lg-3 col-xl-3">
+                                            <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 cart_image">
+                                                <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}" class="d-block w-100" alt="">
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                 @php $i++ @endphp
-                                 @php $total_price += $item->product->product_price * $item->product_quantity @endphp
-                                @endforeach
+                                        <div class="col-md-7 col-lg-9 col-xl-9">
+                                            <div>
 
-                                <hr class="mb-4">
-                                {{-- <div class="row mb-4">
-                                    <div class="col-md-5 col-lg-3 col-xl-3">
-                                        <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                                            <img class="img-fluid w-100" src="{{ asset('frontend/images/product_2.png') }}" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-lg-9 col-xl-9">
-                                        <div>
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <h5>Black t-shirt</h5>
-                                                    <p class="mb-3 text-muted text-uppercase small">Shirt - blue</p>
-                                                    <p class="mb-2 text-muted text-uppercase small">Color: blue</p>
-                                                    <p class="mb-3 text-muted text-uppercase small">Size: M</p>
-                                                </div>
-                                                <div class="input-group quantity_size form-control" style="background: none; border: none;">
-                                                    <span class="input-group-prepend">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                            <span class="fa fa-minus"></span>
-                                                        </button>
-                                                    </span>
-                                                    <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="10">
-                                                    <span class="input-group-append">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[2]">
-                                                            <span class="fa fa-plus"></span>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <a href="javascript:void(0)" type="button" class="card-link-secondary small text-uppercase mr-3"><i
-                                                        class="fas fa-trash-alt mr-1"></i> Remove item
-                                                    </a>
-                                                </div>
-                                                <p class="mb-0"><span><strong id="summary">500 ৳</strong></span></p class="mb-0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                <p class="red_title_color mb-0"><i class="fas fa-info-circle mr-1"></i> Please recheck all the products and quantity before checkout.</p>
+                                                <div class="d-flex justify-content-between">
+                                                    <div class="col-md-8 ">
+                                                        <div class="row"><h5>{{ $item->product->product_name }}</h5></div>
+                                                        <div class="row"><p class="mb-3 text-muted text-uppercase small">{{ $item->product->	product_description_short }}</p></div>
+                                                        <div class="row"><p class="mb-2 text-muted text-uppercase small">Available Quantity: {{ $item->product->prodcut_quantity }}</p></div>
+                                                    </div>
+                                                    <div class="col-md-4 input-group quantity_size form-control" style="background: none; border: none;">
+                                                        <form action="{{ route('carts.update',$item->id) }}" method="POST">
+                                                            @csrf
 
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-outline-success" type="submit">update</button>
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
+                                                            <input type="submit" value="update item" class="btn btn-success"> --}}
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="col-md-2">
+                                                        <div class="row">
+                                                            <form action="{{ route('carts.destroy',$item->id) }}" method="POST">
+                                                                @csrf
+
+                                                                <button type="submit" class="btn btn-outline-danger btn-sm" type="submit"><i class="far fa-trash-alt"></i> remove</button>
+                                                                {{-- <input type="submit" value="delete item" class="btn btn-danger btn-sm"> --}}
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <p class="mb-0 float-right text-info"><span><strong id="summary">Item Price: {{ $item->product->product_price}}</strong></span></p>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <p class="mb-0  float-right red_title_color"><span><strong id="summary">Grand Total: {{ $item->product->product_price * $item->product_quantity }}</strong></span></p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @php $i++ @endphp
+                                    @php $total_price += $item->product->product_price * $item->product_quantity @endphp
+                                    @endforeach
+
+                                    <hr class="mb-4">
                                 </div>
                             </div>
                             <!-- Card -->
 
+                            {{-- billing info --}}
+                            <h4 class="mb-3 red_title_color">Billing Information</h4>
+                            <hr class="mb-3">
+                            <div class="col-lg-12 col-md-12">
+                                <form action="" method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="address">Full Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address">Billing Address</label>
+                                        <input type="text" class="form-control" id="address" placeholder="" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address">Optional Information</label>
+                                        <input type="text" class="form-control" id="address" placeholder="i.e. house near united hospital | Floor no 4 etc..." required="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="state">Division</label>
+                                            <select class="custom-select d-block w-100" id="state" required="">
+                                                <option value="1">Dhaka</option>
+                                                <option value="2">Barisal</option>
+                                                <option value="3">Chittagong </option>
+                                                <option value="4">Khulna</option>
+                                                <option value="5">Mymensingh </option>
+                                                <option value="6">Rajshahi</option>
+                                                <option value="7">Sylhet</option>
+                                                <option value="8">Rangpur</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="zip">Zip</label>
+                                            <input type="text" class="form-control" id="zip" placeholder="" required="">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                             <!-- Card -->
                             <div class="mb-3">
                                 <div class="pt-4">
-                                    <h5 class="mb-4">Expected shipping delivery</h5>
-                                    <p class="mb-0"> Tuesday, 12.03.2021 - Sunday, 16.03.2021</p>
+                                    <h5 class="mb-2">Expected shipping delivery</h5>
+                                    <p class="mb-0"> Within  7 Days</p>
                                     <p class="text-muted small">condition applied</p>
                                 </div>
                             </div>
@@ -378,8 +379,8 @@
                                             <span>{{ $total_price}} ৳</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Shipping
-                                            <span>Address</span>
+                                            Shipping Fee
+                                            <span>0 ৳</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 mb-3">
                                             <div>
@@ -391,7 +392,34 @@
                                             <span><strong>{{ $total_price}}  ৳</strong></span>
                                             </li>
                                         </ul>
+
+                                        <!-- coupon -->
+                                        <div class="mb-3">
+                                            <div class="pt-4">
+                                                <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
+                                                    aria-expanded="false" aria-controls="collapseExample">
+                                                    Add a discount code (optional)
+                                                    <span><i class="fas fa-chevron-down pt-1"></i></span>
+                                                </a>
+                                                <div class="collapse" id="collapseExample">
+                                                    <div class="mt-3">
+                                                        <div class="md-form md-outline mb-0">
+                                                            <input type="text" id="discount-code" class="form-control font-weight-light"
+                                                            placeholder="Enter coupon code">
+                                                            <input class="mt-2 btn btn-primary btn-block" type="submit" value="Apply Coupon">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- coupon -->
+
                                     </div>
+
+                                    <hr class="mb-4">
+                                    <p class="red_title_color mb-0"><i class="fas fa-info-circle mr-1"></i> Please recheck all the products, quantity and billing address before checkout.</p>
+                                    <hr class="mb-4">
 
                                     <button type="button" class="btn btn-primary btn-block"><i class="fas fa-long-arrow-alt-right"></i> go to checkout</button>
                                     <a class="btn btn-primary btn-block" href="{{route('shop.index')}}" role="button"><i class="fas fa-long-arrow-alt-left"></i> continue shopping</a>
@@ -400,32 +428,10 @@
                             </div>
                             <!-- Card -->
 
-                            <!-- Card -->
-                            <div class="mb-3">
-                                <div class="pt-4">
-                                    <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                        Add a discount code (optional)
-                                        <span><i class="fas fa-chevron-down pt-1"></i></span>
-                                    </a>
-                                    <div class="" id="collapseExample">
-                                        <div class="mt-3">
-                                            <div class="md-form md-outline mb-0">
-                                                <input type="text" id="discount-code" class="form-control font-weight-light"
-                                                placeholder="Enter coupon code">
-                                                <input class="mt-2 btn btn-primary btn-block" type="submit" value="Submit">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card -->
-
-                            </div>
+                        </div>
                             <!--Grid column-->
 
-                        </div>
+                    </div>
                         <!-- Grid row -->
 
 

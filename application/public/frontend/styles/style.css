@@ -1626,7 +1626,7 @@ display: inline-block;
   width: 320px;
   position: relative;
   border-radius: 3px;
-  padding: 12px;
+  /* padding: 12px; */
 }
 
 .cart-icon {
