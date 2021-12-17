@@ -232,50 +232,60 @@
                             <!-- Card -->
                             <div class="mb-3">
                                 <div class="pt-4 wish-list">
-
-                                <h5 class="mb-4 red_title_color">Cart (<span>2</span> items)</h5>
+                                @php $i = 1 @endphp
+                                @php $total_price = 0 @endphp
+                                <h5 class="mb-4 red_title_color">Cart (<span>{{ $cartItems->count() }}</span> items)</h5>
                                 @foreach ($cartItems as $item)
+
                                 <div class="row mb-4">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
                                         <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                                            <img class="img-fluid w-100" src="{{ asset('frontend/images/product_2.png') }}" alt="">
+                                            <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}" class="d-block w-100" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-lg-9 col-xl-9">
                                         <div>
                                             <div class="d-flex justify-content-between">
                                                 <div>
-                                                    <h5>Black t-shirt</h5>
+                                                    <h5>{{ $item->product->product_name }}</h5>
                                                     <p class="mb-3 text-muted text-uppercase small">Shirt - blue</p>
                                                     <p class="mb-2 text-muted text-uppercase small">Color: blue</p>
                                                     <p class="mb-3 text-muted text-uppercase small">Size: M</p>
                                                 </div>
                                                 <div class="input-group quantity_size form-control" style="background: none; border: none;">
-                                                    <span class="input-group-prepend">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                    {{--  <span class="input-group-prepend">
+                                                        <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[{{ $i }}]">
                                                             <span class="fa fa-minus"></span>
                                                         </button>
                                                     </span>
-                                                    <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                                                    <input type="text" name="quant[{{ $i }}]" class="form-control input-number" value="{{ $item->product_quantity }}" min="1" max="10">
                                                     <span class="input-group-append">
-                                                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
+                                                        <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[{{ $i }}]">
                                                             <span class="fa fa-plus"></span>
                                                         </button>
-                                                    </span>
+                                                    </span>  --}}
+                                                    <form action="{{ route('carts.update',$item->id) }}" method="POST">
+                                                        @csrf
+                                                        <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
+                                                        <input type="submit" value="Update item" class="btn btn-success">
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="javascript:void(0)" type="button" class="card-link-secondary small text-uppercase mr-3"><i
-                                                        class="fas fa-trash-alt mr-1"></i> Remove item
-                                                    </a>
-
+                                                    <form action="{{ route('carts.delete',$item->id) }}" method="POST">
+                                                        @csrf
+                                                        <input type="submit" value="Delete item" class="btn btn-success">
+                                                    </form>
                                                 </div>
-                                                <p class="mb-0"><span><strong id="summary">500 ৳</strong></span></p class="mb-0">
+                                                <p class="mb-0"><span><strong id="summary">Each Item Price : {{ $item->product->product_price}}</strong></span></p class="mb-0">
+                                                <p class="mb-0"><span><strong id="summary">Grand Total: {{ $item->product->product_price * $item->product_quantity }}</strong></span></p class="mb-0">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                 @php $i++ @endphp
+                                 @php $total_price += $item->product->product_price * $item->product_quantity @endphp
                                 @endforeach
 
                                 <hr class="mb-4">
@@ -373,7 +383,7 @@
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
                                             Total Amount
-                                            <span>1000 ৳</span>
+                                            <span>{{ $total_price}} ৳</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                             Shipping
@@ -386,7 +396,7 @@
                                                 <p class="mb-0">(Including Coupon)</p>
                                                 </strong>
                                             </div>
-                                            <span><strong>900  ৳</strong></span>
+                                            <span><strong>{{ $total_price}}  ৳</strong></span>
                                             </li>
                                         </ul>
                                     </div>

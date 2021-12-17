@@ -21,7 +21,7 @@ class CartController extends Controller
     }
     public function cartIndex()
     {
-        $cartItems = Cart::orderBy('id','asc')->get();
+        $cartItems = Cart::orderBy('id','asc')->where('user_id',Auth::id())->orWhere('user_id',request()->ip())->get();
         return view('frontend.cart.cart_index',compact('cartItems'));
     }
 
@@ -100,7 +100,7 @@ class CartController extends Controller
      {
         $cart = Cart::find($id);
         if(!is_null($cart)){
-            $cart->product_quantity = $request->product_quantity;
+            $cart->product_quantity = $request->product_quantityp;
             $cart->save();
         }
         else{
@@ -122,8 +122,8 @@ class CartController extends Controller
             $cart->delete();
         }
         else{
-            return redirect()->route('home');
+            return redirect()->route('carts');
         }
-        return redirect()->route('home');
+        return redirect()->route('carts');
     }
 }

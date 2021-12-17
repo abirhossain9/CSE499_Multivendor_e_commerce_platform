@@ -274,7 +274,7 @@
                                                 </div>
                                             </div>
                                             <div class="red_button add_to_cart_button">
-                                                <a href="#">add to cart</a>
+                                                <a href="{{route('shop.single',$product->id)}}">view item</a>
                                             </div>
                                         </div>
                                         @endforeach
