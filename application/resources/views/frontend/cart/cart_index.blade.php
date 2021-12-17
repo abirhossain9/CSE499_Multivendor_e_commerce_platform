@@ -248,9 +248,8 @@
                                             <div class="d-flex justify-content-between">
                                                 <div>
                                                     <h5>{{ $item->product->product_name }}</h5>
-                                                    <p class="mb-3 text-muted text-uppercase small">Shirt - blue</p>
-                                                    <p class="mb-2 text-muted text-uppercase small">Color: blue</p>
-                                                    <p class="mb-3 text-muted text-uppercase small">Size: M</p>
+                                                    <p class="mb-3 text-muted text-uppercase small">{{ $item->product->	product_description_short }}</p>
+                                                    <p class="mb-2 text-muted text-uppercase small">Available: {{ $item->product->prodcut_quantity }}</p>
                                                 </div>
                                                 <div class="input-group quantity_size form-control" style="background: none; border: none;">
                                                     {{--  <span class="input-group-prepend">
@@ -273,7 +272,7 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <form action="{{ route('carts.delete',$item->id) }}" method="POST">
+                                                    <form action="{{ route('carts.destroy',$item->id) }}" method="POST">
                                                         @csrf
                                                         <input type="submit" value="Delete item" class="btn btn-success">
                                                     </form>
