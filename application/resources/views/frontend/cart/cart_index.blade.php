@@ -70,56 +70,49 @@
                                         </li>
                                         <li class="dropdown">
                                             <button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownCartButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <li><a href="javascript:void(0)"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="checkout_items" class="checkout_items">2</span></a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="checkout_items" class="checkout_items">{{ $cartItems->count() }}</span></a></li>
                                             </button>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownCartButton">
-                                                {{-- <div class="col-md-12 dropdown-item">
-                                                    <ul class="shopping-cart-items">
-                                                        <li class="clearfix">
-                                                            <div class="col-md-4  text-left">
-                                                                <img src="{{ asset('frontend/images/product_2.png') }}" alt="" />
-                                                            </div>
-                                                            <div class="col-md-8  text-right">
-                                                                <span class="item-name">black tshirt</span>
-                                                                <span class="item-price">500 ৳</span>
-                                                                <span class="item-quantity">Quantity: 01</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div> --}}
                                                 <div class="container">
                                                     <div class="shopping-cart">
+
+
+
+                                                        <ul class="shopping-cart-items">
+                                                            @php $i = 1 @endphp
+                                                            @php $total_price = 0 @endphp
+                                                            @foreach ($cartItems as $item)
+                                                            <div class="row cart-detail">
+                                                                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                                                    <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}">
+                                                                </div>
+                                                                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                                                                    <p>{{ $item->product->product_name }}</p>
+                                                                    <span class="count"> Quantity: {{ $item->product_quantity }}</span>
+                                                                    <span class="price text-info"> {{ $item->product->product_price * $item->product_quantity }} ৳</span>
+                                                                </div>
+                                                            </div>
+                                                            @php $i++ @endphp
+                                                            @php $total_price += $item->product->product_price * $item->product_quantity @endphp
+                                                            @endforeach
+                                                        </ul>
+
                                                         <div class="shopping-cart-header">
-                                                            <i class="fa fa-shopping-cart cart-icon"></i><span class="cart_badge">2</span>
+                                                            <i class="fa fa-shopping-cart cart-icon"></i><span class="cart_badge">{{ $cartItems->count() }}</span>
                                                             <div class="shopping-cart-total">
-                                                                <span class="text-info">Total:</span>
-                                                                <span class="red_title_color">1000 ৳</span>
+                                                                <span>Total:</span>
+                                                                <span class="text-info">{{ $total_price}} ৳</span>
                                                             </div>
                                                         </div> <!--end shopping-cart-header -->
 
-                                                        <ul class="shopping-cart-items">
-                                                            <li class="clearfix">
-                                                                <img src="{{ asset('frontend/images/product_2.png') }}" alt="item1" />
-                                                                <span class="cartitem-name">black tshirt</span>
-                                                                <span class="cartitem-price">500 ৳</span>
-                                                                <span class="cartitem-quantity">Quantity: 01</span>
-                                                            </li>
 
-                                                            <li class="clearfix">
-                                                                <img src="{{ asset('frontend/images/product_2.png') }}" alt="item1" />
-                                                                <span class="cartitem-name">black tshirt</span>
-                                                                <span class="cartitem-price">500 ৳</span>
-                                                                <span class="cartitem-quantity">Quantity: 01</span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="shopping-cart-total">
-                                                                <span class="text-info">Total:</span>
-                                                                <span class="red_title_color">1000 ৳</span>
-                                                        </div>
-                                                        <button type="button" class="btn btn-primary btn-block">checkout</button>
+                                                        <a class="btn btn-info btn-block btn-sm custom_a" href="{{route('carts')}}" role="button">Edit Cart</a>
+                                                        <a class="btn btn-success btn-block btn-sm custom_a" href="javascript:void(0)" role="button">Checkout</a>
+
+
                                                     </div> <!--end shopping-cart -->
-                                                    </div> <!--end container -->
+                                                </div> <!--end container -->
                                             </div>
 
 
@@ -239,7 +232,7 @@
 
                                 <div class="row mb-4">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
-                                        <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
+                                        <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 cart_image">
                                             <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}" class="d-block w-100" alt="">
                                         </div>
                                     </div>
@@ -249,7 +242,7 @@
                                                 <div>
                                                     <h5>{{ $item->product->product_name }}</h5>
                                                     <p class="mb-3 text-muted text-uppercase small">{{ $item->product->	product_description_short }}</p>
-                                                    <p class="mb-2 text-muted text-uppercase small">Available: {{ $item->product->prodcut_quantity }}</p>
+                                                    <p class="mb-2 text-muted text-uppercase small">Available Quantity: {{ $item->product->prodcut_quantity }}</p>
                                                 </div>
                                                 <div class="input-group quantity_size form-control" style="background: none; border: none;">
                                                     {{--  <span class="input-group-prepend">
@@ -266,7 +259,7 @@
                                                     <form action="{{ route('carts.update',$item->id) }}" method="POST">
                                                         @csrf
                                                         <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
-                                                        <input type="submit" value="Update item" class="btn btn-success">
+                                                        <input type="submit" value="update item" class="btn btn-success">
                                                     </form>
                                                 </div>
                                             </div>
@@ -274,7 +267,7 @@
                                                 <div>
                                                     <form action="{{ route('carts.destroy',$item->id) }}" method="POST">
                                                         @csrf
-                                                        <input type="submit" value="Delete item" class="btn btn-success">
+                                                        <input type="submit" value="delete item" class="btn btn-danger btn-sm">
                                                     </form>
                                                 </div>
                                                 <p class="mb-0"><span><strong id="summary">Each Item Price : {{ $item->product->product_price}}</strong></span></p class="mb-0">
