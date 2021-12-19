@@ -245,7 +245,7 @@
                                                             @csrf
 
                                                             <div class="input-group mb-3">
-                                                                <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
+                                                                <input type="number" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
                                                                 <div class="input-group-append">
                                                                     <button class="btn btn-outline-success" type="submit">update</button>
                                                                 </div>
