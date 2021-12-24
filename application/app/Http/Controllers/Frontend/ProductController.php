@@ -165,4 +165,13 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('product.manage');
     }
+     public function deleteProductVendor(Request $request, $id)
+    {
+        $product = Product::find($id);
+        if(File::exists('backend/img/product/'.$product->product_image)){
+                File::delete('backend/img/product/'.$product->product_image);
+        }
+        $product->delete();
+        return redirect()->route('shop.dashboard',$request->shop_id);
+    }
 }

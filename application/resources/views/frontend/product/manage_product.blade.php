@@ -261,6 +261,16 @@
                                                 <button type="submit" class="btn btn-primary">Update Product</button>
                                             </div>
                                         </form>
+                                        <form action="{{ route('product.delete',$product->id) }}" method="POST">
+                                            @csrf
+                                            <div class="form-gorup" hidden>
+                                                <label class="red_title_color">shop id</label>
+                                                <input type="text" value="{{ $product->shop_id }}" name="shop_id" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-danger">Delete this Product</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
 

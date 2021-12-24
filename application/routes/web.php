@@ -55,6 +55,7 @@ Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductCon
 //vendor manage product page
 Route::get('/manage-product/{id}', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
 Route::post('/product-update/{id}', 'App\Http\Controllers\Frontend\ProductController@updateProductVendor')->name('update.product.vendor');
+Route::post('/product-delete/{id}', 'App\Http\Controllers\Frontend\ProductController@deleteProductVendor')->name('product.delete');
 //user product cart page
 // Route::get('/cart-page', 'App\Http\Controllers\Frontend\CartController@cartIndex')->middleware(['auth', 'verified'])->name('cart.index');
 
