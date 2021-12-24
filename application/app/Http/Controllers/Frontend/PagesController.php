@@ -73,8 +73,9 @@ class PagesController extends Controller
         return view('frontend.product.add_product');
     }
 
-    public function manageProduct()
+    public function manageProduct($id)
     {
+
         $products = Product::orderby('product_name','asc')->get();
         $shops = Shop::orderby('id','asc')->get();
         return view('backend.pages.product.manage',compact('products'));

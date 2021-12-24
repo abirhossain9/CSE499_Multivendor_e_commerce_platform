@@ -183,7 +183,7 @@
                                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner carousel_img">
                                                     <div class="carousel-item active ">
-                                                        @if ($product->product_image == null)
+                                                    @if ($product->product_image == null)
                                                      <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
                                                     <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">

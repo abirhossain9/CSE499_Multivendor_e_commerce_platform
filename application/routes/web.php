@@ -53,8 +53,8 @@ Route::get('/shop-show-products/{id}','App\Http\Controllers\Frontend\ProductCont
 Route::get('/shop-single-product/{id}','App\Http\Controllers\Frontend\ProductController@details')->name('shop.single');
 
 //vendor manage product page
-Route::get('/manage-product', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
-
+Route::get('/manage-product/{id}', 'App\Http\Controllers\Frontend\ProductController@manageProduct')->name('manage.product');
+Route::post('/product-update/{id}', 'App\Http\Controllers\Frontend\ProductController@updateProductVendor')->name('update.product.vendor');
 //user product cart page
 // Route::get('/cart-page', 'App\Http\Controllers\Frontend\CartController@cartIndex')->middleware(['auth', 'verified'])->name('cart.index');
 

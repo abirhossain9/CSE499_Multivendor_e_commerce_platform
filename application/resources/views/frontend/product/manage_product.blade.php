@@ -183,14 +183,18 @@
                                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner carousel_img">
                                                     <div class="carousel-item active ">
+                                                     @if ($product->product_image == null)
+                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
+                                                     @else
+                                                     <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
+                                                     @endif
+                                                     </div>
+                                                    {{-- <div class="carousel-item ">
                                                         <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     </div>
                                                     <div class="carousel-item ">
                                                         <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
-                                                    </div>
-                                                    <div class="carousel-item ">
-                                                        <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <button class="btn btn-light carousel-control-prev" type="button" data-target="#productCarousel" data-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -205,54 +209,52 @@
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
-                                        <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
+                                        <form method="POST" action="{{ route('update.product.vendor',$product->id) }}" enctype="multipart/form-data">
                                         @csrf
                                             <div class="form-group">
                                                 <label class="red_title_color">Product Name: </label>
-                                                <input type="text" name="product_name" value="product_name" class="form-control" required="required" autocomplete="off">
+                                                <input type="text" name="product_name" value="{{ $product->product_name }}" class="form-control" required="required" autocomplete="off">
                                             </div>
                                             <hr>
                                             <div class="form-group">
                                                 <label class="red_title_color">Product Details[short]: </label>
-                                                <textarea class="form-control" name="product_description_short" rows="4" required>product_description_short</textarea>
+                                                <textarea class="form-control" name="product_description_short" rows="4" required>{{ $product->product_description_short }}</textarea>
                                             </div>
                                             <hr>
                                             <div class="form-group">
-                                                <x-label for="category" class="red_title_color" :value="__('Product Category: ')" />
-                                                <select class="form-control" name="product_category">
-                                                    <option value="Others">edit product category.</option>
-                                                    <option value="Accessories">Accessories</option>
-                                                    <option value="Books">Books</option>
-                                                    <option value="Electronics">Electronics</option>
-                                                    <option value="Fashion">Fashion</option>
-                                                    <option value="Food & Personal Care">Food & Personal Care</option>
-                                                    <option value="Furniture and Appliance">Furniture and Appliance</option>
-                                                    <option value="Health & Beauty">Health & Beauty</option>
-                                                    <option value="Movies & Music">Movies & Music</option>
-                                                    <option value="Sporting Goods">Sporting Goods</option>
-                                                    <option value="Toys & Hobbies">Toys & Hobbies</option>
-                                                    <option value="Others">Others</option>
-                                                </select>
-                                            </div>
+                                        <x-label for="category" :value="__('Product Category')" />
+                                        <select class="form-control" name="product_category">
+                                            <option value="0">Choose a product category.</option>
+                                            @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" @if($product->category_id == $category->id )
+                                                selected
+                                            @endif>{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                             <hr>
                                             <div class="form-group">
                                                 <label class="red_title_color">Update Quantity: </label>
-                                                <input type="number" name="product_quantity" value="50" class="form-control" required="required" autocomplete="off">
+                                                <input type="number" name="prodcut_quantity" value="{{ $product->prodcut_quantity }}" class="form-control" required="required" autocomplete="off">
                                             </div>
                                             <hr>
                                             <div class="form-group">
                                                 <label class="red_title_color">Price: </label>
-                                                <input type="number" name="product_price" value="500" class="form-control" required="required" autocomplete="off">
+                                                <input type="number" name="product_price" value="{{ $product->product_price }}" class="form-control" required="required" autocomplete="off">
                                             </div>
                                             <hr>
                                             <div class="form-group">
                                                 <label class="red_title_color">Product Description[long]</label>
-                                                <textarea class="form-control"name="product_description_long" rows="6" required>product_description_long</textarea>
+                                                <textarea class="form-control"name="product_description_long" rows="6" required>{{ $product->product_description_long }}</textarea>
                                             </div>
                                             <hr>
                                             <div class="form-gorup">
-                                                <label class="red_title_color">Product Images</label>
-                                                <input type="file" name="product_images" class="form-control-file" required>
+                                                <label class="red_title_color">featured Image</label>
+                                                <input type="file" name="product_images" class="form-control-file">
+                                            </div>
+                                            <div class="form-gorup" hidden>
+                                                <label class="red_title_color">shop id</label>
+                                                <input type="text" value="{{ $product->shop_id }}" name="shop_id" class="form-control" required>
                                             </div>
                                             <hr>
                                             <div class="form-group">

@@ -24,9 +24,11 @@ class ProductController extends Controller
         //
     }
 
-    public function manageProduct()
+    public function manageProduct($id)
     {
-        return view('frontend.product.manage_product');
+        $product = Product::find($id);
+        $categories = Category::orderBy('name','asc')->get();
+        return view('frontend.product.manage_product',compact('product','categories'));
     }
 
     /**
@@ -80,6 +82,31 @@ class ProductController extends Controller
                 $p_image->save();
             }
         }
+        return redirect()->route('shop.dashboard',$request->shop_id);
+    }
+
+    public function updateProductVendor(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $product->product_name  =$request->product_name;
+        $product->slug =Str::slug($request->product_name);
+        $product->product_price =$request->product_price;
+        $product->product_description_short =$request->product_description_short;
+        $product->product_description_long =$request->product_description_long;
+        $product->shop_id = $request->shop_id;
+        $product->category_id =$request->product_category;
+        $product->prodcut_quantity =$request->prodcut_quantity;
+        if($request->product_images){
+            if(File::exists('backend/img/product/'.$product->product_image)){
+                File::delete('backend/img/product/'.$product->product_image);
+            }
+            $image = $request->file('product_images');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/'.$img);
+            Image::make($image)->save($location);
+            $product->product_image = $img;
+        }
+        $product->save();
         return redirect()->route('shop.dashboard',$request->shop_id);
     }
 

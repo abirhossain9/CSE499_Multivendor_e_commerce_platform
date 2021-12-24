@@ -257,7 +257,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="red_button add_to_cart_button">
-                                                            <a href="{{route('manage.product')}}">Edit Product</a>
+                                                            <a href="{{route('manage.product',$product->id)}}">Edit Product</a>
                                                         </div>
                                                     </div>
                                                     @endforeach
