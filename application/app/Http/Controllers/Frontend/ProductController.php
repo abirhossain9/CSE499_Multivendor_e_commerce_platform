@@ -69,18 +69,38 @@ class ProductController extends Controller
             $product->product_image = $img;
         }
         $product->save();
-        if(count($request->p_image) > 0){
-            foreach ($request->p_image as $image) {
-                # code...
-                $image = $request->file('product_images');
-                $img = rand() . '.' . $image->getClientOriginalExtension();
-                $location = public_path('backend/img/product/'.$img);
-                Image::make($image)->save($location);
-                $p_image = new ProductImage();
-                $p_image->product_id = $product->id;
-                $p_image->image = $img;
-                $p_image->save();
-            }
+        if(!is_null($request->p_image_1)){
+            # code...
+            $image = $request->file('p_image_1');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/'.$img);
+            Image::make($image)->save($location);
+            $p_image_1 = new ProductImage();
+            $p_image_1->product_id = $product->id;
+            $p_image_1->image = $img;
+            $p_image_1->save();
+        }
+        if (!is_null($request->p_image_2)) {
+            # code...
+            $image = $request->file('p_image_2');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/' . $img);
+            Image::make($image)->save($location);
+            $p_image_2 = new ProductImage();
+            $p_image_2->product_id = $product->id;
+            $p_image_2->image = $img;
+            $p_image_2->save();
+        }
+        if (!is_null($request->p_image_3)) {
+            # code...
+            $image = $request->file('p_image_3');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/' . $img);
+            Image::make($image)->save($location);
+            $p_image_3 = new ProductImage();
+            $p_image_3->product_id = $product->id;
+            $p_image_3->image = $img;
+            $p_image_3->save();
         }
         return redirect()->route('shop.dashboard',$request->shop_id);
     }

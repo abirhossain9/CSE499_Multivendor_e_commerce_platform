@@ -182,8 +182,12 @@
 
                                             <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                                 <div class="carousel-inner carousel_img">
-                                                    <div class="carousel-item active ">
-                                                    @if ($product->product_image == null)
+                                                    <div class="carousel-item active">
+                                                        <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
+                                                    </div>
+                                                    @foreach ($product->images as $img)
+                                                    {{-- <div class="carousel-item active "> --}}
+                                                    {{-- @if ($product->product_image == null)
                                                      <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
                                                     <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
@@ -201,8 +205,12 @@
                                                     <img src="{{ asset('frontend/images/product_2.png') }}" class="d-block w-100" alt="">
                                                     @else
                                                     <img src="{{ asset('backend/img/product/'.$product->product_image) }}" class="d-block w-100" alt="">
-                                                    @endif
+                                                    @endif --}}
+                                                    <div class="carousel-item">
+                                                        <img src="{{ asset('backend/img/product/'.$img->image) }}" class="d-block w-100" alt="">
                                                     </div>
+                                                    {{-- </div> --}}
+                                                    @endforeach
                                                 </div>
                                                 {{--
                                                 multiple image code

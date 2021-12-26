@@ -73,7 +73,7 @@ class PagesController extends Controller
         return view('frontend.product.add_product');
     }
 
-    public function manageProduct($id)
+    public function manageProduct()
     {
 
         $products = Product::orderby('product_name','asc')->get();

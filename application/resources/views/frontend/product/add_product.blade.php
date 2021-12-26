@@ -221,19 +221,15 @@
                                     </div>
                                     <div class="form-gorup">
                                         <label>Product Images 1</label>
-                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                        <input type="file" name="p_image_1" class="form-control-file" >
                                     </div>
                                     <div class="form-gorup">
                                         <label>Product Images 2</label>
-                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                        <input type="file" name="p_image_2" class="form-control-file" >
                                     </div>
                                     <div class="form-gorup">
                                         <label>Product Images 3</label>
-                                        <input type="file" name="p_image[]" class="form-control-file" >
-                                    </div>
-                                    <div class="form-gorup">
-                                        <label>Product Images 4</label>
-                                        <input type="file" name="p_image[]" class="form-control-file" >
+                                        <input type="file" name="p_image_3" class="form-control-file" >
                                     </div>
                                     <div class="form-group" hidden>
                                         <label>Shop Id</label>
