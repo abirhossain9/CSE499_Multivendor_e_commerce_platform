@@ -139,11 +139,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="align-items-center text-center">
-                                        @if (Auth::user()->image==NULL)
+                                        @if ($shop->shop_image==NULL)
                                          <img src="{{asset('frontend/images/user/shop.jpg')}}" alt="" width="150">
                                         @else
-                                         <img src="{{asset('frontend/images/user/'.Auth::user()->image)}}" alt="" width="150">
-                                        @endif                                        <div class="mt-3">
+                                         <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="150">
+                                        @endif
+                                        <div class="mt-3">
                                             <h4>Shop Name</h4>
                                             <p class="text-primary mb-1">Category</p>
                                             <p class="text-secondary font-size-sm">Shop Address</p>
@@ -165,7 +166,7 @@
                         {{-- profile info --}}
                         <div class="col-md-8">
                             <div class="card mb-3">
-                                <form action="#" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('shop.update.vendor.function',$shop->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
 
@@ -174,16 +175,16 @@
                                             <h6 class="custom-margin-title">Shop Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="name" class="form-control" required="required" value="Shop Name" autocomplete="off">
+                                            <input type="text" name="shop_name" class="form-control" required="required" value="{{ $shop->shop_name }}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Email</h6>
+                                            <h6 class="custom-margin-title">Shop Type</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="email" name="email" class="form-control" required="required" value="Email" autocomplete="off" readonly>
+                                            <input type="text" name="shop_type" class="form-control" required="required" value="{{ $shop->shop_type }}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -192,7 +193,7 @@
                                             <h6 class="custom-margin-title">Shop Address</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="phone" class="form-control" required="required" value="Shop Address" autocomplete="off">
+                                            <input type="text" name="shop_address" class="form-control" required="required" value="{{ $shop->shop_address }}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
@@ -201,28 +202,26 @@
                                             <h6 class="custom-margin-title">Shop Contact</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="address" class="form-control" required="required" value="Shop Contact" autocomplete="off">
+                                            <input type="text" name="shop_phone" class="form-control" required="required" value="{{ $shop->shop_phone}}" autocomplete="off">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h6 class="custom-margin-title">Change Category</h6>
+                                            <h6 class="custom-margin-title">Shop Sale</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <select class="form-control" name="category">
-                                                <option value="11">Change shop category.</option>
-                                                <option value="1">Accessories</option>
-                                                <option value="2">Books</option>
-                                                <option value="3">Electronics</option>
-                                                <option value="4">Fashion</option>
-                                                <option value="5">Food & Personal Care</option>
-                                                <option value="6">Furniture and Appliance</option>
-                                                <option value="7">Health & Beauty</option>
-                                                <option value="8">Movies & Music</option>
-                                                <option value="9">Sporting Goods</option>
-                                                <option value="10">Toys & Hobbies</option>
-                                                <option value="11">Others</option>
+                                            <select class="form-control" name="sale_status">
+                                                <option value="1"@if ($shop->sale_status == 1)
+                                                    Selected
+                                                @else
+
+                                                @endif>Sale</option>
+                                                <option value="2"@if ($shop->sale_status == 2)
+                                                    Selected
+                                                @else
+
+                                                @endif>No Sale</option>
                                             </select>
                                         </div>
                                     </div>
@@ -232,14 +231,14 @@
                                             <h6 class="custom-margin-title">Shop Picture</h6>
                                         </div>
                                         <div class="form-group col-sm-9 text-secondary">
-                                            <input type="file" class="form-control-file" name="image" >
+                                            <input type="file" class="form-control-file" name="shop_image" >
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
                                         <input type="submit" name="updateEmployee" value="Save Changes" class="btn-success btn btn-teal mg-b-10">
-                                        <a class="btn btn-danger" href="{{route('shop.dashboard')}}"
+                                        <a class="btn btn-danger" href="{{route('shop.dashboard',Auth::user()->shop->id)}}"
                                         >Cancel</a>
                                         </div>
                                     </div>

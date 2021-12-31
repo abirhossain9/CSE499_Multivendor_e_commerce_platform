@@ -18,7 +18,8 @@ class Shop extends Model
         'shop_description',
         'shop_type',
         'shop_image',
-        'shop_status'
+        'shop_status',
+        'sale_status'
     ];
     public function shop()
     {

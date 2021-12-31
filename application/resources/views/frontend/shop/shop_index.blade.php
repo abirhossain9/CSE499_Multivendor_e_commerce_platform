@@ -189,10 +189,12 @@
                                             <img src="{{asset('backend/img/shop/'.$shop->shop_image)}}" alt="" width="150">
                                             @endif
                                         </div>
+                                        @if ($shop->sale_status == 1)
                                         <div
                                             class="product_bubble product_bubble_left product_bubble_red d-flex flex-column align-items-center">
-                                            <span>-20%</span>
+                                            <span>Sale</span>
                                         </div>
+                                        @endif
                                         <div class="shop_info">
                                             <h6 class="shop_name">
                                                 <a href="{{  route('shop.allproducts',$shop->id) }}">{{$shop->shop_name}}</a>

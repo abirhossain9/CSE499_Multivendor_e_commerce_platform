@@ -31,6 +31,11 @@ Route::get('/vendor-edit-profile', 'App\Http\Controllers\Frontend\PagesControlle
 Route::get('/shop-dashboard/{id}', 'App\Http\Controllers\Frontend\PagesController@shopDashboard')->middleware(['auth', 'verified'])->name('shop.dashboard');
 Route::get('/shop-edit-profile', 'App\Http\Controllers\Frontend\PagesController@editShop')->middleware(['auth', 'verified'])->name('shop.editdashboard');
 
+//update shop informations
+
+Route::get('/update-shop/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByVendor')->middleware(['auth', 'verified'])->name('shop.update.vendor');
+Route::post('/update-shop-vendor/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByVendorfunction')->middleware(['auth', 'verified'])->name('shop.update.vendor.function');
+
 //shop create
 Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
 

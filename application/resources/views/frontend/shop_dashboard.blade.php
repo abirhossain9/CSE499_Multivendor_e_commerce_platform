@@ -203,8 +203,19 @@
                                     </div>
                                     <hr>
                                     <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6>Sale Status</h6>
+                                        </div>
+                                        @if (Auth::user()->shop->sale_status == 2)
+                                        <div class="col-sm-9 text-secondary">No Sale</div>
+                                        @else
+                                        <div class="col-sm-9 text-secondary">Sale</div>
+                                        @endif
+                                    </div>
+                                    <hr>
+                                    <div class="row">
                                         <div class="col-sm-12">
-                                        <a class="btn btn-info" href="{{ route('shop.editdashboard')}}">Edit Shop</a>
+                                        <a class="btn btn-info" href="{{ route('shop.update.vendor',Auth::user()->shop->id)}}">Edit Shop</a>
                                         </div>
                                     </div>
                                 </div>

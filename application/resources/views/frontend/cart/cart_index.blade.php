@@ -197,7 +197,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <div class="col-md-8 ">
                                                         <div class="row"><h5>{{ $item->product->product_name }}</h5></div>
-                                                        <div class="row"><p class="mb-3 text-muted text-uppercase small">{{ $item->product->	product_description_short }}</p></div>
+                                                        <div class="row"><p class="mb-3 text-muted text-uppercase small">{{ $item->product->product_description_short }}</p></div>
                                                         <div class="row"><p class="mb-2 text-muted text-uppercase small">Available Quantity: {{ $item->product->prodcut_quantity }}</p></div>
                                                     </div>
                                                     <div class="col-md-4 input-group quantity_size form-control" style="background: none; border: none;">
@@ -256,11 +256,15 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="address">Full Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="" required="">
+                                        <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="address">Total Price</label>
+                                        <input type="number" class="form-control" id="name" value="{{ $total_price }}" required="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="address">Billing Address</label>
-                                        <input type="text" class="form-control" id="address" placeholder="" required="">
+                                        <input type="text" class="form-control" id="address" value="{{ Auth::user()->address }}" required="">
                                     </div>
                                     <div class="mb-3">
                                         <label for="address">Optional Information</label>

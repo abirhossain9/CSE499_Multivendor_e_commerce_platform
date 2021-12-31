@@ -119,6 +119,37 @@ class ShopController extends Controller
         $shop->save();
         return redirect()->route('shop.manage');
     }
+    public function updateByVendor(Request $request, $id)
+    {
+        $shop  = Shop::find($id);
+        if(!empty($shop)){
+            return view('frontend.editshop_dashboard',compact('shop'));
+        }
+
+    }
+    public function updateByVendorfunction(Request $request, $id)
+    {
+        $shop  = Shop::find($id);
+        $shop->shop_name  =$request->shop_name;
+        $shop->slug =Str::slug($request->shop_name);
+        $shop->shop_address =$request->shop_address;
+        $shop->shop_phone =$request->shop_phone;
+        $shop->shop_type =$request->shop_type;
+        $shop->sale_status =$request->sale_status;
+        if(!empty($request->shop_image)){
+            if(File::exists('backend/img/shop/'.$shop->shop_image)){
+                File::delete('backend/img/shop/'.$shop->shop_image);
+            }
+            $image = $request->file('shop_image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/shop/'.$img);
+            Image::make($image)->save($location);
+            $shop->shop_image = $img;
+        }
+        $shop->save();
+        return redirect()->route('vendor.dashboard');
+    }
+
 
     /**
      * Remove the specified resource from storage.

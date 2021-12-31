@@ -138,7 +138,7 @@ class ProductController extends Controller
      */
     public function shop_products($id)
     {
-         $products = Product::orderBy('product_name','asc')->where('shop_id',$id)->get();
+         $products = Product::orderBy('id','desc')->where('shop_id',$id)->get();
          $shop = Shop::find($id);
          //$categories = Category::orderby('name','asc')->get();
          $images = ProductImage::orderby('image','asc')->get();

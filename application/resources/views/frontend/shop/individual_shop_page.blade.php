@@ -245,7 +245,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="product-grid" data-isotope='{"itemSelector": ".product-item", "layoutMode": "fitRows"}'>
-
+                                        @php $i = 0; @endphp
                                         @foreach($products as $product)
 
                                         <!-- Product-1 -->
@@ -260,10 +260,12 @@
                                                     @endif
                                                 </div>
                                                 <div class="favorite"></div>
+                                                @if($i<2)
                                                 <div
                                                     class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                                     <span>New</span>
                                                 </div>
+                                                @endif
                                                 <div class="product_info">
                                                     <h6 class="product_name">
                                                         <a href="{{route('shop.single',$product->id)}}">{{$product->product_name  }}</a>
@@ -275,6 +277,7 @@
                                                 <a href="{{route('shop.single',$product->id)}}">view item</a>
                                             </div>
                                         </div>
+                                        @php $i++; @endphp
                                         @endforeach
 
 

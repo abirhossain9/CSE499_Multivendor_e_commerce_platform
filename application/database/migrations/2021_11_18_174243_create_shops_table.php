@@ -24,6 +24,7 @@ class CreateShopsTable extends Migration
             $table->string('shop_type');
             $table->text('shop_image')->nullable();
             $table->integer('shop_status')->default(2)->comment('1 = Active, 2 = Inactive');
+            $table->integer('sale_status')->default(2)->comment('2 = no sale, 1 = sale');
             $table->timestamps();
         });
     }
