@@ -79,6 +79,10 @@ Route::post('/product-delete/{id}', 'App\Http\Controllers\Frontend\ProductContro
         Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\CartController@destroy')->name('carts.destroy');
     });
 
+
+// manage orders by user
+Route::get('/user-order-manage', 'App\Http\Controllers\Frontend\PagesController@userOrderManage')->middleware(['auth', 'verified'])->name('user.manageorder');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

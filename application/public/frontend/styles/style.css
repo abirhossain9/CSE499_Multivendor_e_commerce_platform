@@ -1705,6 +1705,16 @@ float: left;
     border-radius: 0% !important;
 }
 
+/* modal css */
+.modal-button ul {
+    padding: 0;
+    margin: 0;
+}
+.modal-button ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 7px;
+}
 
 
 

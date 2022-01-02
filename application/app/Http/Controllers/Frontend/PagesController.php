@@ -81,4 +81,9 @@ class PagesController extends Controller
         return view('backend.pages.product.manage',compact('products'));
     }
 
+    public function userOrderManage()
+    {
+        return view('frontend.order.userOrder_manage');
+    }
+
 }

@@ -242,7 +242,7 @@
                                                             <td>14/10/2021</td>
                                                             <td>Shop 1</td>
                                                             <td>500৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                            <td><a class="btn btn-link btn-sm" href="{{route('user.manageorder')}}" role="button">Manage</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th scope="row">2</th>
@@ -251,7 +251,7 @@
                                                             <td>14/10/2021</td>
                                                             <td>Shop 2</td>
                                                             <td>1000৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                            <td><a class="btn btn-link btn-sm" href="{{route('user.manageorder')}}" role="button">Manage</a></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
