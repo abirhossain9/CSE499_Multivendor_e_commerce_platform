@@ -79,6 +79,16 @@ Route::post('/product-delete/{id}', 'App\Http\Controllers\Frontend\ProductContro
         Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\CartController@destroy')->name('carts.destroy');
     });
 
+//cart work start
+Route::group(['prefix' => '/checkout'], function () {
+    Route::get('/', 'App\Http\Controllers\Frontend\OrderController@index')->name('checkout.page');
+    // Route::get('/create','App\Http\Controllers\Frontend\ShopController@create')->name('shop.create');
+    Route::post('/store', 'App\Http\Controllers\Frontend\OrderController@store')->name('order.store');
+    // Route::get('/edit/{id}', 'App\Http\Controllers\Frontend\ShopController@edit')->name('shop.edit');
+    // Route::post('/update/{id}', 'App\Http\Controllers\Frontend\OrderController@update')->name('checkout.update');
+    Route::post('/cancle/{id}', 'App\Http\Controllers\Frontend\OrderController@destroy')->name('order.cancle');
+});
+
 
 // manage orders by user
 Route::get('/user-order-manage', 'App\Http\Controllers\Frontend\PagesController@userOrderManage')->middleware(['auth', 'verified'])->name('user.manageorder');

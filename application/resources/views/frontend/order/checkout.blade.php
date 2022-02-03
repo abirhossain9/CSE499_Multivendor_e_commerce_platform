@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Cart</title>
+        <title>Checkout</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Colo Shop Template">
@@ -165,244 +165,79 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="section_title find_shop_title">
-                                <h2>Cart</h2>
+                                <h2>Chekout</h2>
+                                @php
+                                    $cartItems = App\Models\Frontend\Cart::orderBy('id','asc')->where('user_id',Auth::id())->orWhere('user_id',request()->ip())->get();
+                                    $total_price = 0;
+                                @endphp
+                                @foreach ($cartItems as $item)
+                                @php $total_price += $item->product->product_price * $item->product_quantity @endphp
+                                @endforeach
                             </div>
                         </div>
                     </div>
-
-                    {{-- cart info --}}
-                        <!--Grid row-->
+                    <div class="container">
                         <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-lg-8">
-
-                            <!-- Card -->
-                            <div class="mb-3">
-                                <div class="pt-4 wish-list">
-                                    @php $i = 1 @endphp
-                                    @php $total_price = 0 @endphp
-                                    <h5 class="mb-4 red_title_color">Cart (<span>{{ $cartItems->count() }}</span> items)</h5>
-                                    @foreach ($cartItems as $item)
-
-                                    <div class="row mb-4">
-                                        <div class="col-md-5 col-lg-3 col-xl-3">
-                                            <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0 cart_image">
-                                                <img src="{{ asset('backend/img/product/'.$item->product->product_image) }}" class="d-block w-100" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7 col-lg-9 col-xl-9">
-                                            <div>
-
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="col-md-8 ">
-                                                        <div class="row"><h5>{{ $item->product->product_name }}</h5></div>
-                                                        <div class="row"><p class="mb-3 text-muted text-uppercase small">{{ $item->product->product_description_short }}</p></div>
-                                                        <div class="row"><p class="mb-2 text-muted text-uppercase small">Available Quantity: {{ $item->product->prodcut_quantity }}</p></div>
-                                                    </div>
-                                                    <div class="col-md-4 input-group quantity_size form-control" style="background: none; border: none;">
-                                                        <form action="{{ route('carts.update',$item->id) }}" method="POST">
-                                                            @csrf
-
-                                                            <div class="input-group mb-3">
-                                                                <input type="number" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-outline-success" type="submit">update</button>
-                                                                </div>
-                                                            </div>
-
-                                                            {{-- <input type="text" name="product_quantityp" class="form-control" required="required" value={{ $item->product_quantity }} autocomplete="off">
-                                                            <input type="submit" value="update item" class="btn btn-success"> --}}
-                                                        </form>
-                                                    </div>
-                                                </div>
-
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="col-md-2">
-                                                        <div class="row">
-                                                            <form action="{{ route('carts.destroy',$item->id) }}" method="POST">
-                                                                @csrf
-
-                                                                <button type="submit" class="btn btn-outline-danger btn-sm" type="submit"><i class="far fa-trash-alt"></i> remove</button>
-                                                                {{-- <input type="submit" value="delete item" class="btn btn-danger btn-sm"> --}}
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <p class="mb-0 float-right text-info"><span><strong id="summary">Item Price: {{ $item->product->product_price}}</strong></span></p>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <p class="mb-0  float-right red_title_color"><span><strong id="summary">Grand Total: {{ $item->product->product_price * $item->product_quantity }}</strong></span></p>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @php $i++ @endphp
-                                    @php $total_price += $item->product->product_price * $item->product_quantity @endphp
-                                    @endforeach
-
-                                    <hr class="mb-4">
-                                </div>
-                            </div>
-                            <!-- Card -->
-
-                            {{-- billing info --}}
-                            <h4 class="mb-3 red_title_color">Billing Information</h4>
-                            <hr class="mb-3">
-                            <div class="col-lg-12 col-md-12">
-                                <form action="" method="POST">
+                            <div class="col-md-8">
+                                <form action="{{route('order.store')}}" method="POST">
                                     @csrf
-                                    <div class="mb-3">
-                                        <label for="address">Full Name</label>
-                                        <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}" required="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="address">Total Price</label>
-                                        <input type="number" class="form-control" id="name" value="{{ $total_price }}" required="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="address">Billing Address</label>
-                                        <input type="text" class="form-control" id="address" value="{{ Auth::user()->address }}" required="">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="address">Optional Information</label>
-                                        <input type="text" class="form-control" id="address" placeholder="i.e. house near united hospital | Floor no 4 etc..." required="">
-                                    </div>
                                     <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <label for="state">Division</label>
-                                            <select class="custom-select d-block w-100" id="state" required="">
-                                                <option value="1">Dhaka</option>
-                                                <option value="2">Barisal</option>
-                                                <option value="3">Chittagong </option>
-                                                <option value="4">Khulna</option>
-                                                <option value="5">Mymensingh </option>
-                                                <option value="6">Rajshahi</option>
-                                                <option value="7">Sylhet</option>
-                                                <option value="8">Rangpur</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3 mb-3">
-                                            <label for="zip">Zip</label>
-                                            <input type="text" class="form-control" id="zip" placeholder="" required="">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Card -->
-                            <div class="mb-3">
-                                <div class="pt-4">
-                                    <h5 class="mb-2">Expected shipping delivery</h5>
-                                    <p class="mb-0"> Within  7 Days</p>
-                                    <p class="text-muted small">condition applied</p>
-                                </div>
-                            </div>
-                            <!-- Card -->
-
-                            <!-- Card -->
-                            <div class="mb-3">
-                                <div class="pt-4">
-
-                                <h5 class="mb-4">We accept</h5>
-
-                                <img class="mr-2" width="45px"
-                                    src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                                    alt="Visa">
-                                <img class="mr-2" width="45px"
-                                    src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                                    alt="American Express">
-                                <img class="mr-2" width="45px"
-                                    src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                                    alt="Mastercard">
-                                <img class="mr-2" width="45px"
-                                    src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
-                                    alt="PayPal acceptance mark">
-                                </div>
-                            </div>
-                            <!-- Card -->
-
-                            </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
-                            <div class="col-lg-4">
-
-                            <!-- Card -->
-                            <div class="mb-3">
-                                <div class="pt-4">
-
-                                    <h5 class="mb-3">Payment Information</h5>
-
-                                    <div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 pb-0">
-                                            Total Amount
-                                            <span>{{ $total_price}} ৳</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Shipping Fee
-                                            <span>0 ৳</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 mb-3">
-                                            <div>
-                                                <strong>The total amount of</strong>
-                                                <strong>
-                                                <p class="mb-0">(Including Coupon)</p>
-                                                </strong>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Name</label>
+                                                <input type="text" name="name" class="form-control">
                                             </div>
-                                            <span><strong>{{ $total_price}}  ৳</strong></span>
-                                            </li>
-                                        </ul>
-
-                                        <!-- coupon -->
-                                        <div class="mb-3">
-                                            <div class="pt-4">
-                                                <a class="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
-                                                    aria-expanded="false" aria-controls="collapseExample">
-                                                    Add a discount code (optional)
-                                                    <span><i class="fas fa-chevron-down pt-1"></i></span>
-                                                </a>
-                                                <div class="collapse" id="collapseExample">
-                                                    <div class="mt-3">
-                                                        <div class="md-form md-outline mb-0">
-                                                            <input type="text" id="discount-code" class="form-control font-weight-light"
-                                                            placeholder="Enter coupon code">
-                                                            <input class="mt-2 btn btn-primary btn-block" type="submit" value="Apply Coupon">
-                                                        </div>
-
-                                                    </div>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" name="email" class="form-control">
                                             </div>
                                         </div>
-                                        <!-- coupon -->
-
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone No</label>
+                                                <input type="text" name="phone" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Shipping Address</label>
+                                                <input type="text" name="shipping_address" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    <hr class="mb-4">
-                                    <p class="red_title_color mb-0"><i class="fas fa-info-circle mr-1"></i> Please recheck all the products, quantity and billing address before checkout.</p>
-                                    <hr class="mb-4">
-
-                                    {{-- <button type="button" class="btn btn-primary btn-block"><i class="fas fa-long-arrow-alt-right"></i> go to checkout</button> --}}
-                                     <a class="btn btn-success btn-block" href="{{route('checkout.page')}}" role="button"><i class="fas fa-long-arrow-alt-left"></i> proceed to checkout</a>
-                                    <a class="btn btn-primary btn-block" href="{{route('shop.index')}}" role="button"><i class="fas fa-long-arrow-alt-left"></i> continue shopping</a>
-
                                 </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">product</th>
+                                                <th scope="col">quantity</th>
+                                                <th scope="col">total</th>
+                                            </tr>
+                                        </thead>
+                                <tbody>
+                                    @foreach ($cartItems as $item)
+                                    <tr>
+                                        <td>{{$item->product->product_name}}</td>
+                                        <td>{{ $item->product_quantity }}</td>
+                                        <td>{{ $item->product->product_price * $item->product_quantity }}</td>
+                                    </tr>
+                                    @endforeach
+                                     <tr>
+                                        <td>Final Price</td>
+                                        <td></td>
+                                       <td>{{ $total_price }}</td>
+                                    </tr>
+                                </tbody>
+                               </table>
+                             </div>
+                             <div class="form-group">
+                                 <input type="submit" name="orderConfirm" value="Confirm Order" class="btn btn-primary">
+                             </div>
                             </div>
-                            <!-- Card -->
-
-                        </div>
-                            <!--Grid column-->
-
+                          </div>
+                        </form>
                     </div>
-                        <!-- Grid row -->
 
-
-
-                </div>
-            </div>
 
 
 
