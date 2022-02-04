@@ -148,7 +148,7 @@ class OrderController extends Controller
             }
         }
         else{
-            return view('frontend.order.payment_err');
+            return view('frontend.order.payment_err', compact('order'));
         }
 
     }
