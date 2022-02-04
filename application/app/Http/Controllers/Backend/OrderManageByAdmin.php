@@ -59,7 +59,12 @@ class OrderManageByAdmin extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::find($id);
+        if (!empty($order)) {
+            return view('backend.pages.order.edit', compact('order'));
+        } else {
+            return redirect()->route('order.manage');
+        }
     }
 
     /**
