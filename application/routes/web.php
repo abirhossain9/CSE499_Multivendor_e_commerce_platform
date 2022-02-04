@@ -177,6 +177,14 @@ Route::group(['prefix' => 'admin'], function(){
         // Route::post('/update/by/admin/{id}', 'App\Http\Controllers\Frontend\ShopController@updateByAdmin')->name('shop.update.admin');
         Route::post('/destroy/{id}', 'App\Http\Controllers\Frontend\ProductController@destroy_by_admin')->name('product.destroy');
     });
+    //this routes are for order management
+    Route::group(['prefix' => '/order'], function () {
+        Route::get('/manage', 'App\Http\Controllers\Backend\OrderManageByAdmin@index')->name('order.manage');
+        // Route::get('/create','App\Http\Controllers\Frontend\ShopController@create')->name('shop.create');
+        // Route::post('/store','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Backend\OrderManageByAdmin@edit')->name('order.edit');
+        Route::post('/update/{id}', 'App\Http\Controllers\Backend\OrderManageByAdmin@update')->name('order.update');
+    });
 
 
 });

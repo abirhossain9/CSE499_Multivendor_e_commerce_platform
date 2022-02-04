@@ -19,7 +19,7 @@ class Order extends Model
         'massage',
         'is_paid',
         'is_complete',
-        'seen_by_admin',
+        'received_by_rider',
         'shop_id',
         'product_id',
         'product_quantity',
@@ -31,7 +31,9 @@ class Order extends Model
     public function shop(){
         return $this->belongsTo(Shop::class);
     }
-    public function carts(){
-        return $this->belongsTo(Cart::class);
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
+
 }

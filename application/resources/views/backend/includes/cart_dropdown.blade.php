@@ -38,8 +38,9 @@
                 </div> <!--end shopping-cart-header -->
 
                 <a class="btn btn-info btn-block btn-sm custom_a" href="{{route('carts')}}" role="button">Edit Cart</a>
-                <a class="btn btn-success btn-block btn-sm custom_a" href="javascript:void(0)" role="button">Checkout</a>
-
+                @if($cartItems->count() > 0)
+                <a class="btn btn-success btn-block btn-sm custom_a" href="{{route('checkout.page')}}" role="button">Checkout</a>
+                @endif
             </div> <!--end shopping-cart -->
         </div> <!--end container -->
     </div>

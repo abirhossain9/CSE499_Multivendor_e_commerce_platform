@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('massage')->nullable();
             $table->boolean('is_paid')->default(0);
             $table->boolean('is_complete')->default(0);
-            $table->boolean('seen_by_admin')->default(0);
+            $table->boolean('received_by_rider')->default(0);
             $table->timestamps();
 
         });

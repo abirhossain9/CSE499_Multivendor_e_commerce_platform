@@ -235,24 +235,17 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach (Auth::user()->orders as $order )
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Item Name 1</td>
-                                                            <td>1</td>
-                                                            <td>14/10/2021</td>
-                                                            <td>Shop 1</td>
-                                                            <td>500৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="{{route('user.manageorder')}}" role="button">Manage</a></td>
+                                                            <th scope="row">{{$order->id}}</th>
+                                                            <td>{{$order->product->product_name}}</td>
+                                                            <td>{{$order->product_quantity}}</td>
+                                                            <td>{{$order->created_at}}</td>
+                                                            <td>{{$order->shop->shop_name}}</td>
+                                                            <td>{{$order->product_final_price}}</td>
+                                                            <td><a class="btn btn-danger btn-sm disabled" role="button">Delete Order</a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Item Name 2</td>
-                                                            <td>2</td>
-                                                            <td>14/10/2021</td>
-                                                            <td>Shop 2</td>
-                                                            <td>1000৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="{{route('user.manageorder')}}" role="button">Manage</a></td>
-                                                        </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -373,8 +366,9 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {{-- @foreach (Auth::user()->orders as $order )
                                                         <tr>
-                                                            <th scope="row">1</th>
+                                                            <th scope="row">{{$order->id}}</th>
                                                             <td>Item Name 1</td>
                                                             <td>1</td>
                                                             <td>14/10/2021</td>
@@ -382,15 +376,8 @@
                                                             <td>500৳</td>
                                                             <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Item Name 2</td>
-                                                            <td>2</td>
-                                                            <td>14/10/2021</td>
-                                                            <td>Shop 2</td>
-                                                            <td>1000৳</td>
-                                                            <td><a class="btn btn-danger btn-sm disabled" role="button">Canceled</a></td>
-                                                        </tr>
+                                                        @endforeach --}}
+
                                                     </tbody>
                                                 </table>
                                             </div>

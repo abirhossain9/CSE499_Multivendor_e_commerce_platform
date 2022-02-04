@@ -249,7 +249,7 @@
                             <!-- Card -->
 
                             {{-- billing info --}}
-                            <h4 class="mb-3 red_title_color">Billing Information</h4>
+                            {{-- <h4 class="mb-3 red_title_color">Billing Information</h4>
                             <hr class="mb-3">
                             <div class="col-lg-12 col-md-12">
                                 <form action="" method="POST">
@@ -290,7 +290,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
 
                             <!-- Card -->
                             <div class="mb-3">
@@ -386,7 +386,9 @@
                                     <hr class="mb-4">
 
                                     {{-- <button type="button" class="btn btn-primary btn-block"><i class="fas fa-long-arrow-alt-right"></i> go to checkout</button> --}}
-                                     <a class="btn btn-success btn-block" href="{{route('checkout.page')}}" role="button"><i class="fas fa-long-arrow-alt-left"></i> proceed to checkout</a>
+                                     @if($cartItems->count() > 0)
+                                    <a class="btn btn-success btn-block" href="{{route('checkout.page')}}" role="button">proceed to checkout <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    @endif
                                     <a class="btn btn-primary btn-block" href="{{route('shop.index')}}" role="button"><i class="fas fa-long-arrow-alt-left"></i> continue shopping</a>
 
                                 </div>

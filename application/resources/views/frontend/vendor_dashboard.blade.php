@@ -246,29 +246,32 @@
                                                             <th scope="col">Quantity</th>
                                                             <th scope="col">Placed On</th>
                                                             <th scope="col">Buyer</th>
+                                                            <th scope="col">Address</th>
                                                             <th scope="col">Price</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach (Auth::user()->shop->orders as $order )
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Item Name 1</td>
-                                                            <td>1</td>
-                                                            <td>14/10/2021</td>
-                                                            <td>User 1</td>
-                                                            <td>500৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
+                                                            <th scope="row">{{$order->id}}</th>
+                                                            <td>{{$order->product->product_name}}</td>
+                                                            <td>{{$order->product_quantity}}</td>
+                                                            <td>{{$order->created_at}}</td>
+                                                            <td>{{$order->name}}</td>
+                                                            <td>{{$order->shipping_address}}</td>
+                                                            <td>{{$order->product_final_price}}</td>
+                                                            <td>
+                                                                @if ($order->received_by_rider == 0)
+                                                                    Wait Till Our Rider Comes
+                                                                @elseif ($order->received_by_rider == 1)
+                                                                  <a class="btn btn-success btn-sm disabled" role="button">Give to rider</a>
+                                                                @elseif ($order->received_by_rider == 2)
+                                                                  Product Recived By rider
+                                                                @endif
+                                                            </td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Item Name 2</td>
-                                                            <td>2</td>
-                                                            <td>14/10/2021</td>
-                                                            <td>User 2</td>
-                                                            <td>1000৳</td>
-                                                            <td><a class="btn btn-link btn-sm" href="javascript:void(0)" role="button">Manage</a></td>
-                                                        </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
