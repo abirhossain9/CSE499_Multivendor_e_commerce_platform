@@ -72,9 +72,10 @@
                                         <label>Rider Status</label>
                                         <select class="form-control" name="received_by_rider">
                                             <option value="0">Please Select The Shop Status</option>
-                                            <option value="0" @if($order->received_by_rider == 0) selected @endif>send rider to shop</option>
-                                            <option value="1" @if($order->received_by_rider == 1) selected @endif>received product from shop</option>
-                                            <option value="2" @if($order->received_by_rider == 2) selected @endif>product received</option>
+                                            <option value="0" @if($order->received_by_rider == 0) selected @endif>rider not sent yet</option>
+                                            <option value="1" @if($order->received_by_rider == 1) selected @endif>rider is at the shop</option>
+                                            <option value="2" @if($order->received_by_rider == 2) selected @endif>rider received the product</option>
+                                            <option value="3" @if($order->received_by_rider == 2) selected @endif>rider delivered the product</option>
                                         </select>
                                     </div>
 
@@ -109,7 +110,7 @@
                                 <div class="col-lg-3">
                                     <label></label>
                                     <div class="form-group">
-                                        <input type="submit" name="updateShop" value="Update Order" class="custom-btn btn-block btn btn-teal mg-b-10">
+                                        <input type="submit" name="updateOrder" value="Update Order" class="custom-btn btn-block btn btn-teal mg-b-10">
                                     </div>
                                 </div>
 

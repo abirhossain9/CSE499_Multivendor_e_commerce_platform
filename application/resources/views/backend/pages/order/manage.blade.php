@@ -23,6 +23,7 @@
                                 <tr>
                                     <th scope="col">#sl.</th>
                                     <th scope="col">Product Name</th>
+                                    <th scope="col">Order id</th>
                                     <th scope="col">Shop Name</th>
                                     <th scope="col">Buyer Name</th>
                                     <th scope="col">Quantity</th>
@@ -30,6 +31,7 @@
                                     <th scope="col">Order Created</th>
                                     <th scope="col">Delivery Address</th>
                                     <th scope="col">Shop Address</th>
+                                    <th scope="col">Payment Code</th>
                                     <th scope="col">Rider Status</th>
                                     <th scope="col">Payment Status</th>
                                     <th scope="col">Completion Status</th>
@@ -44,6 +46,7 @@
                                 <tr>
                                     <th scope="row">{{$i;}}</th>
                                     <td>{{$order->product->product_name}}</td>
+                                    <td>{{$order->id}}</td>
                                     <td>{{$order->shop->shop_name}}</td>
                                     <td>{{$order->name}}</td>
                                     <td>{{$order->product_quantity}}</td>
@@ -51,31 +54,34 @@
                                     <td>{{$order->created_at}}</td>
                                     <td>{{$order->shipping_address}}</td>
                                     <td>{{$order->shop->shop_address}}</td>
+                                    <td>{{$order->payment_code}}</td>
                                     <td>
                                         @if ($order->received_by_rider==0)
-                                        <span class="badge badge-success">send rider to shop</span>
+                                        <span class="badge badge-danger">rider not sent yet</span>
                                         @elseif ($order->received_by_rider==1)
-                                        <span class="badge badge-danger">received product from shop</span>
+                                        <span class="badge badge-primary">rider is at the shop</span>
                                         @elseif ($order->received_by_rider==2)
-                                        <span class="badge badge-danger">product received</span>
+                                        <span class="badge badge-warning">rider received the product</span>
+                                        @elseif ($order->received_by_rider==3)
+                                        <span class="badge badge-success">rider delivered the product</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($order->is_paid==0)
-                                        <span class="badge badge-success">payment incomplete</span>
+                                        <span class="badge badge-warning">payment incomplete</span>
                                         @elseif ($order->is_paid==1)
-                                        <span class="badge badge-danger">payment complete</span>
+                                        <span class="badge badge-primary">payment complete</span>
                                         @elseif ($order->is_paid==2)
-                                        <span class="badge badge-danger">payment received by shop owner</span>
+                                        <span class="badge badge-success">payment received by shop owner</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($order->is_complete==0)
-                                        <span class="badge badge-success">order processing</span>
+                                        <span class="badge badge-warning">order processing</span>
                                         @elseif ($order->is_complete==1)
-                                        <span class="badge badge-danger">order shipped</span>
+                                        <span class="badge badge-primary">order shipped</span>
                                         @elseif ($order->is_complete==2)
-                                        <span class="badge badge-danger">order complete</span>
+                                        <span class="badge badge-success">order complete</span>
                                         @endif
                                     </td>
                                     <td>

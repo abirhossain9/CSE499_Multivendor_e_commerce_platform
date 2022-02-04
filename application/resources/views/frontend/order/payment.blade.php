@@ -142,17 +142,16 @@
 
                         {{-- order info --}}
                         <div class="col-md-12">
-                            <div class="card mb-3">
-                                <form action="route">
+
+                            <form action="{{route('payment.check',$order->id)}}" method="POST">
+                                @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Enter the code rider gave you.</label>
-                                           <input type="text" class="form-control" NAME id="exampleInputEmail1" aria-describedby="emailHelp">
-                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                           <input type="text" class="form-control" name="code" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Verify</button>
                                 </form>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>

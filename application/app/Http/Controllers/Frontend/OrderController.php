@@ -101,7 +101,12 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+
+        $order->received_by_rider = 2;
+        $order->is_complete = 1;
+        $order->save();
+        return redirect()->route('vendor.dashboard');
     }
 
     /**
@@ -114,4 +119,38 @@ class OrderController extends Controller
     {
         //
     }
+    public function payment_code($id)
+    {
+        $order = Order::find($id);
+        $code = uniqid();
+        $order->payment_code = $code;
+        if ($order->save()) {
+            return view('frontend.order.payment',compact('order'));
+        }
+        else {
+            return redirect()->route('user.dashboard');
+        }
+    }
+    public function payment_check(Request $request,$id)
+    {
+        $order = Order::find($id);
+        $db_code = $order->payment_code;
+        $user_code = $request->code;
+        if ($db_code == $user_code ) {
+            $order->is_paid = 1;
+            $order->received_by_rider = 3;
+            $order->is_complete = 2;
+            if($order->save()){
+                return view('frontend.order.payment_status', compact('order'));
+            }
+            else{
+                return redirect()->route('user.dashboard');
+            }
+        }
+        else{
+            return view('frontend.order.payment_err');
+        }
+
+    }
+
 }

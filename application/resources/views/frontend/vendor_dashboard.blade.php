@@ -263,11 +263,16 @@
                                                             <td>{{$order->product_final_price}}</td>
                                                             <td>
                                                                 @if ($order->received_by_rider == 0)
-                                                                    Wait Till Our Rider Comes
+                                                                <p class="text-warning">Wait till rider arrives</p>
                                                                 @elseif ($order->received_by_rider == 1)
-                                                                  <a class="btn btn-success btn-sm disabled" role="button">Give to rider</a>
+                                                                <form action="{{route('order.update.vendor',$order->id)}}" method="POST">
+                                                                    @csrf
+                                                                    <input type="submit" name="updateOrder" value="Handover" class="btn btn-primary">
+                                                                </form>
                                                                 @elseif ($order->received_by_rider == 2)
-                                                                  Product Recived By rider
+                                                                 <p class="text-success">Product recived By rider</p>
+                                                                 @elseif ($order->received_by_rider == 3)
+                                                                 <p class="text-success">Product Delivered</p>
                                                                 @endif
                                                             </td>
                                                         </tr>

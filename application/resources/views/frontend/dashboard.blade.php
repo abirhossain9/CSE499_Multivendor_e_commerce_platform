@@ -231,7 +231,10 @@
                                                             <th scope="col">Placed On</th>
                                                             <th scope="col">Seller</th>
                                                             <th scope="col">Price</th>
+                                                            <th scope="col">Order Status</th>
+                                                            <th scope="col">Payment Status</th>
                                                             <th scope="col">Action</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -243,7 +246,32 @@
                                                             <td>{{$order->created_at}}</td>
                                                             <td>{{$order->shop->shop_name}}</td>
                                                             <td>{{$order->product_final_price}}</td>
-                                                            <td><a class="btn btn-danger btn-sm disabled" role="button">Delete Order</a></td>
+                                                            <td>
+                                                                @if ($order->is_complete==0)
+                                                                <span class="badge badge-warning">order processing</span>
+                                                                @elseif ($order->is_complete==1)
+                                                                <span class="badge badge-primary">order shipped</span>
+                                                                @elseif ($order->is_complete==2)
+                                                                <span class="badge badge-success">order complete</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($order->is_paid==0)
+                                                                <span class="badge badge-warning">Unpaid</span>
+                                                                @elseif ($order->is_paid==1)
+                                                                <span class="badge badge-primary">Paid</span>
+                                                                @endif
+                                                            </td>
+                                                             @if ($order->is_paid==0)
+                                                             <td>
+                                                                 <form action="{{route('payment.code',$order->id)}}" method="POST">
+                                                                    @csrf
+                                                                    <input type="submit" name="makePayment" value="Make Payment" class="btn btn-warning">
+                                                                </form>
+                                                            </td>
+                                                             @elseif ($order->is_paid==1)
+                                                              <td><a class="btn btn-success btn-sm disabled" role="button">Payment Successful</a></td>
+                                                             @endif
                                                         </tr>
                                                         @endforeach
                                                     </tbody>

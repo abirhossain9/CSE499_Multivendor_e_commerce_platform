@@ -39,9 +39,16 @@ Route::post('/update-shop-vendor/{id}', 'App\Http\Controllers\Frontend\ShopContr
 //shop create
 Route::post('/shop-create','App\Http\Controllers\Frontend\ShopController@store')->name('shop.store');
 
+//update order by vendor
+Route::post('order/update/{id}', 'App\Http\Controllers\Frontend\OrderController@update')->name('order.update.vendor');
 
 //shop index
 Route::get('/shop-index', 'App\Http\Controllers\Frontend\ShopController@shopIndex')->name('shop.index');
+
+//payment process
+Route::post('payment/code/{id}', 'App\Http\Controllers\Frontend\OrderController@payment_code')->name('payment.code');
+Route::post('pay/{id}', 'App\Http\Controllers\Frontend\OrderController@payment_check')->name('payment.check');
+
 
 //individual shop page
 //Route::get('/individual-shop/{id}', 'App\Http\Controllers\Frontend\ShopController@individualShopPage')->name('individualshop.page');

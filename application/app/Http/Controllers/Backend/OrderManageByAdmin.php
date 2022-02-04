@@ -76,7 +76,14 @@ class OrderManageByAdmin extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+
+        $order->received_by_rider = $request->received_by_rider;
+        $order->is_paid = $request->is_paid;
+        $order->is_complete = $request->is_complete;
+
+        $order->save();
+        return redirect()->route('order.manage');
     }
 
     /**
