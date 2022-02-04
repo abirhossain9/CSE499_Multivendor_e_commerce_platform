@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Banner;
+use App\Models\Frontend\Cart;
+use App\Models\Frontend\Order;
+use App\Models\Frontend\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -35,6 +40,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $id = Auth::user()->id;
+        $products = Cart::orderBy('id','asc')->where('user_id',$id)->get();
+        if(!empty($products)){
+            foreach ($products as $product) {
+                $order = new Order();
+                $order->user_id = $product->user_id;
+                $order->name = $request->name;
+                $order->ip_address = $product->ip_address;
+                $order->email = $request->email;
+                $order->phone = $request->phone;
+                $order->shipping_address = $request->shipping_address;
+                $order->shop_id = $product->shop_id;
+                $order->product_id = $product->product_id;
+                $order->product_quantity = $product->product_quantity;
+                $req_product = Product::orderBy('id','asc')->where('id', $product->product_id)->first();
+                $final_price = $req_product->product_price * $product->product_quantity;
+                $order->product_final_price = $final_price;
+                if($order->save()){
+                    $product->delete();
+                }
+                else{
+                    return view('frontend.cart.cart_index');
+                }
+            }
+            $banners = Banner::orderBy('id', 'ASC')->get();
+            return view('frontend.index', compact('banners'));
+        }
 
     }
 

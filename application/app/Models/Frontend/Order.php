@@ -19,7 +19,11 @@ class Order extends Model
         'massage',
         'is_paid',
         'is_complete',
-        'seen_by_admin'
+        'seen_by_admin',
+        'shop_id',
+        'product_id',
+        'product_quantity',
+        'product_final_price',
     ];
     public function user(){
         return $this->belongsTo(User::class);
