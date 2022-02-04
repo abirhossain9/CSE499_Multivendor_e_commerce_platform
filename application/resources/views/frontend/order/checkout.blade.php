@@ -165,7 +165,7 @@
                     <div class="row">
                         <div class="col text-center">
                             <div class="section_title find_shop_title">
-                                <h2>Chekout</h2>
+                                <h2>Checkout</h2>
                                 @php
                                     $cartItems = App\Models\Frontend\Cart::orderBy('id','asc')->where('user_id',Auth::id())->orWhere('user_id',request()->ip())->get();
                                     $total_price = 0;
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="container" style="margin-top: 50px">
                         <div class="row">
                             <div class="col-md-8">
                                 <form action="{{route('order.store')}}" method="POST">
@@ -204,7 +204,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" style="margin-top: 32px;">
                                 <div class="row">
                                     <table class="table table-bordered">
                                         <thead class="thead-dark">

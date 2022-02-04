@@ -57,9 +57,9 @@
                                     <td>{{$order->payment_code}}</td>
                                     <td>
                                         @if ($order->received_by_rider==0)
-                                        <span class="badge badge-danger">rider not sent yet</span>
+                                        <span class="badge badge-danger">rider is not ready to receive the order yet</span>
                                         @elseif ($order->received_by_rider==1)
-                                        <span class="badge badge-primary">rider is at the shop</span>
+                                        <span class="badge badge-primary">rider is ready to receive the order</span>
                                         @elseif ($order->received_by_rider==2)
                                         <span class="badge badge-warning">rider received the product</span>
                                         @elseif ($order->received_by_rider==3)

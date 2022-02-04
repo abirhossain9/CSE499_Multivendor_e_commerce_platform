@@ -72,8 +72,8 @@
                                         <label>Rider Status</label>
                                         <select class="form-control" name="received_by_rider">
                                             <option value="0">Please Select The Shop Status</option>
-                                            <option value="0" @if($order->received_by_rider == 0) selected @endif>rider not sent yet</option>
-                                            <option value="1" @if($order->received_by_rider == 1) selected @endif>rider is at the shop</option>
+                                            <option value="0" @if($order->received_by_rider == 0) selected @endif>rider is not ready to receive the order yet</option>
+                                            <option value="1" @if($order->received_by_rider == 1) selected @endif>rider is ready to receive the order</option>
                                             <option value="2" @if($order->received_by_rider == 2) selected @endif>rider received the product</option>
                                             <option value="3" @if($order->received_by_rider == 2) selected @endif>rider delivered the product</option>
                                         </select>
