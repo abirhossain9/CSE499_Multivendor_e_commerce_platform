@@ -161,4 +161,22 @@ class ShopController extends Controller
     {
         //
     }
+
+    public function shopIndexApi(Request $request)
+    {
+        $name= $request->name;
+        if (!empty($name)) {
+            $shops = Shop::orderBy('shop_name', 'asc')->where('shop_name', 'like', '%' . $name . '%')->first();
+            if (!empty($shops)) {
+                return $shops;
+            }
+            else {
+                return 'Shop Not Found!';
+            }
+        }
+        return Shop::all();
+    }
+
+
+
 }

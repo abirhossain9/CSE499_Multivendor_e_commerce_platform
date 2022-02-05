@@ -194,4 +194,18 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('shop.dashboard',$request->shop_id);
     }
+
+    public function ProductApi(Request $request)
+    {
+        $name = $request->name;
+        if (!empty($name)) {
+            $products = Product::orderBy('product_name', 'asc')->where('product_name', 'like', '%' . $name . '%')->get();
+            if (!empty($products)) {
+                return $products;
+            } else {
+                return 'Product Not Found!';
+            }
+        }
+        return Product::all();
+    }
 }
