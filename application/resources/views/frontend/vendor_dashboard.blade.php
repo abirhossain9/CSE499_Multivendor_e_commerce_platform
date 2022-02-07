@@ -235,6 +235,7 @@
                                             </h2>
                                         </div>
 
+                                        @if(Auth::user()->shop_status == 1)
                                         <div id="myOrder" class="collapse show" aria-labelledby="orders" data-parent="">
                                             <div class="card-body">
                                                 <table class="table table-hover table-bordered table-sm table-responsive-sm">
@@ -281,6 +282,7 @@
                                                 </table>
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
 
                                 </div>
